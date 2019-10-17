@@ -112,11 +112,11 @@ def write_clean_hfe(data,outpath='.',version=''):
                                                     (data_clean_out[m][p][s][column])
                     data_clean_out[m][p][s].to_csv\
                         ('{outpath}/{m}{p}f{s}{v}.tab'.format\
-                        (outpath=outpath+'/'+m,m=m,p=p,s=s,v=version),sep=' ',index=False)        
+                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version),sep=' ',index=False)        
                 else:
                     data_clean_out[m][p][s].applymap("{:.7E}".format).to_csv\
                         ('{outpath}/{m}{p}f{s}{v}.tab'.format\
-                        (outpath=outpath+'/'+m,m=m,p=p,s=s,v=version),sep=' ',index=False)
+                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version),sep=' ',index=False)
 
 def write_split_hfe(data,outpath='.',version=''):
     data_split_out=copy.deepcopy(data)
