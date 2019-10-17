@@ -85,6 +85,8 @@ def manage_disordered_hfe(data):
 def write_clean_hfe(data,outpath='.',version=''):
     if not os.path.exists(outpath):
         os.mkdir(outpath)
+        os.mkdir(outpath+'/a15')
+        os.mkdir(outpath+'/a17')
     data_clean_out=copy.deepcopy(data)
     for m in data_clean_out.keys():
         for p in data_clean_out[m].keys():
@@ -109,12 +111,12 @@ def write_clean_hfe(data,outpath='.',version=''):
                             data_clean_out[m][p][s][column]=np.vectorize("{:.7E}".format)\
                                                     (data_clean_out[m][p][s][column])
                     data_clean_out[m][p][s].to_csv\
-                        ('{outpath}/{m}{p}f{s}{v}.csv'.format\
-                        (outpath=outpath,m=m,p=p,s=s,v=version),sep=' ',index=False)        
+                        ('{outpath}/{m}{p}f{s}{v}.tab'.format\
+                        (outpath=outpath+'/'+m,m=m,p=p,s=s,v=version),sep=' ',index=False)        
                 else:
                     data_clean_out[m][p][s].applymap("{:.7E}".format).to_csv\
-                        ('{outpath}/{m}{p}f{s}{v}.csv'.format\
-                        (outpath=outpath,m=m,p=p,s=s,v=version),sep=' ',index=False)
+                        ('{outpath}/{m}{p}f{s}{v}.tab'.format\
+                        (outpath=outpath+'/'+m,m=m,p=p,s=s,v=version),sep=' ',index=False)
 
 def write_split_hfe(data,outpath='.',version=''):
     data_split_out=copy.deepcopy(data)
@@ -125,7 +127,7 @@ def write_split_hfe(data,outpath='.',version=''):
             for s in data_split_out[m][p].keys():
                 data_split_out[m][p][s]['Time']=data_split_out[m][p][s]['Time'].\
                                                 dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-                data_split_out[m][p][s].to_csv('{outpath}/{m}{p}f{s}{v}_split.csv'.format(
+                data_split_out[m][p][s].to_csv('{outpath}/{m}{p}f{s}{v}_split.tab'.format(
                     outpath=outpath,m=m,p=p,s=s,v=version),index=False)
 
 def write_deep_hfe(data,outpath='.',version=''):
@@ -136,7 +138,7 @@ def write_deep_hfe(data,outpath='.',version=''):
         for p in data_deep_out[m].keys():
             data_deep_out[m][p]['Time']=data_deep_out[m][p]['Time'].\
                                     dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-            data_deep_out[m][p].to_csv('{outpath}/{m}{p}{v}_depth.csv'.format(
+            data_deep_out[m][p].to_csv('{outpath}/{m}{p}{v}_depth.tab'.format(
                 outpath=outpath,m=m,p=p,v=version),index=False)
 
 # Functions for interpreting data released by Nagihara et. al along with their 2018 paper "Examination of the 

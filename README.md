@@ -6,9 +6,10 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 
 ### clean
 
+* Designed for maximum compatibility with existing workflows for NSSDC data. 
 * This set includes data from the NSSDC and Nagihara sets.
 * numbers are standardized to a format equivalent to the NSSDC set. This is a direct decimal representation of IBM 1130 binary floating-point format: signed numbers in exponential representation with eight digits of mantissa and two digits of exponent. However, since the 2019 Nagihara data give time to microsecond precision, rather than the second precision given in Nagihara et. al 2018 and in the NSSDC data (it is the maximum precision permitted by mission epoch time represented with an eight-digit mantissa), we print them with eleven digits of mantissa. 
-* It organizes the Nagihara sets in folders by mission and year and leaves them separate from the NSSDC sets. 
+* Places Nagihara sets in files by mission and year, leaving them separate from one another and the NSSDC sets.
 * It includes flags for erroneous and missing points (see bitmask description below). These are included in a new column named 'flags'. 
 * orders all points by time, correcting inversions and displacements that occur in several source files. 
 * corrects a 'bitflip' error that occurs in several source files and a factor-of-ten error that occurs in a15p2f1; the corrected dT values are added as a series labeled dT_corr.
