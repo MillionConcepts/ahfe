@@ -6,6 +6,7 @@ import datetime as dt
 import astropy.time as atime
 import os
 import copy
+import re
 
 def load_hfe():
     data={}
@@ -268,7 +269,7 @@ def ingest_nagihara_2018(nagihara_data={},spreadsheet_path='./source/nagihara/jg
                     # The original HFE dataset reduced temperature data into T and dT, where T is the
                     # average temperature across the bridge and dT is the difference between the upper and lower parts
                     # of the bridge. Nagihara et al. reduced the ALSEP data differently, explicitly giving temperature 
-                    # values for 'B' (upper) and 'A' (lower) parts of the bridge. This converts Nagihara et al.'s 
+                    # values for 'A' (upper) and 'B' (lower) parts of the bridge. This converts Nagihara et al.'s 
                     # temperature data into the format given in the original HFE dataset.
                     
                     TGA = nagihara_spreadsheet[m]['TG'+p[1]+str(s)+'A']
@@ -280,7 +281,7 @@ def ingest_nagihara_2018(nagihara_data={},spreadsheet_path='./source/nagihara/jg
                     
                     # dT
 
-                    nagihara_data[m][p][s]['dT'] = TGA - TGB
+                    nagihara_data[m][p][s]['dT'] = TGB - TGA
                         
                     # We also retain Nagihara et al.'s explicitly-computed bridge values 
                     # to avoid rounding errors later.
@@ -573,9 +574,7 @@ def combine_with_depth(data):
                 for c in data[m][p][s].columns:
                     # is it a temperature value from a sensor we want to include in this set?
                     if c[0]=='T' and c[1]!='i': 
-                    # i.e., not 'Time'
-                        if type(depthdict[m][p][s][c])==int and depthdict[m][p][s][c] > 0:
-                        # i.e., below surface and not marked 'bad' in some way 
+                        if type(depthdict[m][p][s][c])==int and depthdict[m][p][s][c] > 0: 
                             depth_slice=data[m][p][s][['Time',c,'flags']]
                             depth_slice=depth_slice.reindex(['Time','T',c,'sensor','depth','flags'],
                                                             axis=1)
