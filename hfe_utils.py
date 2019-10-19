@@ -97,7 +97,7 @@ def write_clean_hfe(data,outpath='.',version=''):
                                     ['Time','T','dT','dT_corr','flags'])
                 elif s==3:
                     data_clean_out[m][p][s]=data_clean_out[m][p][s].reindex(columns=\
-                                    ['Time','TREF','TC1','TC2','TC3','TC4','flags'])
+                                    ['Time','HTR','TREF','TC1','TC2','TC3','TC4','flags'])
                 else:
                     data_clean_out[m][p][s]=data_clean_out[m][p][s].reindex(columns=\
                                     ['Time','T','dT','flags'])
