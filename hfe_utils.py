@@ -114,10 +114,12 @@ def write_clean_hfe(data,outpath='.',version=''):
                     # these profoundly ugly regex substitutions are required because
                     # of deficiencies in fixed-width table formatting in pandas, exacerbated
                     # by a regression in pandas.to_string 0.25 that inserts leading 
-                    # spaces in non-indexed output
+                    # spaces in non-indexed output.
                     table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
                             (index=False,justify='left'))
                     table=re.sub(r' (?= (\d|-))', r'',table)
+                    # create correct line endings when script run from any major OS
+                    table=re.sub(r'(\n)|(\r\n)|(\r)',r'\r\n',table)
                     with open('{outpath}/{m}{p}f{s}{v}.tab'.format\
                         (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version), "w")\
                         as output_file: 
@@ -129,6 +131,7 @@ def write_clean_hfe(data,outpath='.',version=''):
                     table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
                             (index=False,justify='left'))
                     table=re.sub(r' (?= (\d|-))', r'',table)
+                    table=re.sub(r'\n',r'\r\n',table)
                     with open('{outpath}/{m}{p}f{s}{v}.tab'.format(outpath=outpath+'/'+\
                         m[0:3],m=m,p=p,s=s,v=version), "w") as output_file:
                         print(table, file=output_file)
@@ -143,7 +146,7 @@ def write_split_hfe(data,outpath='.',version=''):
                 data_split_out[m][p][s]['Time']=data_split_out[m][p][s]['Time'].\
                                                 dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
                 data_split_out[m][p][s].to_csv('{outpath}/{m}{p}f{s}{v}_split.tab'.format(
-                    outpath=outpath,m=m,p=p,s=s,v=version),index=False)
+                    outpath=outpath,m=m,p=p,s=s,v=version),index=False,line_terminator='\r\n')
 
 def write_deep_hfe(data,outpath='.',version=''):
     data_deep_out=copy.deepcopy(data)
@@ -154,7 +157,7 @@ def write_deep_hfe(data,outpath='.',version=''):
             data_deep_out[m][p]['Time']=data_deep_out[m][p]['Time'].\
                                     dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
             data_deep_out[m][p].to_csv('{outpath}/{m}{p}{v}_depth.tab'.format(
-                outpath=outpath,m=m,p=p,v=version),index=False)
+                outpath=outpath,m=m,p=p,v=version),index=False,line_terminator='\r\n')
 
 # Functions for interpreting data released by Nagihara et. al along with their 2018 paper "Examination of the 
 # Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly 
