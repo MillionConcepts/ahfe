@@ -105,18 +105,32 @@ def write_clean_hfe(data,outpath='.',version=''):
                 if m[4:8]=='1975':
                     for column in data_clean_out[m][p][s].columns:
                         if column=='Time':
-                            data_clean_out[m][p][s][column]=np.vectorize("{:.10E}".format)\
-                                                    (data_clean_out[m][p][s][column])
+                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
+                                                apply("{:.11E}".format).str.pad(17,'right')
                         else:
-                            data_clean_out[m][p][s][column]=np.vectorize("{:.7E}".format)\
-                                                    (data_clean_out[m][p][s][column])
-                    data_clean_out[m][p][s].to_csv\
-                        ('{outpath}/{m}{p}f{s}{v}.tab'.format\
-                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version),sep=' ',index=False)        
+                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
+                                                apply("{:.7E}".format).str.pad(14,'right')
+                    # these profoundly ugly regex substitutions are required because
+                    # of deficiencies in fixed-width table formatting in pandas, exacerbated
+                    # by a regression in pandas.to_string 0.25 that inserts leading 
+                    # spaces in non-indexed output
+                    table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
+                            (index=False,justify='left'))
+                    table=re.sub(r' (?= (\d|-))', r'',table)
+                    with open('{outpath}/{m}{p}f{s}{v}.tab'.format\
+                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version), "w")\
+                        as output_file: 
+                        print(table, file=output_file)
                 else:
-                    data_clean_out[m][p][s].applymap("{:.7E}".format).to_csv\
-                        ('{outpath}/{m}{p}f{s}{v}.tab'.format\
-                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version),sep=' ',index=False)
+                    for column in data_clean_out[m][p][s].columns:
+                        data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
+                                                apply("{:.7E}".format).str.pad(14,'right')
+                    table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
+                            (index=False,justify='left'))
+                    table=re.sub(r' (?= (\d|-))', r'',table)
+                    with open('{outpath}/{m}{p}f{s}{v}.tab'.format(outpath=outpath+'/'+\
+                        m[0:3],m=m,p=p,s=s,v=version), "w") as output_file:
+                        print(table, file=output_file)
 
 def write_split_hfe(data,outpath='.',version=''):
     data_split_out=copy.deepcopy(data)
@@ -559,7 +573,9 @@ def combine_with_depth(data):
                 for c in data[m][p][s].columns:
                     # is it a temperature value from a sensor we want to include in this set?
                     if c[0]=='T' and c[1]!='i': 
-                        if type(depthdict[m][p][s][c])==int and depthdict[m][p][s][c] > 0: 
+                    # i.e., not 'Time'
+                        if type(depthdict[m][p][s][c])==int and depthdict[m][p][s][c] > 0:
+                        # i.e., below surface and not marked 'bad' in some way 
                             depth_slice=data[m][p][s][['Time',c,'flags']]
                             depth_slice=depth_slice.reindex(['Time','T',c,'sensor','depth','flags'],
                                                             axis=1)
