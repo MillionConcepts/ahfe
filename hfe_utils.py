@@ -102,7 +102,8 @@ def write_clean_hfe(data,outpath='.',version=''):
                     data_clean_out[m][p][s]=data_clean_out[m][p][s].reindex(columns=\
                                     ['Time','T','dT','flags'])
                 # convert to the IBM 1130-equivalent number format, but retain microsecond
-                # precision for Nagihara 2019 data
+                # precision for Nagihara 2019 data and millisecond precision for Nagihara 
+                # 2018 data
                 if m[4:8]=='1975':
                     for column in data_clean_out[m][p][s].columns:
                         if column=='Time':
@@ -115,6 +116,23 @@ def write_clean_hfe(data,outpath='.',version=''):
                     # of deficiencies in fixed-width table formatting in pandas, exacerbated
                     # by a regression in pandas.to_string 0.25 that inserts leading 
                     # spaces in non-indexed output.
+                    table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
+                            (index=False,justify='left'))
+                    table=re.sub(r' (?= (\d|-))', r'',table)
+                    # create correct line endings when script run from any major OS
+                    table=re.sub(r'(\n)|(\r\n)|(\r)',r'\r\n',table)
+                    with open('{outpath}/{m}{p}f{s}{v}.tab'.format\
+                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version), "w")\
+                        as output_file: 
+                        print(table, file=output_file)
+                elif (m[4:8]=='1976') or (m[4:8]=='1977'):
+                    for column in data_clean_out[m][p][s].columns:
+                        if column=='Time':
+                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
+                                                apply("{:.10E}".format).str.pad(16,'right')
+                        else:
+                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
+                                                apply("{:.7E}".format).str.pad(14,'right')
                     table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
                             (index=False,justify='left'))
                     table=re.sub(r' (?= (\d|-))', r'',table)
@@ -192,11 +210,16 @@ def a17_time(x):
     epoch=dt.datetime(1971,12,31)
     return (x-epoch).total_seconds()*1000
 
-# utility function for converting TAI to UTC. this allows us to use astropy to calculate leap seconds without 
-# actually doing large table comparisons between astropy Time objects (much slower than using datetime).
+# utility functions for converting between TAI and UTC. this allows us to use astropy to calculate leap 
+# seconds without actually doing large table comparisons between astropy Time objects (much slower than 
+# using datetime).
 
 def tai_to_utc(x):
     return atime.Time(x,scale="tai").utc.datetime
+
+def utc_to_tai(x):
+    return atime.Time(x,scale="utc").tai.datetime
+
 
 # silly utility functions for vectorizing over Nagihara datelists. 9999 flags empty rows (not strictly necessary).
 # may replace with astropy.time versions to deal with leap seconds.
@@ -213,7 +236,8 @@ def days_since_year(day,year):
         else:
             return dt.datetime(9999,1,1)
 
-# Nagihara PDS release uses DOY format; this simply breaks it up to datetime. TODO: rewrite to use strptime.
+# Nagihara PDS release uses DOY format; this simply breaks it up to datetime equivalent. 
+# TODO: rewrite to use strptime.
 
 def nagihara_doy_to_dt(nagihara_time):
     year=(dt.datetime(int(nagihara_time[0:4]),1,1,0,0))
@@ -329,23 +353,27 @@ def ingest_nagihara_2019(nagihara_data={},pathname='.'):
                     # Time
                     
                     # generate a separate column for mission epoch time.
-                    # also convert native DOY format (e.g. '1975-092T00:04:00.817')
+                    # convert native DOY format (e.g. '1975-092T00:04:00.817')
                     # to datetime as an intermediate step.
+                    
                     # to_pydatetime is necessary because pandas otherwise gets mad
                     # about loss of (here nonexistent) nanosecond precision.
                     
+                    # then remove leap seconds for parity with NSSDC data and convert to mission epoch time. 
+
                     nagihara_data[m][p][s]['UTC_Time']=\
                         np.vectorize(nagihara_doy_to_dt)(nagihara_data[m][p][s]['time'])
                                                 
                     if m[0:3] == 'a17':
                         nagihara_data[m][p][s]['Time']=\
                             np.vectorize(a17_time)\
-                            ((nagihara_data[m][p][s]['UTC_Time']).dt.to_pydatetime())
+                            (np.vectorize(tai_to_utc)\
+                            (nagihara_data[m][p][s]['UTC_Time'].dt.to_pydatetime()))
                     elif m[0:3] == 'a15':
                         nagihara_data[m][p][s]['Time']=\
-                            np.vectorize(a15_time)\
-                            ((nagihara_data[m][p][s]['UTC_Time']).dt.to_pydatetime())
-
+                            np.vectorize(a17_time)\
+                            (np.vectorize(tai_to_utc)\
+                            (nagihara_data[m][p][s]['UTC_Time'].dt.to_pydatetime()))
                     nagihara_data[m][p][s].drop(columns=['time'],inplace=True)
                     
                     # dT 
@@ -394,6 +422,7 @@ def ingest_nagihara_2019(nagihara_data={},pathname='.'):
                         format(p=p[1],s=s),'TG{p}{s}B'.format(p=p[1],s=s)])
         
     return nagihara_data
+
 # functions for polishing dataset and splitting to thermometers.
 
 def discard_flagged(data):
@@ -412,11 +441,12 @@ def substitute_corrections(data):
         data.drop(columns=['dT_corr'],inplace=True)
 
 def standardize_time(data,mission):
+
         # use directly-reformatted time from Nagihara et al. 2019; it's given to microsecond precision and 
         # meaningful floating-point errors could plausibly be introduced.
-        # otherwise go ahead and do the full conversion from epoch time; no other option for NSSDC data, 
-        # and both it and Nagihara et al. 2018 are only given to second precision anyway, which is well above 
-        # threshold of any plausible floating-point errors.
+
+        # otherwise go ahead and do the full conversion from epoch time; no other option for NSSDC data,
+        # and this step also adds leap seconds to Nagihara et al. 2018.
 
     if 'UTC_Time' in data.columns:
         data['Time']=data['UTC_Time']
