@@ -8,7 +8,7 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 
 * Designed for maximum compatibility with existing workflows for NSSDC data. 
 * This set includes data from the NSSDC and Nagihara sets.
-* numbers are standardized to a format equivalent to the NSSDC set. This is a direct decimal representation of IBM 1130 binary floating-point format: signed numbers in exponential representation with eight digits of mantissa and two digits of exponent. However, since the Nagihara data give time to millisecond precision, rather than the second precision given in the NSSDC data (it is the maximum precision permitted by mission epoch time represented with an eight-digit mantissa), we print their time fields with eleven digits of mantissa. 
+* numbers are standardized to a format equivalent to the NSSDC set. This is a direct decimal representation of IBM 1130 binary floating-point format: signed numbers in exponential representation with eight digits of mantissa and two digits of exponent. However, since the Nagihara data give time to millisecond precision, rather than the second precision given in the NSSDC data (it is the maximum precision permitted by mission epoch time represented with an eight-digit mantissa), we print their time fields with eleven digits of mantissa. Also note that the Nagihara data give temperature to millikelvin precision, rather than the microkelvin precision given by the NSSDC sets; however, this additional precision in the NSSDC sets is certainly spurious. 
 * Places Nagihara sets in files by mission and year, leaving them separate from one another and the NSSDC sets.
 * It includes flags for erroneous and missing points (see bitmask description below). These are included in a new column named 'flags'. 
 * orders all points by time, correcting inversions and displacements that occur in several source files. 
@@ -55,7 +55,6 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 ## warnings
 
 * We maintain the numerical precision given in source datasets even when some of this precision is likely spurious or when retaining it results in series with values of mixed precision.
-* We make an assumption about leap seconds in the Nagihara data: that they don't include them. If this is incorrect, there may be a one-to-five second discrepancy between Nagihara data and NSSDC data in our reduced sets. We will verify this assumption shortly. 
 * a15p2f1 dT values are 'clipped' or saturated at +20/-30K. There are a number of obvious errors in this range in the NSSDC/Lamont a15p2f1 data. We have corrected two of them (not counting outliers): the obvious 'factor-of-ten' error in early lunations that likely results from incorrect choice of high-sensitivity vs. low sensitivity dT, and the bitflip error. However, there is a major ambiguity in the bitflip correction related to sensitivity selection. The data also do not saturate in exactly the same way as the 1975 Nagihara data, perhaps suggesting a significant difference in the Lamont and Nagihara pipelines. 
 * a15p2f4 values are also 'clipped' or saturated at +2/-3K.
 * All a17 thermocouples are subject to a great deal of thermal noise. a15 thermocouples are not, or to a much smaller degree. All daytime values for these thermocouples should be used with extreme caution.

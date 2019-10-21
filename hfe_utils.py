@@ -184,29 +184,32 @@ def a17_to_greg(x):
     epoch=dt.datetime(1971,12,31,0,0,9,889650)
     return(epoch+dt.timedelta(milliseconds=x))
 
-# Gregorian-to-epoch functions (a15_time not currently in use).
+# Gregorian-to-epoch functions
 
 def a15_time(x):
-    epoch=dt.datetime(1970,12,31)
-    return (x-epoch).total_seconds()*1000
+    if not x==None:
+        epoch=dt.datetime(1970,12,31)
+        return (x-epoch).total_seconds()*1000
 
 def a17_time(x):
-    epoch=dt.datetime(1971,12,31)
-    return (x-epoch).total_seconds()*1000
+    if not x==None:
+        epoch=dt.datetime(1971,12,31)
+        return (x-epoch).total_seconds()*1000
 
-# utility functions for converting between TAI and UTC. this allows us to use astropy to calculate leap 
-# seconds without actually doing large table comparisons between astropy Time objects (much slower than 
+# utility functions for converting between TAI and UTC. this allows us to use astropy to deal with leap 
+# seconds without later doing large table comparisons between astropy Time objects (much slower than 
 # using datetime).
+
+# 9999 flags empty rows in nagihara 2018 spreadsheet.
 
 def tai_to_utc(x):
     return atime.Time(x,scale="tai").utc.datetime
 
 def utc_to_tai(x):
-    return atime.Time(x,scale="utc").tai.datetime
-
-
-# silly utility functions for vectorizing over Nagihara datelists. 9999 flags empty rows (not strictly necessary).
-# may replace with astropy.time versions to deal with leap seconds.
+    if not x==dt.datetime(9999,1,1,0,0,0):
+        return atime.Time(x,scale="tai").utc.datetime
+    
+# silly utility functions for vectorizing over Nagihara datelists. 9999 flags empty rows.
 
 def seconds_interval(x):
         if not np.isnan(x):
@@ -218,7 +221,7 @@ def days_since_year(day,year):
         if not np.isnan(day):
             return dt.datetime(year,1,1) + dt.timedelta(days=(int(day)-1))
         else:
-            return dt.datetime(9999,1,1)
+            return dt.datetime(9999,1,1,0,0,0)
 
 # Nagihara PDS release uses DOY format; this simply breaks it up to datetime equivalent. 
 # TODO: rewrite to use strptime.
@@ -271,12 +274,15 @@ def ingest_nagihara_2018(nagihara_data={},spreadsheet_path='./source/nagihara/jg
                     # dataset.
                     
                     column_indicator='.1' if p=='p2' else ''
-                    nagihara_data[m][p][s]['Time']=\
-                        np.vectorize(a17_time)(np.vectorize(days_since_year)\
+                    nagihara_data[m][p][s]['UTC_Time']=\
+                       np.vectorize(days_since_year)\
                         (nagihara_spreadsheet[m]['Day'+column_indicator],\
                         int(m[-4:]))+np.vectorize(seconds_interval)\
-                        (nagihara_spreadsheet[m]['Seconds'+column_indicator]))
-
+                        (nagihara_spreadsheet[m]['Seconds'+column_indicator])
+                    nagihara_data[m][p][s]['Time']=\
+                        np.vectorize(a17_time)\
+                        (np.vectorize(utc_to_tai)\
+                        (nagihara_data[m][p][s]['UTC_Time']))
                     # The original HFE dataset reduced temperature data into T and dT, where T is the
                     # average temperature across the bridge and dT is the difference between the upper and lower parts
                     # of the bridge. Nagihara et al. reduced the ALSEP data differently, explicitly giving temperature 
@@ -353,6 +359,7 @@ def ingest_nagihara_2019(nagihara_data={},pathname='.'):
                             np.vectorize(a17_time)\
                             (np.vectorize(tai_to_utc)\
                             (nagihara_data[m][p][s]['UTC_Time'].dt.to_pydatetime()))
+
                     elif m[0:3] == 'a15':
                         nagihara_data[m][p][s]['Time']=\
                             np.vectorize(a17_time)\
@@ -426,11 +433,10 @@ def substitute_corrections(data):
 
 def standardize_time(data,mission):
 
-        # use directly-reformatted time from Nagihara et al. 2019; it's given to microsecond precision and 
+        # use directly-reformatted time from Nagihara; it's given to millisecond precision and 
         # meaningful floating-point errors could plausibly be introduced.
 
-        # otherwise go ahead and do the full conversion from epoch time; no other option for NSSDC data,
-        # and this step also adds leap seconds to Nagihara et al. 2018.
+        # otherwise go ahead and do the full conversion from epoch time.
 
     if 'UTC_Time' in data.columns:
         data['Time']=data['UTC_Time']
@@ -509,10 +515,6 @@ def split_to_thermometers(data):
                             # spurious precision introduced by numpy floating point representation
                             if column[0:2]=='TG':
                                 data_split[m][p][s][column]=round(data_split[m][p][s][column],3)
-                    if m[6:8]!='75':
-                        # round time back to the second precision of the Nagihara et al. 2018 set.
-                        # not a problem for 2019 because we calculated its UTC representation in the ingestion process
-                        data_split[m][p][s]['Time']=data_split[m][p][s]['Time'].dt.round('1s')
     return data_split
 
 # functions & depth dictionary for writing combined 'depth' set
