@@ -8,7 +8,7 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 
 * Designed for maximum compatibility with existing workflows for NSSDC data. 
 * This set includes data from the NSSDC and Nagihara sets.
-* numbers are standardized to a format equivalent to the NSSDC set. This is a direct decimal representation of IBM 1130 binary floating-point format: signed numbers in exponential representation with eight digits of mantissa and two digits of exponent. However, since the 2019 Nagihara data give time to microsecond precision, rather than the second precision given in Nagihara et. al 2018 and in the NSSDC data (it is the maximum precision permitted by mission epoch time represented with an eight-digit mantissa), we print them with eleven digits of mantissa. 
+* numbers are standardized to a format equivalent to the NSSDC set. This is a direct decimal representation of IBM 1130 binary floating-point format: signed numbers in exponential representation with eight digits of mantissa and two digits of exponent. However, since the Nagihara data give time to millisecond precision, rather than the second precision given in the NSSDC data (it is the maximum precision permitted by mission epoch time represented with an eight-digit mantissa), we print their time fields with eleven digits of mantissa. 
 * Places Nagihara sets in files by mission and year, leaving them separate from one another and the NSSDC sets.
 * It includes flags for erroneous and missing points (see bitmask description below). These are included in a new column named 'flags'. 
 * orders all points by time, correcting inversions and displacements that occur in several source files. 
@@ -19,7 +19,7 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 * The 'clean' set further reduced for ease of use: 
 * discards most of the flagged points from the 'clean' set
 * computes explicit temperature readings for each thermometer rather than giving average temperature and temperature difference values at each thermometer bridge
-* converts mission epoch time to Gregorian UTC
+* converts mission epoch time to Gregorian YMD UTC
 * concatenates the Nagihara sets with the NSSDC sets, giving all available temperature data in a single series per thermometer. Retains 'file' distinction; in other words, there is still one table per thermometer bridge.
 
 ### depth

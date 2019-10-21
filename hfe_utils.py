@@ -101,10 +101,11 @@ def write_clean_hfe(data,outpath='.',version=''):
                 else:
                     data_clean_out[m][p][s]=data_clean_out[m][p][s].reindex(columns=\
                                     ['Time','T','dT','flags'])
-                # convert to the IBM 1130-equivalent number format, but retain microsecond
-                # precision for Nagihara 2019 data and millisecond precision for Nagihara 
-                # 2018 data
-                if m[4:8]=='1975':
+
+                # convert to the IBM 1130-equivalent number format, but retain millisecond precision
+                # for Nagihara data
+
+                if m[3:4]=='_':
                     for column in data_clean_out[m][p][s].columns:
                         if column=='Time':
                             data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
@@ -116,23 +117,6 @@ def write_clean_hfe(data,outpath='.',version=''):
                     # of deficiencies in fixed-width table formatting in pandas, exacerbated
                     # by a regression in pandas.to_string 0.25 that inserts leading 
                     # spaces in non-indexed output.
-                    table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
-                            (index=False,justify='left'))
-                    table=re.sub(r' (?= (\d|-))', r'',table)
-                    # create correct line endings when script run from any major OS
-                    table=re.sub(r'(\n)|(\r\n)|(\r)',r'\r\n',table)
-                    with open('{outpath}/{m}{p}f{s}{v}.tab'.format\
-                        (outpath=outpath+'/'+m[0:3],m=m,p=p,s=s,v=version), "w")\
-                        as output_file: 
-                        print(table, file=output_file)
-                elif (m[4:8]=='1976') or (m[4:8]=='1977'):
-                    for column in data_clean_out[m][p][s].columns:
-                        if column=='Time':
-                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
-                                                apply("{:.10E}".format).str.pad(16,'right')
-                        else:
-                            data_clean_out[m][p][s][column]=data_clean_out[m][p][s][column].\
-                                                apply("{:.7E}".format).str.pad(14,'right')
                     table=re.sub(r'\n\s(\d|-)',r'\n\1',data_clean_out[m][p][s].to_string\
                             (index=False,justify='left'))
                     table=re.sub(r' (?= (\d|-))', r'',table)
