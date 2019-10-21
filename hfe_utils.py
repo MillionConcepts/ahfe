@@ -146,7 +146,7 @@ def write_split_hfe(data,outpath='.',version=''):
         for p in data_split_out[m].keys():
             for s in data_split_out[m][p].keys():
                 data_split_out[m][p][s]['Time']=data_split_out[m][p][s]['Time'].\
-                                                dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+                                                dt.strftime("%Y-%m-%dT%H:%M:%S.%f").str.slice(0,-3)+"Z"
                 data_split_out[m][p][s].to_csv('{outpath}/{m}{p}f{s}{v}_split.tab'.format(
                     outpath=outpath,m=m,p=p,s=s,v=version),index=False,line_terminator='\r\n')
 
@@ -157,7 +157,7 @@ def write_deep_hfe(data,outpath='.',version=''):
     for m in data_deep_out.keys():
         for p in data_deep_out[m].keys():
             data_deep_out[m][p]['Time']=data_deep_out[m][p]['Time'].\
-                                    dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+                                    dt.strftime("%Y-%m-%dT%H:%M:%S.%f").str.slice(0,-3)+"Z"
             data_deep_out[m][p].to_csv('{outpath}/{m}{p}{v}_depth.tab'.format(
                 outpath=outpath,m=m,p=p,v=version),index=False,line_terminator='\r\n')
 
