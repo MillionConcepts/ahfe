@@ -170,8 +170,7 @@ def write_deep_hfe(data,outpath='.',version=''):
     
 # The original reduced Apollo HFE data uses an epoch time format: milliseconds from 24 hours before the beginning of the 
 # mission's start year. This is December 31, 1970 for Apollo 15, and December 31, 1971 for Apollo 17. 
-# These functions convert Gregorian time into mission epoch time, and assume that Nagihara et al. did not include leap seconds (though the
-# introduced error is small either way).
+# These functions convert between Gregorian time and mission epoch time.
 
 # epoch-to-Gregorian functions. placing in TAI to avoid leap second weirdness. excessive digits of precision are for parity with
 # internal astropy values.
@@ -184,16 +183,16 @@ def a17_to_greg(x):
     epoch=dt.datetime(1971,12,31,0,0,9,889650)
     return(epoch+dt.timedelta(milliseconds=x))
 
-# Gregorian-to-epoch functions
+# Gregorian-to-epoch functions (assume TAI input)
 
 def a15_time(x):
     if not x==None:
-        epoch=dt.datetime(1970,12,31)
+        epoch=dt.datetime(1970,12,31,0,0,8,943570)
         return (x-epoch).total_seconds()*1000
 
 def a17_time(x):
     if not x==None:
-        epoch=dt.datetime(1971,12,31)
+        epoch=dt.datetime(1971,12,31,0,0,9,889650)
         return (x-epoch).total_seconds()*1000
 
 # utility functions for converting between TAI and UTC. this allows us to use astropy to deal with leap 
@@ -207,7 +206,7 @@ def tai_to_utc(x):
 
 def utc_to_tai(x):
     if not x==dt.datetime(9999,1,1,0,0,0):
-        return atime.Time(x,scale="tai").utc.datetime
+        return atime.Time(x,scale="utc").tai.datetime
     
 # silly utility functions for vectorizing over Nagihara datelists. 9999 flags empty rows.
 
