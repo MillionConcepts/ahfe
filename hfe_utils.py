@@ -223,7 +223,7 @@ def days_since_year(day,year):
             return dt.datetime(9999,1,1,0,0,0)
 
 # Nagihara PDS release uses DOY format; this simply breaks it up to datetime equivalent. 
-# TODO: rewrite to use strptime.
+# TODO: rewrite to use strptime and maybe deal with leap seconds.
 
 def nagihara_doy_to_dt(nagihara_time):
     year=(dt.datetime(int(nagihara_time[0:4]),1,1,0,0))

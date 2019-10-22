@@ -1,4 +1,4 @@
-This is a work in progress. We consider these data sets feature-complete but incompletely documented.
+This is a work in progress. We consider these data sets feature-complete but incompletely documented, and likely to contain a number of bugs and typographical errors.
 
 ## contents
 
