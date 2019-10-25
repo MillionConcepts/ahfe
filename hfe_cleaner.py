@@ -7,9 +7,6 @@ from hfe_utils import *
 print("Ingesting NSSDC data.")
 data=load_hfe()
 
-print("Correcting indices.")
-hfe_reindex(data)
-
 print("Ingesting 2018 Nagihara data.")
 nagihara_data=ingest_nagihara_2018(spreadsheet_path='./source/nagihara/jgre20941-sup-0001-2018je005579-ds01.xlsx')
 

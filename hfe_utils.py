@@ -18,10 +18,10 @@ def load_hfe():
         for p in ['p1','p2']:
             data[m][p]={}
             for s in [1,2,3,4,5]:
-                filename = './source/{m}/{m}{p}.file_{s}'.format(m=m,p=p,s=s)
+                filename = './source/{m}/{m}_hfe_{p}_{s}.tab'.format(m=m,p=p,s=s)
                 columns = (['Time','HTR','TREF','TC1','TC2','TC3','TC4']
                                                     if s==3 else ['Time','dT','T'])
-                data[m][p][s] = pd.read_csv(filename,skiprows=1,
+                data[m][p][s] = pd.read_csv(filename,skiprows=2,
                     names=columns,delim_whitespace=True,skipinitialspace=True)
     return data
 
@@ -53,14 +53,6 @@ def flag_missing_hfe(data):
                         (data[m][p][s]['dT']==-9999) |
                         (data[m][p][s]['T']==-9999) |
                         (data[m][p][s]['Time']==-9999),'flags']+=0b1
-                        
-def hfe_reindex(data):
-    # swap columns to correct-per-documentation Time, T, dT order
-    for m in data.keys():
-        for p in data[m].keys():
-            for s in data[m][p].keys():
-                if s != 3:
-                    data[m][p][s]=data[m][p][s].reindex(columns=['Time','T','dT'])
 
 # flags time-inverted pairs of points in official data, then sorts all sets by time, which
 # also fixes some misplaced time ranges in the Nagihara paper data. checks all sets, 
