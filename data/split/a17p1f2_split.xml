@@ -4,8 +4,8 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
 	<Identification_Area>
-		<logical_identifier>LID_TBD:data:split:a17p1f2</logical_identifier>
-		<version_id>1.0<version_id>
+		<logical_identifier>urn:nasa:pds:lid_tbd:data:a17p1f2</logical_identifier>
+		<version_id>1.0</version_id>
 		<title>Apollo 17 probe 1 file 2 'split'</title>
 		<information_model_version>1.12.0.0</information_model_version>
 		<product_class>Product_Observational</product_class>
@@ -17,7 +17,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 		</Citation_Information>
 		<Modification_History>
 			<Modification_Detail>
-				<modification_date>TBD</modification_date>
+				<modification_date>2019</modification_date>
 	            <version_id>1.0</version_id>
 	            <description>Initial version.</description>
 	        </Modification_Detail>
@@ -92,20 +92,20 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	      <Record_Delimited>
 	      	<fields>4</fields>
 	      	<groups>0</groups>
-	      	<maximum_record_length>48</maximum_record_length>
+	      	<maximum_record_length unit="byte">48</maximum_record_length>
 	      </Record_Delimited>
 	      	<Field_Delimited>
 	      		<name>Time</name>
 	      		<field_number>1</field_number>
 	      		<data_type>ASCII_Date_Time_YMD_UTC</data_type>
-	      		<maximum_field_length unit="byte">14</field_length>
+	      		<maximum_field_length unit="byte">24</maximum_field_length>
 	      		<description>Earth-received date and time of observation.</description>
 	      	</Field_Delimited>
 	      	<Field_Delimited>
 	      		<name>TG11A</name>
 	      		<field_number>2</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">9</field_length>
+	      		<maximum_field_length unit="byte">9</maximum_field_length>
 	      		<unit>K</unit>
 	      		<description>Temperature of the bridge's upper thermometer. (T - corrected dT) for each point imported from NSSDC data.</description>
 	      	</Field_Delimited>
@@ -113,7 +113,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	      		<name>TG11B</name>
 	      		<field_number>3</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">9</field_length>
+	      		<maximum_field_length unit="byte">9</maximum_field_length>
 	      		<unit>K</unit>
 	      		<description>Temperature of the bridge's upper thermometer. (T + corrected dT) for each point imported from NSSDC data.</description>
 	      	</Field_Delimited>
@@ -121,7 +121,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	      		<name>flags</name>
 	      		<field_number>4</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">1</field_length>
+	      		<maximum_field_length unit="byte">1</maximum_field_length>
 	      		<description>Bitmask marking special features of some data points.</description>
 	      	</Field_Delimited>
 	      </Record_Delimited>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<Product_Collection xmlns="http://pds.nasa.gov/pds4/pds/v1"
+<Product_Bundle xmlns="http://pds.nasa.gov/pds4/pds/v1"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>LID_TBD</logical_identifier>
+        <logical_identifier>urn:nasa:pds:lid_tbd</logical_identifier>
         <version_id>1.0</version_id>
         <title>Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</title>
         <information_model_version>1.12.0.0</information_model_version>
@@ -17,7 +17,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Citation_Information>
         <Modification_History>
         	<Modification_Detail>
-            	<modification_date>TBD</modification_date>
+            	<modification_date>2019</modification_date>
                 <version_id>1.0</version_id>
                 <description>Initial version.</description>
             </Modification_Detail>
@@ -95,6 +95,14 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Target_Identification>
     </Context_Area>
     <Reference_List>
+        <Source_Product_Internal>
+            <lidvid_reference>urn:nasa:pds:a17hfe_calibrated_arcsav::1.0</lidvid_reference>
+            <reference_type>data_to_derived_source_product</reference_type>
+        </Source_Product_Internal>
+        <Source_Product_Internal>
+            <lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav::1.0</lidvid_reference>
+            <reference_type>data_to_derived_source_product</reference_type>
+        </Source_Product_Internal>
     	<Source_Product_External>
     		<external_source_product_identifier>A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</external_source_product_identifier>
     		<reference_type>data_to_derived_source_product</reference_type>
@@ -106,36 +114,31 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
     		<reference_type>data_to_derived_source_product</reference_type>
     		<curating_facility>GEO</curating_facility>
     		<description>APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED DATA (PDS3 bundle). Data archived by instrument team. Used here for data from 1971-1974.</description>
+        </Source_Product_External>
     	<Source_Product_External>
+            <external_source_product_identifier>10.1029/2018JE005579</external_source_product_identifier>
+            <reference_type>data_to_derived_source_product</reference_type>
     		<doi>10.1029/2018JE005579</doi>
-    		<reference_type>data_to_derived_source_product</reference_type>
     		<description>Data released with publication: Nagihara et al., Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018. Contains data recovered from ARCSAV tapes. Used here for data in 1976 and 1977.</description>
     	</Source_Product_External>
-    	<Source_Product_Internal>
-    		<lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav::1.0</lidvid_reference>
-    		<lidvid_reference>urn:nasa:pds:a17hfe_calibrated_arcsav::1.0</lidvid_reference>
-    		<reference_type>data_to_derived_source_product</reference_type>
-    		<comment>PDS4-compliant versions of 1975 data released with JGR Planets publication. Used here for data in 1975.</comment>
-    	</Source_Product_Internal>
     </Reference_List>
     <Bundle>
         <bundle_type>Archive</bundle_type>
     </Bundle>
-    <File_Area_Text>
-        <!-- TBD -->
-    </File_Area_Text>
+    <!-- TBD <File_Area_Text>
+    </File_Area_Text> -->
     <Bundle_Member_Entry>
-        <lid_reference>LID_TBD:data</lid_reference>
+        <lid_reference>urn:nasa:pds:lid_tbd:data</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_data_collection</reference_type>
     </Bundle_Member_Entry>
     <Bundle_Member_Entry>
-        <lid_reference>LID_TBD:document</lid_reference>
+        <lid_reference>urn:nasa:pds:lid_tbd:document</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_document_collection</reference_type>
     </Bundle_Member_Entry>
     <Bundle_Member_Entry>
-        <lid_reference>LID_TBD:document_source</lid_reference>
+        <lid_reference>urn:nasa:pds:lid_tbd:document_source</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_document_collection</reference_type>
     </Bundle_Member_Entry>
