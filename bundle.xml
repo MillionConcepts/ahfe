@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Collection xmlns="http://pds.nasa.gov/pds4/pds/v1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+    <Identification_Area>
+        <logical_identifier>LID_TBD</logical_identifier>
+        <version_id>1.0</version_id>
+        <title>Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</title>
+        <information_model_version>1.12.0.0</information_model_version>
+        <product_class>Product_Bundle</product_class>
+        <Citation_Information>
+            <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
+            <editor_list>TBD</editor_list>
+            <publication_year>2019</publication_year>
+            <description>This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of data from all available sources for the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature, specifically (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much later from ARCSAV tapes. The data here correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.</description>
+        </Citation_Information>
+        <Modification_History>
+        	<Modification_Detail>
+            	<modification_date>TBD</modification_date>
+                <version_id>1.0</version_id>
+                <description>Initial version.</description>
+            </Modification_Detail>
+        </Modification_History>
+    </Identification_Area>
+    <Context_Area>
+    	<Time_Coordinates>
+        	<start_date_time>1971-07-31T19:51:43.000Z</start_date_time>
+            <stop_date_time>1977-09-30T18:06:22.080Z</stop_date_time>
+        </Time_Coordinates>
+        <Primary_Result_Summary>
+        	<purpose>Science</purpose>
+        	<processing_level>Derived</processing_level>
+        	<description>Temperature values from four probes intended to measure thermal properties of the lunar regolith, two from Apollo 15 and two from Apollo 17. Each probe contained 12 total thermometers, four differential bridges on the main probe body and four thermocouples on the cable that connected it to the ALSEP central station.</description>
+        </Primary_Result_Summary>
+    	<Investigation_Area>
+    		<name>Apollo 15</name>
+    		<type>Mission</type>
+    		<Internal_Reference>
+    			<lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+    			<reference_type>bundle_to_investigation</reference_type>
+    		</Internal_Reference>
+    	</Investigation_Area>
+    	<Investigation_Area>
+    		<name>Apollo 17</name>
+    		<type>Mission</type>
+    		<Internal_Reference>
+    			<lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+    			<reference_type>bundle_to_investigation</reference_type>
+    		</Internal_Reference>
+    	</Investigation_Area>
+    	<Observing_System>
+            <Observing_System_Component>
+                <name>Apollo 15 ALSEP</name>
+                <type>Spacecraft</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Apollo 15 Heat Flow Experiment</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Observing_System>
+            <Observing_System_Component>
+                <name>Apollo 17 ALSEP</name>
+                <type>Spacecraft</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Apollo 17 Heat Flow Experiment</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Moon</name>
+            <type>Satellite</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+                <reference_type>bundle_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+    </Context_Area>
+    <Reference_List>
+    	<Source_Product_External>
+    		<external_source_product_identifier>A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</external_source_product_identifier>
+    		<reference_type>data_to_derived_source_product</reference_type>
+    		<curating_facility>GEO</curating_facility>
+    		<description>APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED DATA (PDS3 bundle). Data archived by instrument team. Used here for data from 1971-1974.</description>
+    	</Source_Product_External>
+    	<Source_Product_External>
+    		<external_source_product_identifier>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</external_source_product_identifier>
+    		<reference_type>data_to_derived_source_product</reference_type>
+    		<curating_facility>GEO</curating_facility>
+    		<description>APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED DATA (PDS3 bundle). Data archived by instrument team. Used here for data from 1971-1974.</description>
+    	<Source_Product_External>
+    		<doi>10.1029/2018JE005579</doi>
+    		<reference_type>data_to_derived_source_product</reference_type>
+    		<description>Data released with publication: Nagihara et al., Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018. Contains data recovered from ARCSAV tapes. Used here for data in 1976 and 1977.</description>
+    	</Source_Product_External>
+    	<Source_Product_Internal>
+    		<lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav::1.0</lidvid_reference>
+    		<lidvid_reference>urn:nasa:pds:a17hfe_calibrated_arcsav::1.0</lidvid_reference>
+    		<reference_type>data_to_derived_source_product</reference_type>
+    		<comment>PDS4-compliant versions of 1975 data released with JGR Planets publication. Used here for data in 1975.</comment>
+    	</Source_Product_Internal>
+    </Reference_List>
+    <Bundle>
+        <bundle_type>Archive</bundle_type>
+    </Bundle>
+    <File_Area_Text>
+        <!-- TBD -->
+    </File_Area_Text>
+    <Bundle_Member_Entry>
+        <lid_reference>LID_TBD:data</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_data_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lid_reference>LID_TBD:document</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_document_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lid_reference>LID_TBD:document_source</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_document_collection</reference_type>
+    </Bundle_Member_Entry>
+</Product_Bundle>

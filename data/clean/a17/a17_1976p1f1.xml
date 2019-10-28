@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+	<Identification_Area>
+		<logical_identifier>LID_TBD:data:clean:a17_1976p1f1</logical_identifier>
+		<version_id>1.0<version_id>
+		<title>Apollo 17 1976 probe 1 file 1 'clean'</title>
+		<information_model_version>1.12.0.0</information_model_version>
+		<product_class>Product_Observational</product_class>
+		<Citation_Information>
+			<author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
+			<editor_list>TBD</editor_list>
+			<publication_year>2019</publication_year>
+			<description>This table contains data from parts of 1976 for the upper gradient bridge of Apollo 17 probe 1 in this bundle's 'clean' format. It is basically a converted, reformatted, and marked-up version of data released by Nagihara et al. along with "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018, doi: 10.1029/2018JE005579.
+			</description>
+		</Citation_Information>
+		<Modification_History>
+			<Modification_Detail>
+				<modification_date>TBD</modification_date>
+	            <version_id>1.0</version_id>
+	            <description>Initial version.</description>
+	        </Modification_Detail>
+	    </Modification_History>
+	</Identification_Area>
+	<Observation_Area>
+		<Time_Coordinates>
+	    	<start_date_time>1976-03-01T00:11:59.301Z</start_date_time>
+	        <stop_date_time>1976-08-15T07:39:09.180Z</stop_date_time>
+	    </Time_Coordinates>
+		<Investigation_Area>
+			<name>Apollo 17</name>
+			<type>Mission</type>
+			<Internal_Reference>
+				<lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+				<reference_type>data_to_investigation</reference_type>
+			</Internal_Reference>
+		</Investigation_Area>
+		<Observing_System>
+	      <Observing_System_Component>
+	        <name>Apollo 17 ALSEP</name>
+	        <type>Spacecraft</type>
+	        <Internal_Reference>
+	          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+	          <reference_type>is_instrument_host</reference_type>
+	        </Internal_Reference>
+	      </Observing_System_Component>
+	      <Observing_System_Component>
+	        <name>Apollo 17 Heat Flow Experiment</name>
+	        <type>Instrument</type>
+	        <Internal_Reference>
+	          <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+	          <reference_type>is_instrument</reference_type>
+	        </Internal_Reference>
+	      </Observing_System_Component>
+	    </Observing_System>
+	    <Target_Identification>
+	      <name>Moon</name>
+	      <type>Satellite</type>
+	      <Internal_Reference>
+	        <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+	        <reference_type>data_to_target</reference_type>
+	      </Internal_Reference>
+	    </Target_Identification>
+	</Observation_Area>
+	<Reference_List>
+		<Source_Product_External>
+			<doi>10.1029/2018JE005579</doi>
+			<reference_type>data_to_derived_source_product</reference_type>
+			<description>Data released with publication: Nagihara et al., Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018. Contains data recovered from ARCSAV tapes.</description>
+		</Source_Product_External>
+	</Reference_List>
+	<File_Area_Observational>
+	    <File>
+	      <file_name>a17_1976p1f1.tab</file_name>
+	      <file_size unit="byte">2022467</file_size>
+	      <records>31601</records>
+	    </File>
+		<Header>
+		    <name>Header</name>
+		    <offset unit="byte">0</offset>
+		    <object_length unit="byte">68</object_length>
+		    <parsing_standard_id>UTF-8 Text</parsing_standard_id>
+	    </Header>
+	    <Table_Character>
+	      <name>a17_1976p1f1</name>
+	      <offset unit="byte">68</offset>
+	      <records>31600</records>
+	      <description>This table contains data from parts of 1976 for the upper gradient bridge of Apollo 17 probe 1 in this bundle's 'clean' format. It is basically a converted, reformatted, and marked-up version of data released by Nagihara et al. along with "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018, doi: 10.1029/2018JE005579</description>
+	      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+	      <Record_Character>
+	      	<fields>4</fields>
+	      	<groups>0</groups>
+	      	<record_length>64</record_length>
+	      	<Field_Character>
+	      		<name>Time</name>
+	      		<field_number>1</field_number>
+	      		<field_location unit="byte">1</field_location>
+	      		<data_type>ASCII_Real</data_type>
+	      		<field_length unit="byte">17</field_length>
+	      		<unit>ms</unit>
+	      		<description>Earth-received time expressed in the 'mission epoch' format used by the original investigators: total ms from midnight on December 31, 1971.</description>
+	      	</Field_Character>
+	      	<Field_Character>
+	      		<name>T</name>
+	      		<field_number>2</field_number>
+	      		<field_location unit="byte">19</field_location>
+	      		<data_type>ASCII_Real</data_type>
+	      		<field_length unit="byte">14</field_length>
+	      		<unit>K</unit>
+	      		<description>Average temperature of the bridge's thermometers. Nagihara et al. give explicit temperatures for each thermometer. We compute T by simply averaging these values.</description>
+	      	</Field_Character>
+	      	<Field_Character>
+	      		<name>dT</name>
+	      		<field_number>3</field_number>
+	      		<field_location unit="byte">34</field_location>
+	      		<data_type>ASCII_Real</data_type>
+	      		<field_length unit="byte">14</field_length>
+	      		<unit>K</unit>
+	      		<description>Temperature difference between the lower and upper thermometers of the bridge. Positive values mean the lower thermometer is warmer. Nagihara et al. give explicit temperatures for each thermometer. We compute dT by simply taking the difference of these values.</description>
+	      	</Field_Character>
+	      	<Field_Character>
+	      		<name>flags</name>
+	      		<field_number>4</field_number>
+	      		<field_location unit="byte">49</field_location>
+	      		<data_type>ASCII_Real</data_type>
+	      		<field_length unit="byte">14</field_length>
+	      		<description>Bitmask marking special features of some data points.</description>
+	      	</Field_Character>
+	      </Record_Character>
+	    </Table_Character>
+	</File_Area_Observational>
+</Product_Observational>

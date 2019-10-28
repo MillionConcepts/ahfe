@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+    <Identification_Area>
+        <logical_identifier>LID_TBD:source:a15p1f3</logical_identifier>
+        <version_id>1.0<version_id>
+        <title>Apollo 15 probe 1 file 3 source</title>
+        <information_model_version>1.12.0.0</information_model_version>
+        <product_class>Product_Observational</product_class>
+        <Citation_Information>
+            <author_list>Hills, K. and Williams, D.R.</author_list>
+            <editor_list>TBD</editor_list>
+            <publication_year>2019</publication_year>
+            <description>This is a copy of PDS3 product A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_3-201201. It contains data from 1971 to 1974 for the Apollo 15 reference thermometer and the thermocouples of Apollo 15 probe 1, restored from tapes provided by personnel at Lamont Observatory to the NSSDC. Programs included in LID_TBD:source can operate on it to generate products in LID_TBD:data. Note that this label's time coordinates may differ slightly from time coordinates in LID_TBD:data due to differences in fractional leap second handling.</description>
+        </Citation_Information>
+        <Modification_History>
+            <Modification_Detail>
+                <modification_date>TBD</modification_date>
+                <version_id>1.0</version_id>
+                <description>Initial version.</description>
+            </Modification_Detail>
+        </Modification_History>
+    </Identification_Area>
+    <Observation_Area>
+        <Time_Coordinates>
+            <start_date_time>1971-07-31T19:47:59Z</start_date_time>
+            <stop_date_time>1974-12-31T21:13:17Z</stop_date_time>
+        </Time_Coordinates>
+        <Investigation_Area>
+            <name>Apollo 15</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+                <reference_type>data_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+            <Observing_System_Component>
+                <name>Apollo 15 ALSEP</name>
+                <type>Spacecraft</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Apollo 15 Heat Flow Experiment</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Moon</name>
+            <type>Satellite</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+                <reference_type>data_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+    </Observation_Area>
+    <Reference_List>
+        <Source_Product_External>
+            <external_source_product_identifier>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_3-201201</external_source_product_identifier>
+            <reference_type>data_to_derived_source_product</reference_type>
+            <curating_facility>GEO</curating_facility>
+        </Source_Product_External>
+    </Reference_List>
+    <File_Area_Observational>
+        <File>
+            <file_name>a15_hfe_p1_3.tab</file_name>
+            <file_size unit="byte">3223368</file_size>
+            <records>28946</records>
+        </File>
+        <Header>
+            <name>Header</name>
+            <offset unit="byte">0</offset>
+            <object_length unit="byte">216</object_length>
+            <parsing_standard_id>UTF-8 Text</parsing_standard_id>
+            <description>Note that header is two lines long.</description>
+        </Header>
+        <Table_Character>
+            <name>a15_hfe_p1_3</name>
+            <offset unit="byte">96</offset>
+            <records>28944</records>
+            <description>This is a copy of PDS3 product A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_3-201201. It contains data from 1971 to 1974 for the Apollo 15 reference thermometer and the thermocouples of Apollo 15 probe 1.</description>
+            <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+            <Record_Character>
+                <fields>7</fields>
+                <groups>0</groups>
+                <record_length>48</record_length>
+                <Field_Character>
+                    <name>TIME (ms)</name>
+                    <field_number>1</field_number>
+                    <field_location unit="byte">2</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>ms</unit>
+                    <description>Earth-received time expressed in the 'mission epoch' format used by the original investigators: total ms from midnight on December 31, 1970.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>HTR</name>
+                    <field_number>2</field_number>
+                    <field_location unit="byte">17</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <description>According to original archival documentation, 'heater state.' Apparently not archived correctly.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>TREF</name>
+                    <field_number>3</field_number>
+                    <field_location unit="byte">32</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>K</unit>
+                    <description>Temperature value for the shared reference thermometer in the central HFE electronics box.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>TC1</name>
+                    <field_number>4</field_number>
+                    <field_location unit="byte">47</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>K</unit>
+                    <description>Temperature of thermocouple 1.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>TC2</name>
+                    <field_number>5</field_number>
+                    <field_location unit="byte">62</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>K</unit>
+                    <description>Temperature of thermocouple 2.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>TC3</name>
+                    <field_number>6</field_number>
+                    <field_location unit="byte">77</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>K</unit>
+                    <description>Temperature of thermocouple 3.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>
+                <Field_Character>
+                    <name>TC4</name>
+                    <field_number>7</field_number>
+                    <field_location unit="byte">92</field_location>
+                    <data_type>ASCII_Real</data_type>
+                    <field_length unit="byte">14</field_length>
+                    <unit>K</unit>
+                    <description>Temperature of thermocouple 4.</description>
+                    <Special_Constants>
+                        <missing_constant>-9.9990000E+03</missing_constant>
+                    </Special_Constants>
+                </Field_Character>                
+            </Record_Character>
+        </Table_Character>
+    </File_Area_Observational>
+</Product_Observational>

@@ -1,0 +1,15 @@
+P,LID_TBD:document:index::1.0
+P,LID_TBD:document:bundledoc::1.0
+S.urn:nasa:pds:a15hfe_calibrated_arcsav:document:a15_hfe_calibrated_arcsav_descr::1.0
+S,urn:nasa:pds:a17hfe_calibrated_arcsav:document:a17_hfe_calibrated_arcsav_descr::1.0
+S,urn:nasa:pds:a15hfe_raw_arcsav:document:a15_psr_ch11_hfe::1.0
+S,urn:nasa:pds:a17hfe_raw_arcsav:document:a17_psr_ch9_hfe::1.0
+S,urn:nasa:pds:apollodoc:a15doc:a15a_alsep_overview::1.0
+S,urn:nasa:pds:apollodoc:a15doc:a15a_hfe_overview::1.0
+S,urn:nasa:pds:apollodoc:a17doc:a17a_alsep_overview::1.0
+S,urn:nasa:pds:apollodoc:a17doc:a17a_hfe_overview::1.0
+P,LID_TBD:document:as17-134-20497HR::1.0
+P,LID_TBD:document:final_technical_report::1.0
+P,LID_TBD:document:a15_pds3_catalog::1.0
+P,LID_TBD:document:a17_pds3_catalog::1.0
+P,LID_TBD:document:lamont_data_tapes::1.0

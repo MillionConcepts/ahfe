@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Document xmlns="http://pds.nasa.gov/pds4/pds/v1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:apollodoc:a15doc:a15a_alsep_overview</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Overview of the Apollo 15 Lunar Surface Experiments Package (ALSEP)</title>
+    <information_model_version>1.7.0.0</information_model_version>
+    <product_class>Product_Document</product_class>
+    <Citation_Information>
+      <author_list>Williams, D.R.</author_list>
+      <editor_list>McLaughlin, S.A.</editor_list>
+      <publication_year>2017</publication_year>
+      <description>This document provides an overview of the Apollo 15 Lunar Surface Experiments
+      Package (ALSEP).</description>
+    </Citation_Information>
+    <Modification_History>
+      <Modification_Detail>
+        <modification_date>2017-02-01</modification_date>
+        <version_id>1.0</version_id>
+        <description>Creation. Extracted text the PDS3 catalog.</description>
+      </Modification_Detail>
+    </Modification_History>
+  </Identification_Area>
+  <Reference_List>
+    <External_Reference>
+      <reference_text>Apollo 15 Preliminary Science Report, NASA SP-289, published by NASA,
+      Washington, D.C., 1972.</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <reference_text>Bates, J.R., W.W. Lauderdale, and H. Kernaghan, ALSEP Termination Report,
+      NASA Reference Publication Series, NASA RF-1036, published by NASA Johnson Space Center,
+      Houston, Texas, Apr. 1979.</reference_text>
+    </External_Reference>
+    <External_Reference>
+      <doi>10.1029/1999JE001165</doi>
+      <reference_text>Davies, M.E., and T.R. Colvin, Lunar coordinates in the regions of the Apollo
+      landers, Journal of Geophysical Research, Volume 105, Issue E8, pages 20,227-20,280,
+      2000.</reference_text>
+    </External_Reference>
+  </Reference_List>
+  <Document>
+    <acknowledgement_text>Document provided by the NASA Space Science Data Coordinated Archive
+    (NSSDCA, formerly NSSDC)</acknowledgement_text>
+    <publication_date>2017</publication_date>
+    <description>Overview of the Apollo 15 Lunar Surface Experiments Package (ALSEP).</description>
+    <Document_Edition>
+      <edition_name>7-Bit ASCII Text version</edition_name>
+      <language>English</language>
+      <files>1</files>
+      <Document_File>
+        <file_name>a15a_alsep.txt</file_name>
+        <document_standard_id>7-Bit ASCII Text</document_standard_id>
+      </Document_File>
+    </Document_Edition>
+  </Document>
+</Product_Document>

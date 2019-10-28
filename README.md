@@ -2,7 +2,15 @@ This is a work in progress. We consider these data sets feature-complete but inc
 
 ## contents
 
-All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by running hfe_cleaner.py in the root directory of the repository. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
+This is now organized as a PDS4 bundle. 
+
+Reduction code and source data can be found in the /document_source folder.
+
+Background documents are in the /document folder.
+
+Processed data is in the /data folder.
+
+All data in /data can be reproduced by running hfe_cleaner.py in /document_source, which should generate an identical tree named /document_source/data_local. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
 
 ### clean
 
@@ -63,12 +71,11 @@ All data in the 'clean,' 'split,' and 'depth' folders can be reproduced by runni
 
 ## sources
 
-Data in the 'source' folder is taken from:
+Data in the 'source' folder is taken from the following sources. More granular sourcing information can be found in individual PDS4 labels.
 
 M. G. S. Langseth, S. J. Keihm, J. L. Chute, H. K. Hills, and D. R. Williams. APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, 15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, 2014. NSSDC ID PSPG-00093, NSSDC ID of older tapes 71-063C-06A.
 
-M. G. S. Langseth, S. J. Keihm, J. L. Chute, H. K. Hills, and D. R. Williams.  APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, 2014b. NSSDC ID PSPG-00022, NSSDC ID of
-older tapes 72-096C-01A
+M. G. S. Langseth, S. J. Keihm, J. L. Chute, H. K. Hills, and D. R. Williams.  APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, 2014b. NSSDC ID PSPG-00022, NSSDC ID of older tapes 72-096C-01A
 
 S. Nagihara and Y. Nakamura. Apollo 17 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Collection (1975-092 to 1975-181), 2019. URL
 http://pds-geosciences.wustl.edu/lunar/

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+	<Identification_Area>
+		<logical_identifier>LID_TBD:data:split:a15p1f1</logical_identifier>
+		<version_id>1.0<version_id>
+			<title>Apollo 15 probe 1 file 1 'split'</title>
+			<information_model_version>1.12.0.0</information_model_version>
+			<product_class>Product_Observational</product_class>
+			<Citation_Information>
+				<author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
+				<editor_list>TBD</editor_list>
+				<publication_year>2019</publication_year>
+				<description>This table contains data from 1971-1975 for the upper gradient bridge of Apollo 15 probe 1 in this bundle's 'split' format. It includes data from PDS3 product A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_1-201201 and PDS4 product urn:nasa:pds:a15hfe_calibrated_arcsav:data:a15_hfe_1975_l2_arcsav_tg11.</description>
+			</Citation_Information>
+			<Modification_History>
+				<Modification_Detail>
+					<modification_date>TBD</modification_date>
+					<version_id>1.0</version_id>
+					<description>Initial version.</description>
+				</Modification_Detail>
+			</Modification_History>
+		</Identification_Area>
+		<Observation_Area>
+			<Time_Coordinates>
+				<start_date_time>1971-08-04T05:22:57.000Z</start_date_time>
+				<stop_date_time>1975-06-30T23:49:42.619Z</stop_date_time>
+			</Time_Coordinates>
+			<Investigation_Area>
+				<name>Apollo 15</name>
+				<type>Mission</type>
+				<Internal_Reference>
+					<lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+					<reference_type>data_to_investigation</reference_type>
+				</Internal_Reference>
+			</Investigation_Area>
+			<Observing_System>
+				<Observing_System_Component>
+					<name>Apollo 15 ALSEP</name>
+					<type>Spacecraft</type>
+					<Internal_Reference>
+						<lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+						<reference_type>is_instrument_host</reference_type>
+					</Internal_Reference>
+				</Observing_System_Component>
+				<Observing_System_Component>
+					<name>Apollo 15 Heat Flow Experiment</name>
+					<type>Instrument</type>
+					<Internal_Reference>
+						<lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+						<reference_type>is_instrument</reference_type>
+					</Internal_Reference>
+				</Observing_System_Component>
+			</Observing_System>
+			<Target_Identification>
+				<name>Moon</name>
+				<type>Satellite</type>
+				<Internal_Reference>
+					<lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+					<reference_type>data_to_target</reference_type>
+				</Internal_Reference>
+			</Target_Identification>
+		</Observation_Area>
+		<Reference_List>
+			<Source_Product_Internal>
+				<lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav:data:a15_hfe_1975_l2_arcsav_tg11</lidvid_reference>
+				<reference_type>data_to_derived_source_product</reference_type>
+			</Source_Product_Internal>
+			<Source_Product_External>
+				<external_source_product_identifier>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_1-201201</external_source_product_identifier>
+				<reference_type>data_to_derived_source_product</reference_type>
+				<curating_facility>GEO</curating_facility>
+			</Source_Product_External>
+		</Reference_List>
+		<File_Area_Observational>
+			<File>
+				<file_name>a15p1f1_split.tab</file_name>
+				<file_size unit="byte">2130276</file_size>
+				<records>46316</records>
+			</File>
+			<Header>
+				<name>Header</name>
+				<offset unit="byte">0</offset>
+				<object_length unit="byte">24</object_length>
+				<parsing_standard_id>UTF-8 Text</parsing_standard_id>
+			</Header>
+			<Table_Delimited>
+				<name>a15p1f1_split</name>
+				<offset unit="byte">24</offset>
+				<records>46315</records>
+				<description>This table contains data from 1971-1975 for the upper gradient bridge of Apollo 15 probe 1 in this bundle's 'split' format. It includes data from PDS3 product A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A15_HFE_P1_1-201201 and PDS4 product urn:nasa:pds:a15hfe_calibrated_arcsav:data:a15_hfe_1975_l2_arcsav_tg11.</description>
+				<record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+				<field_delimiter>Comma</field_delimiter>
+				<Record_Delimited>
+					<fields>4</fields>
+					<groups>0</groups>
+					<maximum_record_length>48</maximum_record_length>
+				</Record_Delimited>
+				<Field_Delimited>
+					<name>Time</name>
+					<field_number>1</field_number>
+					<data_type>ASCII_Date_Time_YMD_UTC</data_type>
+					<maximum_field_length unit="byte">14</field_length>
+					<description>Earth-received date and time of observation.</description>
+				</Field_Delimited>
+				<Field_Delimited>
+					<name>TG11A</name>
+					<field_number>2</field_number>
+					<data_type>ASCII_Real</data_type>
+					<maximum_field_length unit="byte">9</field_length>
+					<unit>K</unit>
+					<description>Temperature of the bridge's upper thermometer. (T - corrected dT) for each point imported from NSSDC data; explicitly-given temperature value for each point imported from Nagihara et al. data.</description>
+				</Field_Delimited>
+				<Field_Delimited>
+					<name>TG11B</name>
+					<field_number>3</field_number>
+					<data_type>ASCII_Real</data_type>
+					<maximum_field_length unit="byte">9</field_length>
+					<unit>K</unit>
+					<description>Temperature of the bridge's upper thermometer. (T + corrected dT) for each point imported from NSSDC data; explicitly-given temperature value for each point imported from Nagihara et al. data.</description>
+				</Field_Delimited>
+				<Field_Delimited>
+					<name>flags</name>
+					<field_number>4</field_number>
+					<data_type>ASCII_Real</data_type>
+					<maximum_field_length unit="byte">1</field_length>
+					<description>Bitmask marking special features of some data points.</description>
+				</Field_Delimited>
+			</Record_Delimited>
+		</Table_Delimited>
+	</File_Area_Observational>
+</Product_Observational>

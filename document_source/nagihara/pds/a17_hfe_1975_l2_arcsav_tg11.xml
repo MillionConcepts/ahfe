@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd">
+
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:a17hfe_calibrated_arcsav:data:a17_hfe_1975_l2_arcsav_tg11</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Apollo 17 Heat Flow Experiment Calibrated Temperatures for Probe 1 Gradient Bridge TG11
+    from 1975-092 to 1975-181</title>
+    <information_model_version>1.7.0.0</information_model_version>
+    <product_class>Product_Observational</product_class>
+  </Identification_Area>
+  <Observation_Area>
+    <Time_Coordinates>
+      <start_date_time>1975-04-02T00:04:17.237Z</start_date_time>
+      <stop_date_time>1975-06-30T23:49:27.764Z</stop_date_time>
+    </Time_Coordinates>
+    <Investigation_Area>
+      <name>Apollo 17</name>
+      <type>Mission</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+        <reference_type>data_to_investigation</reference_type>
+      </Internal_Reference>
+    </Investigation_Area>
+    <Observing_System>
+      <Observing_System_Component>
+        <name>Apollo 17 ALSEP</name>
+        <type>Spacecraft</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+          <reference_type>is_instrument_host</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>Apollo 17 Heat Flow Experiment</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+    </Observing_System>
+    <Target_Identification>
+      <name>MOON</name>
+      <type>Satellite</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+        <reference_type>data_to_target</reference_type>
+      </Internal_Reference>
+    </Target_Identification>
+  </Observation_Area>
+  <File_Area_Observational>
+    <File>
+      <file_name>a17_hfe_1975_l2_arcsav_tg11.tab</file_name>
+      <file_size unit="byte">998903</file_size>
+      <records>14909</records>
+    </File>
+    <Header>
+      <name>Header</name>
+      <offset unit="byte">0</offset>
+      <object_length unit="byte">67</object_length>
+      <parsing_standard_id>7-Bit ASCII Text</parsing_standard_id>
+    </Header>
+    <Table_Character>
+      <name>CalibratedData</name>
+      <offset unit="byte">67</offset>
+      <records>14908</records>
+      <description>This table contains calibrated temperatures for the upper and lower resistance
+      temperature detectors (RTD) for gradient bridge TG11; the average of the temperatures of the
+      RTDs; and the difference between the temperatures of the RTDs in high-gain and low-gain mode.
+      on probe 1 of the Apollo 17 HFE experiment. All temperatures are Kelvin. Records are ordered
+      by the earth-received time in the first column.</description>
+      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+      <Record_Character>
+        <fields>6</fields>
+        <groups>0</groups>
+        <record_length unit="byte">67</record_length>
+        <Field_Character>
+          <name>time</name>
+          <field_number>1</field_number>
+          <field_location unit="byte">1</field_location>
+          <data_type>ASCII_Date_Time_DOY</data_type>
+          <field_length unit="byte">21</field_length>
+          <field_format>%-21s</field_format>
+          <description>Earth received time. Day of year and time (Universal Time, formatted as
+          yyyy-dddThh:mm:ss.sss) when the first word of the ALSEP frame containing the raw data
+          measurements was received at a ground tracking and receiving station on
+          earth.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>TG11A</name>
+          <field_number>2</field_number>
+          <field_location unit="byte">23</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">8</field_length>
+          <field_format>%8.3f</field_format>
+          <unit>K</unit>
+          <description>TG11A temperature. This is the temperature value of the upper resistance
+          temperature detectors (RTD) of gradient bridge TG11.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>TG11B</name>
+          <field_number>3</field_number>
+          <field_location unit="byte">32</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">8</field_length>
+          <field_format>%8.3f</field_format>
+          <unit>K</unit>
+          <description>TG11B temperature. This is the temperature value of the lower RTD of gradient
+          bridge TG11.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>TG11avg</name>
+          <field_number>4</field_number>
+          <field_location unit="byte">41</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">8</field_length>
+          <field_format>%8.3f</field_format>
+          <unit>K</unit>
+          <description>TG11avg temperature. This is the average of the two values for the upper and
+          lower RTDs of gradient bridge TG11, in columns 2 and 3.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>DTH11</name>
+          <field_number>5</field_number>
+          <field_location unit="byte">50</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">7</field_length>
+          <field_format>%7.3f</field_format>
+          <unit>K</unit>
+          <description>DTH11 temperature. This is the temperature difference between the upper and
+          lower RTDs of gradient bridge TG11 obtained in the high-gain mode.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>DTL11</name>
+          <field_number>5</field_number>
+          <field_location unit="byte">58</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">7</field_length>
+          <field_format>%7.3f</field_format>
+          <unit>K</unit>
+          <description>DTL11 temperature. This is the temperature difference between the upper and
+          lower RTDs of gradient bridge TG11 obtained in the low-gain mode.</description>
+        </Field_Character>
+      </Record_Character>     
+    </Table_Character>
+  </File_Area_Observational>
+</Product_Observational>

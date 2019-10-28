@@ -1,0 +1,187 @@
+## description
+
+This collection contains ASCII tables containing corrected, reduced, and concatenated versions of data from all available sources for the Apollo 15 and 17 Heat Flow Experiment. Subdirectories contain three separate reduced sets: 'clean,' 'split,' and 'depth.' These tables are based on other data in the PDS and the published literature, specifically (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much later from ARCSAV tapes. The data here correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.
+
+## files
+
+/clean
+----
+This set is designed for maximum compatibility with existing workflows designed for the 1971-1974 PDS-archived Lamont/NSSDC data. It includes data from both NSSDC and Nagihara sets. It retains the rough file structure of the PDS-archived Lamont/NSSDC data; it organizes the Nagihara sets by mission and year and leaves them separate from the NSSDC sets. Numbers in these files are standardized to format and units equivalent to the NSSDC sets (with the exception of the time field in data derived from the Nagihara sets). dT corrections for affected files are included in a separate field (dT_corr). Many other errors are flagged (see documentation).
+
+/clean/a15
+----
+Apollo 15 'clean' files. Subdirectory separated from Apollo 17 files to follow PDS4 conventions for number of products per subdirectory.
+
+- a15_1975p1f1.tab
+Data from Apollo 15 probe 1 upper gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a15_1975p1f2.tab
+Data from Apollo 15 probe 1 lower gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a15_1975p2f1.tab
+Data from Apollo 15 probe 2 upper gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a15_1975p1f2.tab
+Data from Apollo 15 probe 2 lower gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a15p1f1.tab
+Data from Apollo 15 probe 1 upper gradient bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p1f2.tab
+Data from Apollo 15 probe 1 lower gradient bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p1f3.tab
+Data from Apollo 15 reference thermometer and probe 1 thermocouples, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p1f4.tab
+Data from Apollo 15 probe 1 upper ring bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p1f5.tab
+Data from Apollo 15 probe 1 lower ring bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p2f1.tab
+Data from Apollo 15 probe 2 upper gradient bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p2f2.tab
+Data from Apollo 15 probe 2 lower gradient bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p2f3.tab
+Data from Apollo 15 reference thermometer and probe 2 thermocouples, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p2f4.tab
+Data from Apollo 15 probe 2 upper ring bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+- a15p2f5.tab
+Data from Apollo 15 probe 2 lower ring bridge, 1971-1974. Derived from NSSDC/Lamont data.
+
+/clean/a17
+----
+Apollo 17 'clean' files. Subdirectory separated from Apollo 15 files to follow PDS4 conventions for number of products per subdirectory.
+
+- a17_1975p1f1.tab
+Data from Apollo 17 probe 1 upper gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a17_1975p2f1.tab
+Data from Apollo 17 probe 2 upper gradient bridge in three months of 1975. Derived from data in Nagihara et al. 2019 PDS release.
+
+- a17_1976p1f1.tab
+Data from Apollo 17 probe 1 upper gradient bridge in parts of 1976. Derived from data in Nagihara et al. 2018 JGR Planets release.
+
+- a17_1976p2f1.tab
+Data from Apollo 17 probe 2 upper gradient bridge in parts of 1976. Derived from data in Nagihara et al. 2018 JGR Planets release.
+
+- a17_1977p1f1.tab
+Data from Apollo 17 probe 1 upper gradient bridge in parts of 1977. Derived from data in Nagihara et al. 2018 JGR Planets release.
+
+- a17_1977p2f1.tab
+Data from Apollo 17 probe 2 upper gradient bridge in parts of 1977. Derived from data in Nagihara et al. 2018 JGR Planets release.
+
+- a17p1f1.tab
+Data from Apollo 17 probe 1 upper gradient bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p1f2.tab
+Data from Apollo 17 probe 1 lower gradient bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p1f3.tab
+Data from Apollo 17 reference thermometer and probe 1 thermocouples, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p1f4.tab
+Data from Apollo 17 probe 1 upper ring bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p1f5.tab
+Data from Apollo 17 probe 1 lower ring bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p2f1.tab
+Data from Apollo 17 probe 2 upper gradient bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p2f2.tab
+Data from Apollo 17 probe 2 lower gradient bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p2f3.tab
+Data from Apollo 17 reference thermometer and probe 2 thermocouples, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p2f4.tab
+Data from Apollo 17 probe 2 upper ring bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+- a17p2f5.tab
+Data from Apollo 17 probe 2 lower ring bridge, 1972-1974. Derived from NSSDC/Lamont data.
+
+/split
+----
+'Clean' set further reduced and standardized for ease of use. Discards most of the flagged points from the 'clean' set and gives explicit temperature readings for each thermometer rather than giving average temperature and temperature difference values at each thermometer bridge. Converts mission epoch time to YMD UTC. Concatenates the Nagihara sets with the NSSDC sets, giving all available temperature data in a single series per thermometer. Retains 'file' distinction; in other words, there is still one table per thermometer bridge.
+
+- a15p1f1_split.tab
+Data from Apollo 15 probe 1 upper gradient bridge, 1971-1975.
+
+- a15p1f2_split.tab
+Data from Apollo 15 probe 1 lower gradient bridge, 1971-1975.
+
+- a15p1f3_split.tab
+Data from Apollo 15 reference thermometer and probe 1 thermocouples, 1971-1974.
+
+- a15p1f4_split.tab
+Data from Apollo 15 probe 1 upper ring bridge, 1971-1974.
+
+- a15p1f5_split.tab
+Data from Apollo 15 probe 1 lower ring bridge, 1971-1974.
+
+- a15p2f1_split.tab
+Data from Apollo 15 probe 2 upper gradient bridge, 1971-1975.
+
+- a15p2f2_split.tab
+Data from Apollo 15 probe 2 lower gradient bridge, 1971-1975.
+
+- a15p2f3_split.tab
+Data from Apollo 15 reference thermometer and probe 2 thermocouples, 1971-1974.
+
+- a15p2f4_split.tab
+Data from Apollo 15 probe 2 upper ring bridge, 1971-1974.
+
+- a15p2f5_split.tab
+Data from Apollo 15 probe 2 lower ring bridge, 1971-1974.
+
+- a17p1f1_split.tab
+Data from Apollo 17 probe 1 upper gradient bridge, 1972-1977.
+
+- a17p1f2_split.tab
+Data from Apollo 17 probe 1 lower gradient bridge, 1972-1974.
+
+- a17p1f3_split.tab
+Data from Apollo 17 reference thermometer and probe 1 thermocouples, 1972-1974.
+
+- a17p1f4_split.tab
+Data from Apollo 17 probe 1 upper ring bridge, 1972-1974.
+
+- a17p1f5_split.tab
+Data from Apollo 17 probe 1 lower ring bridge, 1972-1974.
+
+- a17p2f1_split.tab
+Data from Apollo 17 probe 2 upper gradient bridge, 1972-1977.
+
+- a17p2f2_split.tab
+Data from Apollo 17 probe 2 lower gradient bridge, 1972-1974.
+
+- a17p2f3_split.tab
+Data from Apollo 17 reference thermometer and probe 2 thermocouples, 1972-1974.
+
+- a17p2f4_split.tab
+Data from Apollo 17 probe 2 upper ring bridge, 1972-1974.
+
+- a17p2f5_split.tab
+Data from Apollo 17 probe 2 lower ring bridge, 1972-1974.
+
+/depth
+----
+The 'split' set further reduced for ease of use, giving temperature, time, and depth in one table per mission. This set *only* includes depth values for sensors below the surface and discards values for TC4 to avoid ambiguity with TG11A. 
+
+- a15p1_depth.tab
+Data from Apollo 15 probe 1.
+
+- a15p2_depth.tab
+Data from Apollo 15 probe 2.
+
+- a17p1_depth.tab
+Data from Apollo 17 probe 1.
+
+- a17p2_depth.tab
+Data from Apollo 17 probe 2.
