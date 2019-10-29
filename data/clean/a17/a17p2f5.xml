@@ -4,7 +4,7 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
 	<Identification_Area>
-		<logical_identifier>urn:nasa:pds:lid_tbd:data:a17p2f5</logical_identifier>
+		<logical_identifier>urn:nasa:pds:lid_tbd:data:a17p2f5_clean</logical_identifier>
 		<version_id>1.0</version_id>
 		<title>Apollo 17 probe 2 file 5 'clean'</title>
 		<information_model_version>1.12.0.0</information_model_version>

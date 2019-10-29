@@ -4,8 +4,8 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
 	<Identification_Area>
-		<logical_identifier>LID_TBD:data:depth:a15p1</logical_identifier>
-		<version_id>1.0<version_id>
+		<logical_identifier>urn:nasa:pds:lid_tbd:data:a15p1</logical_identifier>
+		<version_id>1.0</version_id>
 		<title>Apollo 15 probe 1 'depth</title>
 		<information_model_version>1.12.0.0</information_model_version>
 		<product_class>Product_Observational</product_class>
@@ -17,7 +17,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 		</Citation_Information>
 		<Modification_History>
 			<Modification_Detail>
-				<modification_date>TBD</modification_date>
+				<modification_date>2019</modification_date>
 	            <version_id>1.0</version_id>
 	            <description>Initial version.</description>
 	        </Modification_Detail>
@@ -89,27 +89,26 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	    <Table_Delimited>
 	      <name>a15p1_depth</name>
 	      <offset unit="byte">27</offset>
+	      <parsing_standard_id>PDS DSV 1</parsing_standard_id>
 	      <records>187882</records>
-	      <description>This table contains data from 1971-1975 for most subsurface sensors of Apollo 15 probe 1 in this bundle's 'depth' format. It includes data from various products in PDS3 bundle A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0 and PDS4 collection urn:nasa:pds:a15hfe_calibrated_arcsav:data.</description>
 	      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
 	      <field_delimiter>Comma</field_delimiter>
 	      <Record_Delimited>
-	      	<fields>4</fields>
+	      	<fields>5</fields>
 	      	<groups>0</groups>
-	      	<maximum_record_length>48</maximum_record_length>
-	      </Record_Delimited>
+	      	<maximum_record_length unit="byte">49</maximum_record_length>
 	      	<Field_Delimited>
 	      		<name>Time</name>
 	      		<field_number>1</field_number>
 	      		<data_type>ASCII_Date_Time_YMD_UTC</data_type>
-	      		<maximum_field_length unit="byte">14</field_length>
+	      		<maximum_field_length unit="byte">24</maximum_field_length>
 	      		<description>Earth-received date and time of observation.</description>
 	      	</Field_Delimited>
 	      	<Field_Delimited>
 	      		<name>T</name>
 	      		<field_number>2</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">9</field_length>
+	      		<maximum_field_length unit="byte">9</maximum_field_length>
 	      		<unit>K</unit>
 	      		<description>Temperature of the thermometer. Derived from average and corrected differential temperature values when not given in source data; otherwise, explicitly-given temperature from source data.</description>
 	      	</Field_Delimited>
@@ -117,14 +116,14 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	      		<name>sensor</name>
 	      		<field_number>3</field_number>
 	      		<data_type>ASCII_String</data_type>
-	      		<maximum_field_length unit="byte">5</field_length>
+	      		<maximum_field_length unit="byte">5</maximum_field_length>
 	      		<description>Thermometer code name. For differential thermometers: 'T' + 'R' for ring or 'G' for gradient + probe number + probe half (1 upper, 2 lower) + 'A' for upper or 'B' for lower thermometer of bridge. For thermocouples: 'TC' + probe number + thermocouple number.</description>
 	      	</Field_Delimited>
 	      	<Field_Delimited>
 	      		<name>depth</name>
 	      		<field_number>4</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">3</field_length>
+	      		<maximum_field_length unit="byte">3</maximum_field_length>
 	      		<unit>cm</unit>
 	      		<description>Thermometer depth below lunar surface, in cm.</description>
 	      	</Field_Delimited>
@@ -132,7 +131,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	      		<name>flags</name>
 	      		<field_number>5</field_number>
 	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">1</field_length>
+	      		<maximum_field_length unit="byte">1</maximum_field_length>
 	      		<description>Bitmask marking special features of some data points.</description>
 	      	</Field_Delimited>
 	      </Record_Delimited>

@@ -4,8 +4,8 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>LID_TBD:source:a17p2f5</logical_identifier>
-        <version_id>1.0<version_id>
+        <logical_identifier>urn:nasa:pds:lid_tbd:source:a17p2f5</logical_identifier>
+        <version_id>1.0</version_id>
         <title>Apollo 17 probe 2 file 5 source</title>
         <information_model_version>1.12.0.0</information_model_version>
         <product_class>Product_Observational</product_class>
@@ -13,11 +13,11 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
             <author_list>Hills, K. and Williams, D.R.</author_list>
             <editor_list>TBD</editor_list>
             <publication_year>2019</publication_year>
-            <description>This is a copy of PDS3 product A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_5-201201. It contains data from 1972 to 1974 for the lower ring bridge of Apollo 17 probe 2, restored from tapes provided by personnel at Lamont Observatory to the NSSDC. Programs included in LID_TBD:source can operate on it to generate products in LID_TBD:data.</description>
+            <description>This is a copy of PDS3 product A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_5-201201. It contains data from 1972 to 1974 for the lower ring bridge of Apollo 17 probe 2, restored from tapes provided by personnel at Lamont Observatory to the NSSDC. Programs included in urn:nasa:pds:lid_tbd:source can operate on it to generate products in LID_TBD:data.</description>
         </Citation_Information>
         <Modification_History>
             <Modification_Detail>
-                <modification_date>TBD</modification_date>
+                <modification_date>2019</modification_date>
                 <version_id>1.0</version_id>
                 <description>Initial version.</description>
             </Modification_Detail>
@@ -92,7 +92,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
           <Record_Character>
             <fields>3</fields>
             <groups>0</groups>
-            <record_length>48</record_length>
+            <record_length unit="byte">48</record_length>
             <Field_Character>
                 <name>TIME (ms)</name>
                 <field_number>1</field_number>
