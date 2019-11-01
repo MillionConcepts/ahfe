@@ -4,9 +4,9 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>LID_TBD:document:lamont_data_tapes</logical_identifier>
+        <logical_identifier>urn:nasa:pds:lid_tbd:document:lamont_data_tapes</logical_identifier>
         <version_id>1.0</version_id>
-        <title>Description of Lamont/NSSDC AHFE data tapes</title>
+        <title>Description of Apollo Heat Flow Experiment Data Tapes</title>
         <information_model_version>1.12.0.0</information_model_version>
         <product_class>Product_Document</product_class>
         <Citation_Information>            
@@ -15,7 +15,7 @@
         </Citation_Information>
         <Modification_History>
           	<Modification_Detail>
-                <modification_date>TBD</modification_date>
+                <modification_date>2019</modification_date>
                 <version_id>1.0</version_id>
                 <description>Copied file from PDS3 bundle.</description>
             </Modification_Detail>

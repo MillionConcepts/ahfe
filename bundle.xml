@@ -13,7 +13,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
             <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
             <editor_list>TBD</editor_list>
             <publication_year>2019</publication_year>
-            <description>This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of data from all available sources for the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature, specifically (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much later from ARCSAV tapes. The data here correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.</description>
+            <description>This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of all available calibrated data from the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature, specifically (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much later from ARCSAV tapes. The data here correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.</description>
         </Citation_Information>
         <Modification_History>
         	<Modification_Detail>
@@ -125,8 +125,19 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
     <Bundle>
         <bundle_type>Archive</bundle_type>
     </Bundle>
-    <!-- TBD <File_Area_Text>
-    </File_Area_Text> -->
+    <File_Area_Text>
+        <File>
+            <file_name>README.txt</file_name>
+            <comment>Introduction to Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</comment>
+        </File>
+        <Stream_Text>
+            <name>README</name>
+            <offset unit="byte">0</offset>
+            <parsing_standard_id>UTF-8 Text</parsing_standard_id>
+            <description>Introduction to Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</description>
+            <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+        </Stream_Text>   
+    </File_Area_Text>
     <Bundle_Member_Entry>
         <lid_reference>urn:nasa:pds:lid_tbd:data</lid_reference>
         <member_status>Primary</member_status>

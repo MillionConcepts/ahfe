@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>LID_TBD:document:as17-134-20497HR</logical_identifier>
+        <logical_identifier>urn:nasa:pds:lid_tbd:document:hfe_photo_in_situ</logical_identifier>
         <version_id>1.0</version_id>
         <title>Apollo 17 Photograph as17-134-20497HR</title>
         <information_model_version>1.12.0.0</information_model_version>
@@ -16,7 +16,7 @@
         </Citation_Information>
         <Modification_History>
              <Modification_Detail>
-                <modification_date>TBD</modification_date>
+                <modification_date>2019</modification_date>
                 <version_id>1.0</version_id>
                 <description>File copied from Apollo 17 Image Library.</description>
             </Modification_Detail>
@@ -29,15 +29,15 @@
         </Time_Coordinates>
     </Context_Area>
     <Document>
-        <publication_date>1972</publication_date>
         <acknowledgement_text>Taken from the NASA Apollo 17 Image Library (https://www.hq.nasa.gov/alsj/a17/images17.html).</acknowledgement_text>
+        <publication_date>1972</publication_date>
         <description>This photograph provides an in-situ view of the HFE probes in relation to one another and the central HFE electronics box. Eric M. Jones' caption: "ALSEP. Down-Sun of the east heat flow hole. LSG, HFE, west hole in background, cable from the Central Station."</description>
         <Document_Edition>
             <edition_name>JPEG version</edition_name>
             <language>English</language>
             <files>1</files>
             <Document_File>
-                <file_name>as17-134-2049HR.jpg</file_name>
+                <file_name>hfe_photo_in_situ.jpg</file_name>
                 <document_standard_id>JPEG</document_standard_id>
             </Document_File>
         </Document_Edition>
