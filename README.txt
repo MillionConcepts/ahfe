@@ -1,5 +1,7 @@
 # Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle
 
+This is now organized as a PDS4 bundle. Please note that the contents of this bundle have not yet been reviewed by the PDS and should be considered preliminary.
+
 This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of all available calibrated data from the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature (see "sources" below): (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much more recently.
 
 The data in this bundle correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.
