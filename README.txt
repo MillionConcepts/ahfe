@@ -16,7 +16,7 @@ Background documents and bundle documentation are in the /document collection.
 
 Processed data is in the /data collection.
 
-For for verification, error correction, and extensibility purposes, we have included code in document_source that should reproduce the data collection. Running hfe_cleaner.py in /document_source should generate an identical tree named /document_source/data_local. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
+For verification, error correction, and extensibility purposes, we have included code in document_source that should reproduce the data collection. Running hfe_cleaner.py in /document_source should generate an identical tree named /document_source/data_local. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
 
 ## sources
 
