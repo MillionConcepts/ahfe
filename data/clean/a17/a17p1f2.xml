@@ -4,14 +4,14 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
 	<Identification_Area>
-		<logical_identifier>urn:nasa:pds:lid_tbd:data:a17p1f2_clean</logical_identifier>
+		<logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:data:a17p1f2_clean</logical_identifier>
 		<version_id>1.0</version_id>
 		<title>Apollo 17 probe 2 file 2 'clean'</title>
 		<information_model_version>1.12.0.0</information_model_version>
 		<product_class>Product_Observational</product_class>
 		<Citation_Information>
 			<author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
-			<editor_list>TBD</editor_list>
+			<editor_list>Ward, J.</editor_list>
 			<publication_year>2019</publication_year>
 			<description>This table contains data from 1972-1974 for the lower gradient bridge of Apollo 17 probe 1 in this bundle's 'clean' format. It is basically a corrected and marked-up version of PDS3 product A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:a17_HFE_P1_2-201201.</description>
 		</Citation_Information>
@@ -38,7 +38,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 		</Investigation_Area>
 		<Observing_System>
 	      <Observing_System_Component>
-	        <name>Apollo 17 ALSEP</name>
+	        <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
 	        <type>Spacecraft</type>
 	        <Internal_Reference>
 	          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
@@ -46,7 +46,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
 	        </Internal_Reference>
 	      </Observing_System_Component>
 	      <Observing_System_Component>
-	        <name>Apollo 17 Heat Flow Experiment</name>
+	        <name>HEAT FLOW EXPERIMENT</name>
 	        <type>Instrument</type>
 	        <Internal_Reference>
 	          <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>

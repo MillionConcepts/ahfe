@@ -4,14 +4,14 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>urn:nasa:pds:lid_tbd</logical_identifier>
+        <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated</logical_identifier>
         <version_id>1.0</version_id>
         <title>Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</title>
         <information_model_version>1.12.0.0</information_model_version>
         <product_class>Product_Bundle</product_class>
         <Citation_Information>
             <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
-            <editor_list>TBD</editor_list>
+            <editor_list>Ward, J.</editor_list>
             <publication_year>2019</publication_year>
             <description>This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of all available calibrated data from the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature, specifically (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much later from ARCSAV tapes. The data here correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.</description>
         </Citation_Information>
@@ -51,7 +51,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
     	</Investigation_Area>
     	<Observing_System>
             <Observing_System_Component>
-                <name>Apollo 15 ALSEP</name>
+                <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
                 <type>Spacecraft</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
@@ -59,7 +59,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
                 </Internal_Reference>
             </Observing_System_Component>
             <Observing_System_Component>
-                <name>Apollo 15 Heat Flow Experiment</name>
+                <name>HEAT FLOW EXPERIMENT</name>
                 <type>Instrument</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
@@ -69,7 +69,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Observing_System>
         <Observing_System>
             <Observing_System_Component>
-                <name>Apollo 17 ALSEP</name>
+                <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
                 <type>Spacecraft</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
@@ -77,7 +77,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
                 </Internal_Reference>
             </Observing_System_Component>
             <Observing_System_Component>
-                <name>Apollo 17 Heat Flow Experiment</name>
+                <name>HEAT FLOW EXPERIMENT</name>
                 <type>Instrument</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
@@ -139,17 +139,17 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Stream_Text>   
     </File_Area_Text>
     <Bundle_Member_Entry>
-        <lid_reference>urn:nasa:pds:lid_tbd:data</lid_reference>
+        <lid_reference>urn:nasa:pds:a15_17_hfe_concatenated:data</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_data_collection</reference_type>
     </Bundle_Member_Entry>
     <Bundle_Member_Entry>
-        <lid_reference>urn:nasa:pds:lid_tbd:document</lid_reference>
+        <lid_reference>urn:nasa:pds:a15_17_hfe_concatenated:document</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_document_collection</reference_type>
     </Bundle_Member_Entry>
     <Bundle_Member_Entry>
-        <lid_reference>urn:nasa:pds:lid_tbd:document_source</lid_reference>
+        <lid_reference>urn:nasa:pds:a15_17_hfe_concatenated:document_source</lid_reference>
         <member_status>Primary</member_status>
         <reference_type>bundle_has_document_collection</reference_type>
     </Bundle_Member_Entry>

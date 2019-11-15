@@ -26,11 +26,17 @@ Chapter 11 of the Apollo 15 Preliminary Science Report, containing instrument PI
 - a17_psr_ch9_hfe.pdf
 Chapter 9 of the Apollo 17 Preliminary Science Report, containing Langseth's technical and scientific summary of the Apollo 17 HFE.
 
-- ahfe final technical report.pdf
+- ase_data_handbook_10.pdf
+Chapter 10 of the Apollo Surface Experiments Data Handbook, providing description and operational history of the AHFE.
+
+- final_technical_report.pdf
 The Lunar Heat Flow Experiment Final Technical Report, Langseth's monograph-length discussion of instrument architecture, engineering challenges, and collected data up through the end of 1974.
 
-- AS17-134-20497HR.jpg
+- hfe_photo_in_situ.jpg
 Photograph of the Apollo 17 HFE in situ on the Moon.
+
+- probe_geometry.jpg
+Abstract schematic showing relative probe sensor positions and logical file membership.
 
 /lamont-nssdc
 ----

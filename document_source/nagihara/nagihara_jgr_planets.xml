@@ -4,16 +4,15 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
     <Identification_Area>
-        <logical_identifier>urn:nasa:pds:lid_tbd:source:nagihara_jgr_planets</logical_identifier>
+        <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:document_source:nagihara_jgr_planets</logical_identifier>
         <version_id>1.0</version_id>
         <title>hfe_corrections.py</title>
       	<information_model_version>1.12.0.0</information_model_version>
       	<product_class>Product_Document</product_class>
       	<Citation_Information>
       		<author_list>Nagihara, S., Kiefer, W.S., Taylor, P.T., Williams, D.R., and Nakamura, Y.</author_list>
-      		<editor_list>TBD</editor_list>
       		<publication_year>2018</publication_year>
-      		<description>This is a Microsoft Excel spreadsheet released by Nagihara et al. as supplementary material to "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018. It contains data for some HFE gradient bridges, recovered by Nagihara et al. from ARCSAV tapes. Specifically, it contains data for Apollo 15 probe 1 files 1 and 2 in 1975, Apollo 15 probe 2 file 2 in 1975, Apollo 17 probe 1 file 1 from 1975-1977, and Apollo 17 probe 2 file 1 from 1975-1977. The original filename was 'jgre20941-sup-0001-2018je005579-ds01.xlsx'.</description>
+      		<description>This data was released by Nagihara et al. as supplementary material to "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018. These data were recovered by Nagihara et al. from tapes not archived at the NSSDC. They include data from Apollo 15 probe 1 files 1 and 2 in 1975, Apollo 15 probe 2 file 2 in 1975, Apollo 17 probe 1 file 1 from 1975-1977, and Apollo 17 probe 2 file 1 from 1975-1977. The Excel version is the file released with the publication; the original filename was 'jgre20941-sup-0001-2018je005579-ds01.xlsx'.</description>
         </Citation_Information>
       	<Modification_History>
       		<Modification_Detail>
@@ -42,7 +41,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Investigation_Area>
         <Observing_System>
             <Observing_System_Component>
-                <name>Apollo 15 ALSEP</name>
+                <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
                 <type>Spacecraft</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
@@ -50,7 +49,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
                 </Internal_Reference>
             </Observing_System_Component>
             <Observing_System_Component>
-                <name>Apollo 15 Heat Flow Experiment</name>
+                <name>HEAT FLOW EXPERIMENT</name>
                 <type>Instrument</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
@@ -60,7 +59,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
         </Observing_System>
         <Observing_System>
             <Observing_System_Component>
-                <name>Apollo 17 ALSEP</name>
+                <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
                 <type>Spacecraft</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
@@ -68,7 +67,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
                 </Internal_Reference>
             </Observing_System_Component>
             <Observing_System_Component>
-                <name>Apollo 17 Heat Flow Experiment</name>
+                <name>HEAT FLOW EXPERIMENT</name>
                 <type>Instrument</type>
                 <Internal_Reference>
                     <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
@@ -87,13 +86,14 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
     </Context_Area>
     <Reference_List>
         <External_Reference>
-            <reference_text>Nagihara et al., Examination of the Long Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018. doi:10.1029/2018JE005579</reference_text>
+            <doi>10.1029/2018JE005579</doi>
+<reference_text>Nagihara et al., Examination of the Long Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018.</reference_text>
             <description>Data released with publication as Excel spreadsheet.</description>
         </External_Reference>
     </Reference_List>
     <Document>
         <publication_date>2018</publication_date>
-        <description>This is a Microsoft Excel spreadsheet released by Nagihara et al. as supplementary material to "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018. It contains data for some HFE gradient bridges, recovered by Nagihara et al. from ARCSAV tapes. Specifically, it contains data for Apollo 15 probe 1 files 1 and 2 in 1975, Apollo 15 probe 2 file 2 in 1975, Apollo 17 probe 1 file 1 from 1975-1977, and Apollo 17 probe 2 file 1 from 1975-1977. The original filename was 'jgre20941-sup-0001-2018je005579-ds01.xlsx'.</description>
+        <description>This data was released by Nagihara et al. as supplementary material to "Examination of the Long‐Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977," JGR Planets 123 (5), May 2018. These data were recovered by Nagihara et al. from tapes not archived at the NSSDC. They include data from Apollo 15 probe 1 files 1 and 2 in 1975, Apollo 15 probe 2 file 2 in 1975, Apollo 17 probe 1 file 1 from 1975-1977, and Apollo 17 probe 2 file 1 from 1975-1977. The Excel version is the file released with the publication; the original filename was 'jgre20941-sup-0001-2018je005579-ds01.xlsx'.</description>
         <Document_Edition>
             <edition_name>Microsoft Excel Version</edition_name>
             <language>English</language>
@@ -101,6 +101,15 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
             <Document_File>
                 <file_name>nagihara_jgr_planets.xlsx</file_name>
                 <document_standard_id>Microsoft Excel</document_standard_id>
+            </Document_File>
+        </Document_Edition>
+        <Document_Edition>
+            <edition_name>PDF/A Version</edition_name>
+            <language>English</language>
+            <files>1</files>
+            <Document_File>
+                <file_name>nagihara_jgr_planets.pdf</file_name>
+                <document_standard_id>PDF/A</document_standard_id>
             </Document_File>
         </Document_Edition>
     </Document>

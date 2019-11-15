@@ -6,7 +6,7 @@ This bundle collects all available calibrated data from the Apollo 15 and 17 Hea
 
 **Note to PDS reviewer: this paragraph is a placeholder reference to a forthcoming publication by our team in P&SS which provides a narrative of the data's history and our ingestion processes that is more detailed than we consider desirable for primary documentation [^5] which can be updated with doi after assigned. If preferable, we could alternatively link to a version on arXiv.**
 
- A variety of other useful references are included later in this document. 
+A variety of other useful references are included later in this document. 
 
 ## Data sources
 
@@ -14,7 +14,7 @@ There are two primary sources for the data in this bundle.
 
 ### Lamont-NSSDC data
 
-First, data sent by Johnson Space Center to Lamont-Doherty Observatory of Columbia University, processed and analyzed under the direction of mission PI Marcus Langseth, and subsequently sent to the National Space Science Data Center (NSSDC) for archival. These data were only available as binary data in a custom filesystem on magnetic tape until 2005, when an effort led by H. Kent Hills converted them to fixed-width ASCII tables. These tables are archived in the PDS [^6] [^7] and copied in this bundle, with PDS4 labels, in the ``document_source`` collection. We refer to these data as the 'Lamont data' or 'Lamont-NSSDC data.' More detail about the structure and format of these data can be found in [^8], [^9], and [^10], copied in this collection in /lamont-nssdc. These data cover the period from 1971-1974. Lamont does not appear to have processed any data after the end of 1974; none are mentioned in Langseth's subsequent publications. They certainly ceased archival at the end of 1974.
+First, data sent by Johnson Space Center to Lamont-Doherty Observatory of Columbia University, processed and analyzed under the direction of instrument PI Marcus Langseth, and subsequently sent to the National Space Science Data Center (NSSDC) for archival. These data were only available as binary data in a custom filesystem on magnetic tape until 2005, when an effort led by H. Kent Hills converted them to fixed-width ASCII tables. These tables are archived in the PDS [^6] [^7] and copied in this bundle, with PDS4 labels, in the ``document_source`` collection. We refer to these data as the 'Lamont data' or 'Lamont-NSSDC data.' More detail about the structure and format of these data can be found in [^8], [^9], and [^10], copied in this collection in /lamont-nssdc. These data cover the period from 1971-1974. Lamont does not appear to have processed any data after the end of 1974; none are mentioned in Langseth's subsequent publications. They certainly ceased archival at the end of 1974.
 
 ### Nagihara data
 
@@ -79,7 +79,7 @@ We provide three different data sets, formatted  for varying use cases.
 
 ### ``Clean``
 
-This set follows the basic table and number format of [^6] and [^7] for maximum compatibility with existing AHFE workflows. It provides time, T, and dT for files 1, 2, 4, and 5; and time, reference thermometer temperature, thermocouple temperatures, and heater state for file 3. It also adds one or two additional columns per file: ``flags`` and sometimes also ``dT_corr.`` ``flags`` is a bitmask marking special features of some data points, such as the presence of a missing data constant or an artifact. See section 'Bitmask Values' below for an index to these values, and section 'Errors and Artifacts' for an explanation of some of these features. ``dT_corr`` that contains dT values after correction for numerical errors that appear in some of the Lamont data: see 'Bitflips' and 'Saturated Bridges and Sensitivity Selection' below.
+This set follows the basic table and number format of [^6] and [^7] for maximum compatibility with existing AHFE workflows. It provides time, T, and dT for files 1, 2, 4, and 5; and time, reference thermometer temperature, thermocouple temperatures, and heater state for file 3. It also adds one or two additional columns per file: ``flags`` and sometimes also ``dT_corr.`` ``flags`` is a bitmask marking special features of some data points, such as the presence of a missing data constant or an artifact. See section 'Bitmask Values' below for an index to these values, and section 'Errors and Artifacts' for an explanation of some of these features. ``dT_corr`` contains dT values after correction for numerical errors that appear in some of the Lamont data: see 'Bitflips' and 'Saturated Bridges and Sensitivity Selection' below.
 
 It ingests [^11], [^13], and [^15] and converts them to this table and number format, organizing them by file but keeping 1975, 1976, and 1977 data separate from one another and from the Lamont data. It also converts time units in these files from DOY UTC to mission epoch. It deviates from the number format of [^6] and [^7] by adding several additional digits to the ``Time`` field in order to retain the millisecond precision of the Nagihara sets. It generates only one dT column from the Nagihara PDS sets: at each point, it selects the dT measurement that the Nagihara team used to calculate per-thermometer temperature values from average temperature. It converts data from [^11] to T and dT by, respectively, averaging and computing the difference of the explicitly-given thermometer temperatures.
 
@@ -92,7 +92,7 @@ This set presents the data in a more user-friendly fashion, with the following f
 * substitutes the ``dT_corr`` field for ``dT.`` 
 * discards most flagged points from ``clean,`` pruning impulsive outliers and missing data to reduce data cleaning time 
 * discards the mangled ``HTR`` field from file 3.
-* gives explicit temperature values at each differential thermometer rather than T and dT (it takes explicit temperatures from [^11], [^13], and [^15] and computers them from [^6] and [^7]).
+* gives explicit temperature values at each differential thermometer rather than T and dT (it takes explicit temperatures from [^11], [^13], and [^15] and computes them from [^6] and [^7]).
 
 Note that both ``split`` and ``depth,`` taken along with the reduction code in the ``document_source`` collection of this bundle, may be viewed as *templates* for the assembly of various versions of the AHFE data. For instance, users who wish to retain impulsive outliers might wish to examine the ``forbidden_flags`` variable in hfe_utils.py.
 
@@ -118,7 +118,7 @@ Express ``n`` as a binary exponential; ``n = -2^a * (1 + m)`` for a unique integ
 
 This error can be numerically reversed if the correct ``a`` is known; however, ``bitflip(n)`` is not one-to-one and is therefore potentially lossy. 
 
-We have reversed the bitflip in all Lamont data using our best available heuristics. However, we believe that its potential lossiness makes some of these corrections ambiguous, particularly when ``n-bitflip(n)`` is small compared to the time-series variation in ``n`` . Our choice of ``a`` for each negative dT can be viewed in hfe_corrections.py. We have given apparently-ambiguous bitflip reversals the value '2' in our flag bitmask.
+We have reversed the bitflip in all Lamont data using our best available heuristics. However, we believe that its potential lossiness makes some of these corrections ambiguous, particularly when ``n - bitflip(n)`` is small compared to the time-series variation in ``n`` . Our choice of ``a`` for each negative dT can be viewed in hfe_corrections.py. We have given apparently-ambiguous bitflip reversals the value '2' in our flag bitmask.
 
 ### Impulsive Outliers
 
@@ -210,7 +210,7 @@ See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for p
 
 *only used in file 3:*
 
-* 10000: outlier in HTR (placeholder; not used due to irregularities in HTR values)
+* 10000: outlier in HTR (placeholder; not used due to mangled HTR values)
 * 100000: outlier in TREF
 * 1000000: outlier in TC1
 * 10000000: outlier in TC2
@@ -243,6 +243,6 @@ See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for p
 [^15]: "Apollo 17 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a17hfe_calibrated_arcsav. Data collection included in this bundle in /document_source collection.
 [^16]: "Heat Flow Experiment." In *Apollo 15 Preliminary Science Report,* ch. 11. Marcus Langseth et al. NASA: 1972. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
 [^17]: "Heat Flow Experiment." In *Apollo 17 Preliminary Science Report*, ch. 9. Marcus Langseth et al. NASA: 1973. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
-[^18]: *Lunar Heat-Flow Experiment: Final Technical Report.* Marcus Langseth. Lamont-Doherty Observatory of Columbia University, September 1977. Included in this collection as /hfe/final technical report.pdf.
-[^19]: *Apollo Scientific Experiments Data Handbook,* Section 10 (1976 revision). W.W. Lauderdale and W.F. Eichelman. NASA: Lyndon B. Johnson Space Center, August 1976. Included in this collection as ase_data_handbook_10.pdf.
+[^18]: *Lunar Heat-Flow Experiment: Final Technical Report.* Marcus Langseth. Lamont-Doherty Observatory of Columbia University, September 1977. Included in this collection as /hfe/final_technical_report.pdf.
+[^19]: *Apollo Scientific Experiments Data Handbook,* Section 10 (1976 revision). W.W. Lauderdale and W.F. Eichelman. NASA: Lyndon B. Johnson Space Center, August 1976. Included in this collection as /hfe/ase_data_handbook_10.pdf.
 

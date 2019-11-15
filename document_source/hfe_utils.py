@@ -154,12 +154,10 @@ def write_deep_hfe(data,outpath='.',version=''):
             data_deep_out[m][p].to_csv('{outpath}/{m}{p}{v}_depth.tab'.format(
                 outpath=outpath,m=m,p=p,v=version),index=False,line_terminator='\r\n')
 
-# Functions for interpreting data released by Nagihara et. al along with their 2018 paper "Examination of the 
-# Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly 
-# archival tapes (reformatted sets: PSPG-00752 and PSPG-00753; original sets PSPG-00093 and PSPG-000222),
-# along with their 2019 PDS release of releated data.
-# Output intended primarily as intermediate data for further correction and reduction by
-# other utilities in this module.   
+# Functions for interpreting data released by Nagihara et. al along with their 2018 paper "Examination of 
+# the Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored 
+# Heat Flow Experiment Data From 1975 to 1977." Output intended primarily as intermediate data for 
+# further correction and reduction by other utilities in this module.   
     
 # The original reduced Apollo HFE data uses an epoch time format: milliseconds from 24 hours before the beginning of the 
 # mission's start year. This is December 31, 1970 for Apollo 15, and December 31, 1971 for Apollo 17. 
