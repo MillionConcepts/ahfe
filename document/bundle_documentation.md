@@ -94,7 +94,7 @@ This set presents the data in a more user-friendly fashion, with the following f
 * discards the mangled ``HTR`` field from file 3.
 * gives explicit temperature values at each differential thermometer rather than T and dT (it takes explicit temperatures from [^11], [^13], and [^15] and computes them from [^6] and [^7]).
 
-Note that both ``split`` and ``depth,`` taken along with the reduction code in the ``document_source`` collection of this bundle, may be viewed as *templates* for the assembly of various versions of the AHFE data. For instance, users who wish to retain impulsive outliers might wish to examine the ``forbidden_flags`` variable in hfe_utils.py.
+Note that both ``split`` and ``depth,`` taken along with the reduction code copied for user convenience in the ``document_source`` collection of this bundle, may be viewed as *templates* for the assembly of various versions of the AHFE data. For instance, users who wish to retain impulsive outliers might wish to examine the ``forbidden_flags`` variable in hfe_utils.py.
 
 ### ``Depth``
 

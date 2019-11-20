@@ -13,7 +13,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
     		<author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
     		<editor_list>Ward, J.</editor_list>
     		<publication_year>2019</publication_year>
-    		<description>Simple Python script to ingest source data and send them through reduction pipeline defined by functions in hfe_utils.py and hfe_corrections.py. Running 'python hfe_cleaner.py' in this directory, given an appropriately configured Python 3 environment, will generate a directory tree named 'data_local' that reproduces all data in this bundle's primary data collection. Small modifications to this script can be used to write data out to other filepaths. Dependencies beyond the Python 3 standard library are: astropy, numpy, pandas. The Anaconda distribution of Python is preferred.</description>
+    		<description>Simple Python script to ingest source data and send them through reduction pipeline defined by functions in hfe_utils.py and hfe_corrections.py. Running 'python hfe_cleaner.py' in this directory, given an appropriately configured Python 3 environment, will generate a directory tree named 'data_local' that reproduces all data in this bundle's primary data collection. Small modifications to this script can be used to write data out to other filepaths. Dependencies beyond the Python 3 standard library are: astropy, numpy, pandas. The Anaconda distribution of Python is preferred. This script is mirrored from its primary storage location on Github for user convenience.</description>
         </Citation_Information>
     	<Modification_History>
     		<Modification_Detail>
@@ -108,6 +108,14 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
             <doi>10.1029/2018JE005579</doi>
             <reference_text>Nagihara et al., Examination of the Long Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018.</reference_text>
             <description>Data released with publication as Excel spreadsheet. Contains data recovered from ARCSAV tapes. This program operates on a copy of this spreadsheet included in this collection. Used here for data in 1976 and 1977.</description>
+        </External_Reference>
+        <External_Reference>
+            <reference_text>St. Clair, M; Million, C.; Siegler, M., 2019. ahfe_scripts: processing scripts for apollo heat flow experiment data. https://github.com/NASA-Planetary-Science/ahfe_scripts</reference_text>
+            <description>Github repository that serves as primary storage location for this script.</description>
+        </External_Reference>
+        <External_Reference>
+            <reference_text>Python Language Reference. https://docs.python.org/3/reference</reference_text>
+            <description>Language reference for Python.</description>
         </External_Reference>
     </Reference_List>
     <Document>

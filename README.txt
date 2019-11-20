@@ -2,7 +2,7 @@
 
 **PLEASE NOTE THAT THE DATA IN THIS BUNDLE HAVE NOT YET BEEN APPROVED BY THE PDS AND SHOULD BE CONSIDERED PRELIMINARY.**
 
-This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of all available calibrated data from the Apollo 15 and 17 Heat Flow Experiment, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature (see "sources" below): (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much more recently.
+This bundle contains ASCII tables containing corrected, reduced, and concatenated versions of all available calibrated data from the Apollo 15 and 17 Heat Flow Experiments, along with supporting documentation and source data. These tables are based on other data in the PDS and the published literature (see "sources" below): (1) transcriptions of data sent by the original instrument team to the NSSDC and (2) data not archived by the instrument team and recovered much more recently.
 
 The data in this bundle correct several errors in (1), and furthermore place (1) and (2) into a standardized format for ease of use.
 
@@ -16,7 +16,7 @@ Background documents and bundle documentation are in the /document collection.
 
 Processed data is in the /data collection.
 
-For verification, error correction, and extensibility purposes, we have included code in document_source that should reproduce the data collection. (This code is stored in Github and included here as a convenience for users.) Running hfe_cleaner.py in /document_source should generate an identical tree named /document_source/data_local. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
+The reduction code for this data is stored in a NASA-Planetary-Science repository on Github: https://github.com/NASA-Planetary-Science/ahfe_scripts. We have copied it in this bundle for the convenience of users who might wish to verify, correct errors in, or extend the functionality of these data sets. Running hfe_cleaner.py in /document_source should generate a tree named /document_source/data_local that contains identical versions of all data in the /data collection. Dependencies beyond the Python 3 standard library are astropy, pandas, and numpy. The Anaconda distribution is recommended.
 
 ## sources
 
@@ -32,5 +32,4 @@ http://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-a17hfe_calibrated_arcsav/dat
 S. Nagihara and Y. Nakamura. Apollo 15 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Collection (1975-092 to 1975-181), 2019. URL
 http://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-a15hfe_calibrated_arcsav/data/collection.xml .
 
-Ancillary material released along with: S. Nagihara, W.S. Kiefer, P.T. Taylor, and Y. Nakamura. Examination of the long-term subsurface warming observed at the apollo 15 and 17 sites utilizing the newly restored heat flow experiment data from 1975 to 1977.
-J Geophysical Research: Planets, April 2018. doi: 10.1029/2018JE005579
+Ancillary material released along with: S. Nagihara, W.S. Kiefer, P.T. Taylor, and Y. Nakamura. Examination of the long-term subsurface warming observed at the apollo 15 and 17 sites utilizing the newly restored heat flow experiment data from 1975 to 1977. J Geophysical Research: Planets, April 2018. doi: 10.1029/2018JE005579
