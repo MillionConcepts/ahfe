@@ -30,8 +30,7 @@ Some data recovered by Nagihara et al. were released with [^11]. The portions of
 
 Each probe included twelve separate thermometers: eight organized into four differential pairs, and four individual thermocouples. There was also a shared reference thermometer (TREF) in the central HFE electronics package. For more detail on the physical probe apparatus, including thermometer architecture and tolerances, see [^14] and [^15]. [^16] provides a monograph-length science and engineering narrative for the probes and [^17] provides their official engineering description and technical specifications. All of these documents are included in the /hfe subdirectory of this collection.
 
-The data were intended for reduction into five separate data sections or 'files' per probe, giving twenty total files for the entire AHFE. 
-Each of these files correspond to a set of probe thermometers. 
+The data were intended for reduction into five separate data sections or 'files' per probe, giving twenty total files for the entire AHFE. Each of these files correspond to a set of probe thermometers. 
 
 We provide an simplified schematic in the /hfe subdirectory of this collection (probe_schematic.jpg) that displays thermometer layout and file membership, and also list them here:
 
@@ -69,7 +68,7 @@ In [^11], Nagihara et al. give data from Apollo 15 TG11, TG12, and TG22; and fro
 
 ### Nagihara PDS format
 
-The calibrated PDS data from Nagihara et al. give data from all Apollo 15 gradient bridges, as well as TG11 and TG21. They give time in DOY UTC to millisecond precision. They give temperature and dT for each bridge to millikelvin precision. They give two separate dT fields: ``dTH,`` for the bridge's high-sensitivity measurement, and ``dTL,`` for the bridge's low-sensitivity measurement (see mission documentation for more details on these separate sensitivities). They use an opposite dT sign convention from the Nagihara data: their dT values is positive if the upper thermometer is warmer. 
+The calibrated PDS data from Nagihara et al. give data from all Apollo 15 gradient bridges, as well as Apollo 17 TG11 and TG21. They give time in DOY UTC to millisecond precision. They give temperature and dT for each bridge to millikelvin precision. They give two separate dT fields: ``dTH,`` for the bridge's high-sensitivity measurement, and ``dTL,`` for the bridge's low-sensitivity measurement (see mission documentation for more details on these separate sensitivities). They use an opposite dT sign convention from the Nagihara data: their dT values is positive if the upper thermometer is warmer. 
 
 They also calculate explicit temperature values for each thermometer, using the most appropriate dT value, which is generally dTH unless it is saturated. dTL saturates / soft-clips at +30/-20 K, while dTH saturates / soft-clips at +3/-2 K (using their sign convention). 
  
@@ -110,7 +109,7 @@ Here is a partial list of major known errors and artifacts in the data, along wi
 
 ### 'Bitflip' error
 
-All negative dT values in the Lamont data--values in which the upper thermometer of a bridge is warmer than the lower--are subject to a numerical error. This affects many files, but is especially significant in files subject to a great deal of diurnal variation, such as a15p1f1. Hills and Williams coined the term 'bitflip' to describe this error. Its source is not known, but is likely due to a bug in archival preparation related to conversion to exponential form Lamont. It is not present in the Nagihara data or in documents published by the original instrument team.
+All negative dT values in the Lamont data--values in which the upper thermometer of a bridge is warmer than the lower--are subject to a numerical error. This affects many files, but is especially significant in files subject to a great deal of diurnal variation, such as a15p1f1. Hills and Williams coined the term 'bitflip' to describe this error. Its source is not known, but is likely due to a bug in archival preparation related to conversion to exponential form at Lamont. It is not present in the Nagihara data or in documents published by the original instrument team.
 
 Formally, ``bitflip(n),`` the bitflipped representation of ``n,`` can be described as such: 
 
@@ -118,7 +117,7 @@ Express ``n`` as a binary exponential; ``n = -2^a * (1 + m)`` for a unique integ
 
 This error can be numerically reversed if the correct ``a`` is known; however, ``bitflip(n)`` is not one-to-one and is therefore potentially lossy. 
 
-We have reversed the bitflip in all Lamont data using our best available heuristics. However, we believe that its potential lossiness makes some of these corrections ambiguous, particularly when ``n - bitflip(n)`` is small compared to the time-series variation in ``n`` . Our choice of ``a`` for each negative dT can be viewed in hfe_corrections.py. We have given apparently-ambiguous bitflip reversals the value '2' in our flag bitmask.
+We have reversed the bitflip in all Lamont data using our best available heuristics. However, we believe that its potential lossiness makes some of these corrections ambiguous, particularly when ``n - bitflip(n)`` is small compared to the time-series variation in ``n``. We have given apparently-ambiguous bitflip reversals the value '2' in our flag bitmask. Users wishing to replicate or extend our corrections may examine our selections of ``a`` for each negative dT in the script 'hfe_corrections.py' included as supplementary material in the document_source collection of this bundle. 
 
 ### Impulsive Outliers
 
@@ -136,7 +135,7 @@ The Lamont data include only one dT field for the gradient bridges. We believe t
 
 ## Thermometer Positions
 
-See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for positions of these thermometers relative to the probe body. Positions relative to the lunar surface varied by probe. The Apollo 15 probes were buried much more shallowly than the desired depth due to deficiencies in the drilling apparatus; the drill was improved for Apollo 17. The Apollo 17 probe positions vary only slightly from one another. We give their depths relative to the lunar surface below for reference; we also use subsurface positions to generate our 'depth' set. All values are given in centimeters. (Note that depth values differ by a centimeter between different mission documents, and different values are sometimes even given within a single publication. We use values from the table on p. 102 of [^16] to resolve ambiguities.)
+See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for positions of these thermometers relative to the probe body. Positions relative to the lunar surface varied by probe. The Apollo 15 probes were buried much more shallowly than the desired depth due to deficiencies in the drilling apparatus; the drill was improved for Apollo 17. The Apollo 17 probe positions vary only slightly from one another. We give their depths relative to the lunar surface below for reference; we also use subsurface positions to generate our 'depth' set. All values are given in centimeters. (Note that depth values differ by a centimeter between different mission documents, and different values are sometimes even given within a single publication. We use values from the table on p. 102 of [^18] to resolve ambiguities.)
 
 ### Apollo 15 probe 1 
 
@@ -227,22 +226,39 @@ See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for p
 ## Citations
 
 [^1]: "Overview of the Apollo 15 Lunar Surface Experiments Package (ALSEP)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a15doc:a15a_alsep_overview. Included in this collection as /hfe/a15a_alsep.txt.
-[^2]: "Overview of the Apollo 17 Lunar Surface Experiments Package (ALSEP)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a17doc:a17a_alsep_overview. Included in this collection as /hfe/a17a_alsep.txt.
-[^3]: "Overview of the Apollo 15 Heat Flow Experiment (HFE)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a15doc:a15a_hfe_overview. Included in this collection as /hfe/a15a_hfe.txt.
-[^4]: "Overview of the Apollo 17 Heat Flow Experiment (HFE)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a17doc:a17a_hfe_overview. Included in this collection as /hfe/a17a_hfe.txt.
-[^5]: **placeholder reference to a forthcoming P&SS publication**
-[^6]: "APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D. R. Williams. NASA: Planetary Data System, 2014. Data portions included in this bundle in /document_source/a15.
-[^7]:  "APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D. R. Williams. NASA: Planetary Data System, 2014. Data portions included in this bundle in /document_source/a17.
-[^8]: PDS3 catalog file from "APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." D.R. Williams and K.H. Hills (ed. S.A. Mclaughlin). NASA: Planetary Data System, 2014. Included in this collection as /hfe/a15_dataset.cat.
-[^9]: PDS3 catalog file from "APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." D.R. Williams and K.H. Hills (ed. S.A. Mclaughlin). NASA: Planetary Data System, 2014. Included in this collection as /hfe/a17_dataset.cat.
-[^10]: "Description of Apollo Heat Flow Experiment Data Tapes." Lamont-Doherty Observatory of Columbia University, 1973. 
-[^11]: "Examination of the Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977." S. Nagihara, W.S. Kiefer, P.T. Taylor, and Y. Nakamura. JGR Planets, April 2018. doi:10.1029/2018JE005579.
-[^12]: "Apollo 15 ALSEP ARCSAV Heat Flow Experiment Raw Cleaned ASCII Data Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a15hfe_raw_arcsav
-[^13]: "Apollo 15 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a15hfe_calibrated_arcsav. Data collection included in this bundle in /document_source collection.
-[^14]: "Apollo 17 ALSEP ARCSAV Heat Flow Experiment Raw Cleaned ASCII Data Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a17hfe_raw_arcsav
-[^15]: "Apollo 17 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a17hfe_calibrated_arcsav. Data collection included in this bundle in /document_source collection.
-[^16]: "Heat Flow Experiment." In *Apollo 15 Preliminary Science Report,* ch. 11. Marcus Langseth et al. NASA: 1972. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
-[^17]: "Heat Flow Experiment." In *Apollo 17 Preliminary Science Report*, ch. 9. Marcus Langseth et al. NASA: 1973. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
-[^18]: *Lunar Heat-Flow Experiment: Final Technical Report.* Marcus Langseth. Lamont-Doherty Observatory of Columbia University, September 1977. Included in this collection as /hfe/final_technical_report.pdf.
-[^19]: *Apollo Scientific Experiments Data Handbook,* Section 10 (1976 revision). W.W. Lauderdale and W.F. Eichelman. NASA: Lyndon B. Johnson Space Center, August 1976. Included in this collection as /hfe/ase_data_handbook_10.pdf.
 
+[^2]: "Overview of the Apollo 17 Lunar Surface Experiments Package (ALSEP)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a17doc:a17a_alsep_overview. Included in this collection as /hfe/a17a_alsep.txt.
+
+[^3]: "Overview of the Apollo 15 Heat Flow Experiment (HFE)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a15doc:a15a_hfe_overview. Included in this collection as /hfe/a15a_hfe.txt.
+
+[^4]: "Overview of the Apollo 17 Heat Flow Experiment (HFE)." David R. Williams, 2017. NASA: Planetary Data System. LID urn:nasa:pds:apollodoc:a17doc:a17a_hfe_overview. Included in this collection as /hfe/a17a_hfe.txt.
+
+[^5]: **placeholder reference to a forthcoming P&SS publication**
+
+[^6]: "APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D. R. Williams. NASA: Planetary Data System, 2014. Data portions included in this bundle in /document_source/a15.
+
+[^7]:  "APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D. R. Williams. NASA: Planetary Data System, 2014. Data portions included in this bundle in /document_source/a17.
+
+[^8]: PDS3 catalog file from "APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." D.R. Williams and K.H. Hills (ed. S.A. Mclaughlin). NASA: Planetary Data System, 2014. Included in this collection as /hfe/a15_dataset.cat.
+
+[^9]: PDS3 catalog file from "APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." D.R. Williams and K.H. Hills (ed. S.A. Mclaughlin). NASA: Planetary Data System, 2014. Included in this collection as /hfe/a17_dataset.cat.
+
+[^10]: "Description of Apollo Heat Flow Experiment Data Tapes." Lamont-Doherty Observatory of Columbia University, 1973. 
+
+[^11]: "Examination of the Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977." S. Nagihara, W.S. Kiefer, P.T. Taylor, and Y. Nakamura. JGR Planets, April 2018. doi:10.1029/2018JE005579.
+
+[^12]: "Apollo 15 ALSEP ARCSAV Heat Flow Experiment Raw Cleaned ASCII Data Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a15hfe_raw_arcsav
+
+[^13]: "Apollo 15 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a15hfe_calibrated_arcsav. Data collection included in this bundle in /document_source collection.
+
+[^14]: "Apollo 17 ALSEP ARCSAV Heat Flow Experiment Raw Cleaned ASCII Data Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a17hfe_raw_arcsav
+
+[^15]: "Apollo 17 ALSEP ARCSAV Heat Flow Experiment Calibrated Gradient Bridge Temperatures Bundle." Y. Nakamura and S. Nagihara (eds. D.R. Williams and S.A. Mclaughlin). NASA: Planetary Data System, 2018. urn:nasa:pds:a17hfe_calibrated_arcsav. Data collection included in this bundle in /document_source collection.
+
+[^16]: "Heat Flow Experiment." In *Apollo 15 Preliminary Science Report,* ch. 11. Marcus Langseth et al. NASA: 1972. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
+
+[^17]: "Heat Flow Experiment." In *Apollo 17 Preliminary Science Report*, ch. 9. Marcus Langseth et al. NASA: 1973. Included in this collection as /hfe/a15_psr_ch11_hfe.pdf.
+
+[^18]: *Lunar Heat-Flow Experiment: Final Technical Report.* Marcus Langseth. Lamont-Doherty Observatory of Columbia University, September 1977. Included in this collection as /hfe/final_technical_report.pdf.
+
+[^19]: *Apollo Scientific Experiments Data Handbook,* Section 10 (1976 revision). W.W. Lauderdale and W.F. Eichelman. NASA: Lyndon B. Johnson Space Center, August 1976. Included in this collection as /hfe/ase_data_handbook_10.pdf.
