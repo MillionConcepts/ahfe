@@ -39,6 +39,12 @@ def load_hfe(pathname="."):
 
 
 def flag_missing_hfe(data):
+    """Flag rows with any missing data values of -9999. Nagihara data don't use
+    this convention (they simply don't include any missing points), but we
+    create the flags column while we're at it.
+    we do *not* exclude values where HTR data is missing; HTR data
+    is essentially unusable, but thermocouple/reference bridge data isn't.
+    """
     for mission in data.keys():
         for probe in data[mission].keys():
             for sensor in data[mission][probe].keys():
@@ -48,12 +54,6 @@ def flag_missing_hfe(data):
                     index=data[mission][probe][sensor].index,
                 )
 
-                # Flag rows with any missing data values of -9999. Nagihara data don't use
-                # this convention (they simply don't include any missing points), but we
-                # create the flags column while we're at it.
-
-                # we do *not* exclude values where HTR data is missing; HTR data
-                # is essentially unusable, but thermocouple/reference bridge data isn't.
 
                 if sensor == 3:
                     data[mission][probe][sensor].loc[
@@ -86,11 +86,11 @@ def manage_disordered_hfe(data):
                     flags = np.array(data[mission][probe][sensor]["flags"])
                     for i in np.arange(data[mission][probe][sensor]["Time"].size - 1):
                         if (
-                                data[mission][probe][sensor]["Time"][i + 1]
-                                - data[mission][probe][sensor]["Time"][i]
-                                <= 0
-                                and data[mission][probe][sensor]["Time"][i] != -9999
-                                and data[mission][probe][sensor]["Time"][i + 1] != -9999
+                            data[mission][probe][sensor]["Time"][i + 1]
+                            - data[mission][probe][sensor]["Time"][i]
+                            <= 0
+                            and data[mission][probe][sensor]["Time"][i] != -9999
+                            and data[mission][probe][sensor]["Time"][i + 1] != -9999
                         ):
                             flags[i] += 0b10000000000
                             flags[i + 1] += 0b10000000000
@@ -103,6 +103,17 @@ def manage_disordered_hfe(data):
 
 
 # functions for writing out reduced sets.
+
+
+def add_crlf_ending(filename):
+    """Converts final terminator of file to CRLF.
+    """
+    if os.linesep != "\r\n":
+        with open(filename, "rb") as file:
+            needs_terminator = file.read()
+        has_terminator = needs_terminator[:-1] + b"\r\n"
+        with open(filename, "wb") as file:
+            file.write(has_terminator)
 
 
 def write_clean_hfe(data, outpath=".", version=""):
@@ -155,31 +166,6 @@ def write_clean_hfe(data, outpath=".", version=""):
                                 .apply("{:.7E}".format)
                                 .str.pad(14, "right")
                             )
-                    # these profoundly ugly regex substitutions are required because
-                    # of deficiencies in fixed-width table formatting in pandas, exacerbated
-                    # by a regression in pandas.to_string 0.25 that inserts leading
-                    # spaces in non-indexed output.
-                    table = re.sub(
-                        r"\n\s(\d|-)",
-                        r"\n\1",
-                        data_clean_out[mission][probe][sensor].to_string(
-                            index=False, justify="left"
-                        ),
-                    )
-                    table = re.sub(r" (?= (\d|-))", r"", table)
-                    # create correct line endings when script run from any major OS
-                    table = re.sub(r"(\n)|(\r\n)|(\r)", r"\r\n", table)
-                    with open(
-                            "{outpath}/{m}{p}f{s}{v}.tab".format(
-                                outpath=outpath + "/" + mission[0:3],
-                                m=mission,
-                                p=probe,
-                                s=sensor,
-                                v=version,
-                            ),
-                            "w",
-                    ) as output_file:
-                        print(table, file=output_file)
                 else:
                     for column in data_clean_out[mission][probe][sensor].columns:
                         data_clean_out[mission][probe][sensor][column] = (
@@ -187,27 +173,36 @@ def write_clean_hfe(data, outpath=".", version=""):
                             .apply("{:.7E}".format)
                             .str.pad(14, "right")
                         )
-                    table = re.sub(
-                        r"\n\s(\d|-)",
-                        r"\n\1",
-                        data_clean_out[mission][probe][sensor].to_string(
-                            index=False, justify="left"
-                        ),
-                    )
-                    table = re.sub(r" (?= (\d|-))", r"", table)
-                    table = re.sub(r"\n", r"\r\n", table)
-                    with open(
-                            "{outpath}/{m}{p}f{s}{v}.tab".format(
-                                outpath=outpath + "/" + mission[0:3],
-                                m=mission,
-                                p=probe,
-                                s=sensor,
-                                v=version,
-                            ),
-                            "w",
-                    ) as output_file:
-                        print(table, file=output_file)
 
+                    # the following series of ugly regex substitutions is required because
+                    # of deficiencies in fixed-width table formatting in pandas, exacerbated
+                    # by a regression in pandas.to_string 0.25 that inserts leading
+                    # spaces in non-indexed output.
+
+                table = re.sub(
+                    r"\n\s(\d|-)",
+                    r"\n\1",
+                    data_clean_out[mission][probe][sensor].to_string(
+                        index=False, justify="left"
+                    ),
+                )
+                table = re.sub(r" (?= (\d|-))", r"", table)
+                # create correct line endings when script run from any major OS
+                table = re.sub(r"(\n)|(\r\n)|(\r)", r"\r\n", table)
+                
+                filename = "{outpath}/{m}{p}f{s}{v}.tab".format(
+                            outpath=outpath + "/" + mission[0:3],
+                            m=mission,
+                            p=probe,
+                            s=sensor,
+                            v=version,
+                            )
+                with open(
+                    filename,
+                    "w",
+                ) as output_file:
+                    print(table, file=output_file)
+                add_crlf_ending(filename)
 
 def write_split_hfe(data, outpath=".", version=""):
     data_split_out = copy.deepcopy(data)
@@ -222,14 +217,12 @@ def write_split_hfe(data, outpath=".", version=""):
                     .str.slice(0, -3)
                     + "Z"
                 )
-                data_split_out[mission][probe][sensor].to_csv(
-                    "{outpath}/{m}{p}f{s}{v}_split.tab".format(
-                        outpath=outpath, m=mission, p=probe, s=sensor, v=version
-                    ),
-                    index=False,
-                    line_terminator="\r\n",
+                filename = "{outpath}/{m}{p}f{s}{v}_split.tab".format(
+                    outpath=outpath, m=mission, p=probe, s=sensor, v=version
                 )
-
+                data_split_out[mission][probe][sensor].to_csv(
+                    filename, index=False, line_terminator="\r\n",
+                )
 
 def write_deep_hfe(data, outpath=".", version=""):
     data_deep_out = copy.deepcopy(data)
@@ -243,14 +236,12 @@ def write_deep_hfe(data, outpath=".", version=""):
                 .str.slice(0, -3)
                 + "Z"
             )
-            data_deep_out[mission][probe].to_csv(
-                "{outpath}/{m}{p}{v}_depth.tab".format(
-                    outpath=outpath, m=mission, p=probe, v=version
-                ),
-                index=False,
-                line_terminator="\r\n",
+            filename = "{outpath}/{m}{p}{v}_depth.tab".format(
+                outpath=outpath, m=mission, p=probe, v=version
             )
-
+            data_deep_out[mission][probe].to_csv(
+                filename, index=False, line_terminator="\r\n",
+            )
 
 # Functions for interpreting data released by Nagihara et. al along with their 2018 paper
 # "Examination of the Long-Term Subsurface Warming Observed at the Apollo 15 and 17 Sites
@@ -265,6 +256,7 @@ def write_deep_hfe(data, outpath=".", version=""):
 
 # epoch-to-Gregorian functions. placing in TAI to avoid leap second weirdness.
 # excessive digits of precision are for parity with internal astropy values.
+
 
 def a15_to_greg(time):
     epoch = dt.datetime(1970, 12, 31, 0, 0, 8, 943570)
@@ -284,6 +276,7 @@ def a15_time(time):
         epoch = dt.datetime(1970, 12, 31, 0, 0, 8, 943570)
         return (time - epoch).total_seconds() * 1000
     return None
+
 
 def a17_time(time):
     if not time is None:
@@ -341,7 +334,7 @@ def nagihara_doy_to_dt(nagihara_time):
 
 def ingest_nagihara_2018(
     nagihara_data=None, spreadsheet_path="./source/nagihara/jgre.xlsx"
-    ):
+):
     nagihara_datafiles = ["a15_1975", "a17_1975", "a17_1976", "a17_1977"]
     nagihara_spreadsheet = {}
     for file in enumerate(nagihara_datafiles):
@@ -519,7 +512,9 @@ def ingest_nagihara_2019(nagihara_data=None, pathname="."):
                     # et al. used to calculate their canonical bridge temperatures.
 
                     dT_init = nagihara_data[mission][probe][sensor]["Time"].size
-                    nagihara_data[mission][probe][sensor]["dT"] = pd.Series(np.zeros(dT_init))
+                    nagihara_data[mission][probe][sensor]["dT"] = pd.Series(
+                        np.zeros(dT_init)
+                    )
 
                     TA = nagihara_data[mission][probe][sensor][
                         "TG{p}{s}A".format(p=probe[1], s=sensor)
@@ -713,15 +708,15 @@ def split_to_thermometers(data):
                             }
                         )
                     for column in data_split[mission][probe][sensor]:
-                        # round time back to second precision rather than the 
+                        # round time back to second precision rather than the
                         # microsecond precision introduced by astropy time scale conversion.
                         if column == "Time":
                             data_split[mission][probe][sensor][column] = data[mission][
                                 probe
                             ][sensor][column].dt.round("1s")
-                        # retains the (probably spurious) 5 digits after decimal given 
-                        # by the Lamont data, rather than the (definitely spurious) 
-                        # additional digits of precision introduced by Python's 
+                        # retains the (probably spurious) 5 digits after decimal given
+                        # by the Lamont data, rather than the (definitely spurious)
+                        # additional digits of precision introduced by Python's
                         # floating point representation.
                         elif column[0] == "T":
                             data_split[mission][probe][sensor][column] = round(
@@ -740,7 +735,6 @@ def split_to_thermometers(data):
                                 data_split[mission][probe][sensor][column], 3
                             )
     return data_split
-
 
 
 # functions & depth dictionary for writing combined 'depth' set
@@ -803,9 +797,9 @@ def combine_with_depth(data):
                     # is it a temperature value from a sensor we want to include in this set?
                     if column[0] == "T" and column[1] != "i":
                         if (
-                                isinstance(DEPTHDICT[mission][probe][sensor][column], int)
-                                and DEPTHDICT[mission][probe][sensor][column] > 0
-                            ):
+                            isinstance(DEPTHDICT[mission][probe][sensor][column], int)
+                            and DEPTHDICT[mission][probe][sensor][column] > 0
+                        ):
                             depth_slice = data[mission][probe][sensor][
                                 ["Time", column, "flags"]
                             ]

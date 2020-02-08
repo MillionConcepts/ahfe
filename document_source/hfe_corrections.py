@@ -26,7 +26,8 @@ def a15p1_1_cleanup(data):
     # default corrected values to Hills' missing data flag.
 
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # only correct data not already marked as missing. This is basically to prevent
@@ -882,7 +883,7 @@ def a15p1_1_cleanup(data):
     flags[[1195, 12020, 16031, 18286, 20656, 22187, 26858, 27576, 27791,]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -909,7 +910,7 @@ def a15_1975p1_1_cleanup(data):
 
     flags[[7668, 8807, 13862, 13864, 14644, 14648, 15240]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -965,7 +966,7 @@ def a15p1_2_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -990,7 +991,7 @@ def a15_1975_p1_2_cleanup(data):
     # Flag extreme outliers in T.
     flags[[2474, 2679, 6128, 9858, 9859, 13109, 13112, 14120]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1050,7 +1051,7 @@ def a15p1_3_cleanup(data):
         [4350, 10908, 15224, 19205, 19235, 19524, 19661, 20030, 23455, 26731, 28238]
     ] += 0b1000000000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1061,7 +1062,8 @@ def a15p1_4_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Only correct data not already flagged w/ 'missing' value.
@@ -1423,7 +1425,7 @@ def a15p1_4_cleanup(data):
     flags[[473, 595]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1442,7 +1444,7 @@ def a15p1_5_cleanup(data):
     # Flag extreme outliers in T.
     flags[[160, 596]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1457,7 +1459,8 @@ def a15p2_1_cleanup(data):
     flags = data[mission][probe][sensor]["flags"].loc[index].values
     dT_init = np.array(data[mission][probe][sensor]["dT"]).shape[0]
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
     index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
     dT = data[mission][probe][sensor]["dT"].loc[index].values
@@ -1527,7 +1530,7 @@ def a15p2_1_cleanup(data):
     flags[[2267, 4282, 4583, 15561, 23183]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1554,7 +1557,7 @@ def a15_1975p2_1_cleanup(data):
     # average bridge temperatures typically *drop* by ~0.5 K for a single point before shooting up to their sunlit level.
     # These may be physically meaningful, and we have not flagged them.
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1567,7 +1570,8 @@ def a15p2_2_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Turn the data of interest into a numpy array because they're easier.
@@ -1631,7 +1635,7 @@ def a15p2_2_cleanup(data):
     flags[[2503, 11635, 16118, 18846, 19530, 19541, 21814, 23342, 26473]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1667,7 +1671,7 @@ def a15_1975p2_2_cleanup(data):
     # Flag extreme outliers in T.
     flags[[3672, 7439, 13047, 13079, 13823, 13824, 13825]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1781,7 +1785,7 @@ def a15p2_3_cleanup(data):
         ]
     ] += 0b1000000000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1791,7 +1795,8 @@ def a15p2_4_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Only correct data not already flagged w/ 'missing' value.
@@ -1818,7 +1823,7 @@ def a15p2_4_cleanup(data):
     flags[[108, 116]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1837,7 +1842,7 @@ def a15p2_5_cleanup(data):
     # Flag extreme outliers in T.
     flags[[221, 231, 255, 422, 475,]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -1902,7 +1907,8 @@ def a17p1_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
+
 
 def a17_1975p1_1_cleanup(data):
 
@@ -1949,7 +1955,8 @@ def a17_1975p1_1_cleanup(data):
         [2169, 2184, 2186, 2193, 2196, 2205, 3220, 3222, 7283, 12117, 12713, 13847]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
+
 
 def a17_1976p1_1_cleanup(data):
 
@@ -2015,7 +2022,8 @@ def a17_1976p1_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
+
 
 def a17_1977p1_1_cleanup(data):
 
@@ -2090,7 +2098,8 @@ def a17_1977p1_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
+
 
 def a17p1_2_cleanup(data):
     mission, probe, sensor = "a17", "p1", 2
@@ -2098,7 +2107,8 @@ def a17p1_2_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Only correct data not already flagged w/ 'missing' value.
@@ -2195,7 +2205,7 @@ def a17p1_2_cleanup(data):
     ] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2334,7 +2344,7 @@ def a17p1_3_cleanup(data):
         ]
     ] += 0b1000000000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2353,7 +2363,7 @@ def a17p1_4_cleanup(data):
     # Flag extreme outliers in T.
     flags[[]] += 0b1000  # None (but noisy)
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2372,7 +2382,7 @@ def a17p1_5_cleanup(data):
     # Flag extreme outliers in T.
     flags[[77, 258,]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2383,7 +2393,8 @@ def a17p2_1_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Only correct data not already flagged w/ 'missing' value.
@@ -2478,7 +2489,7 @@ def a17p2_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2514,7 +2525,7 @@ def a17_1975p2_1_cleanup(data):
     # Flag extreme outliers in T.
     flags[[2188, 3027, 3214, 6244, 6320, 6719, 11201, 13197, 13216]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2608,7 +2619,7 @@ def a17_1976p2_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2688,7 +2699,7 @@ def a17_1977p2_1_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2698,7 +2709,8 @@ def a17p2_2_cleanup(data):
 
     # Default all corrected data to 'missing data' flag.
     data[mission][probe][sensor]["dT_corr"] = pd.Series(
-        -9999 * np.ones(dT_init, dtype=np.float32), index=data[mission][probe][sensor].index
+        -9999 * np.ones(dT_init, dtype=np.float32),
+        index=data[mission][probe][sensor].index,
     )
 
     # Only correct data not already flagged w/ 'missing' value.
@@ -2795,7 +2807,7 @@ def a17p2_2_cleanup(data):
         ]
     ] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -2984,7 +2996,7 @@ def a17p2_3_cleanup(data):
         ]
     ] += 0b1000000000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -3003,7 +3015,7 @@ def a17p2_4_cleanup(data):
     # Flag extreme outliers in T.
     flags[[]] += 0b1000  # None (but noisy)
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
 
 
@@ -3022,5 +3034,5 @@ def a17p2_5_cleanup(data):
     # Flag extreme outliers in T.
     flags[[296,]] += 0b1000
 
-    data[mission][probe][sensor].loc[index, "flags"] = flags 
+    data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
