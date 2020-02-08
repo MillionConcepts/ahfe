@@ -32,7 +32,7 @@ Each probe included twelve separate thermometers: eight organized into four diff
 
 The data were intended for reduction into five separate data sections or 'files' per probe, giving twenty total files for the entire AHFE. Each of these files correspond to a set of probe thermometers. 
 
-We provide an simplified schematic in the /hfe subdirectory of this collection (probe_schematic.jpg) that displays thermometer layout and file membership, and also list them here:
+We provide an simplified schematic in the /hfe subdirectory of this collection (probe_geometry.jpg) that displays thermometer layout and file membership, and also list them here:
 
 * file 1: The upper gradient bridge (TG11 for probe 1, TG21 for probe 2)
 * file 2: the lower gradient bridge (TG12 for probe 1, TG22 for probe 2)
@@ -68,7 +68,7 @@ In [^11], Nagihara et al. give data from Apollo 15 TG11, TG12, and TG22; and fro
 
 ### Nagihara PDS format
 
-The calibrated PDS data from Nagihara et al. give data from all Apollo 15 gradient bridges, as well as Apollo 17 TG11 and TG21. They give time in DOY UTC to millisecond precision. They give temperature and dT for each bridge to millikelvin precision. They give two separate dT fields: ``dTH,`` for the bridge's high-sensitivity measurement, and ``dTL,`` for the bridge's low-sensitivity measurement (see mission documentation for more details on these separate sensitivities). They use an opposite dT sign convention from the Nagihara data: their dT values is positive if the upper thermometer is warmer. 
+The calibrated PDS data from Nagihara et al. give data from all Apollo 15 gradient bridges, as well as Apollo 17 TG11 and TG21. They give time in DOY UTC to millisecond precision. They give temperature and dT for each bridge to millikelvin precision. They give two separate dT fields: ``dTH,`` for the bridge's high-sensitivity measurement, and ``dTL,`` for the bridge's low-sensitivity measurement (see mission documentation for more details on these separate sensitivities). They use an opposite dT sign convention from the Lamont-NSSDC data: their dT values is positive if the upper thermometer is warmer. 
 
 They also calculate explicit temperature values for each thermometer, using the most appropriate dT value, which is generally dTH unless it is saturated. dTL saturates / soft-clips at +30/-20 K, while dTH saturates / soft-clips at +3/-2 K (using their sign convention). 
  
@@ -135,7 +135,7 @@ The Lamont data include only one dT field for the gradient bridges. We believe t
 
 ## Thermometer Positions
 
-See our simplified schematic in this collection (/hfe/probe_schematic.jpg) for positions of these thermometers relative to the probe body. Positions relative to the lunar surface varied by probe. The Apollo 15 probes were buried much more shallowly than the desired depth due to deficiencies in the drilling apparatus; the drill was improved for Apollo 17. The Apollo 17 probe positions vary only slightly from one another. We give their depths relative to the lunar surface below for reference; we also use subsurface positions to generate our 'depth' set. All values are given in centimeters. (Note that depth values differ by a centimeter between different mission documents, and different values are sometimes even given within a single publication. We use values from the table on p. 102 of [^18] to resolve ambiguities.)
+See our simplified schematic in this collection (/hfe/probe_geometry.jpg) for positions of these thermometers relative to the probe body. Positions relative to the lunar surface varied by probe. The Apollo 15 probes were buried much more shallowly than the desired depth due to deficiencies in the drilling apparatus; the drill was improved for Apollo 17. The Apollo 17 probe positions vary only slightly from one another. We give their depths relative to the lunar surface below for reference; we also use subsurface positions to generate our 'depth' set. All values are given in centimeters. (Note that depth values differ by a centimeter between different mission documents, and different values are sometimes even given within a single publication. We use values from the table on p. 102 of [^18] to resolve ambiguities.)
 
 ### Apollo 15 probe 1 
 
