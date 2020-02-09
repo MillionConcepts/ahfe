@@ -88,12 +88,13 @@ We provide an simplified schematic in the /hfe subdirectory of this collection
 (probe_geometry.jpg) that displays thermometer layout and file membership, and
 also list them here:
 
-* file 1: The upper gradient bridge (TG11 for probe 1, TG21 for probe 2) file 2:
-* the lower gradient bridge (TG12 for probe 1, TG22 for probe 2) file 3: TREF,
-* thermocouples (far to near: TC11, TC12, TC13, and TC14 for probe 1; TC21,
-* TC22, TC23, and TC24 for probe 2), and 'heater state' (HTR). file 4: the upper
-* ring bridge (TR11 for probe 1, TR21 for probe 2) file 5: the lower ring bridge
-* (TR21 for probe 1, TR22 for probe 2).
+* file 1: The upper gradient bridge (TG11 for probe 1, TG21 for probe 2) 
+* file 2: the lower gradient bridge (TG12 for probe 1, TG22 for probe 2) 
+* file 3: TREF, thermocouples (far to near: TC11, TC12, TC13, and TC14 
+	for probe 1; TC21, TC22, TC23, and TC24 for probe 2), and 
+	'heater state' (HTR) 
+* file 4: the upper ring bridge (TR11 for probe 1, TR21 for probe 2) 
+* file 5: the lower ring bridge (TR21 for probe 1, TR22 for probe 2)
 
 The differential thermometers are further named 'A' and 'B' to distinguish the
 elements of each pair. A is the upper and B the lower. For instance, the upper
