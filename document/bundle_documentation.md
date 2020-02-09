@@ -272,19 +272,20 @@ document_source collection of this bundle.
 
 ### 'HTR'
 
-File 3 contains a field labeled 'HTR,' described in [^10] as 'an integer between
-1 and 16 converted to real mode.' This might be understood to refer to a decimal
-conversion of the four 'DH-93' bits described on on p. C-73 of [^20]. We suspect
+File 3 contains a field labeled 'HTR,' described in [^10] as 'an integer
+between 1 and 16 converted to real mode.' Although it is impossible to say
+with certainty, this could reasonably be understood to refer to a decimal
+conversion of the four 'DH-93' bits described on p. C-73 of [^20]. We suspect
 it was written to disk incorrectly, as the field contains only missing data
 flags and intermittent '1s' that do not obviously correspond to heater
-activations, or indeed to anything else. Additionally, the description of File 3
-in [^19] describes it, somewhat cryptically, as "time, blank, reference bridge
-and thermocouple temperatures," suggesting the possibility that nothing was
-intended to be written in this field at all and that the '1s' are an artifact of
-tape-writing or -reading processes; however, this explanation raises the serious
-question of why other mission personnel gave a specification for the field. In
-response to this mystery, we have discarded this field in ``split`` and
-``depth.``
+activations, or indeed to anything else. Additionally, the description of File
+3 in [^19] describes it, somewhat cryptically, as "time, blank, reference
+bridge and thermocouple temperatures," suggesting the possibility that nothing
+was intended to be written in this field at all and that the '1s' are an
+artifact of tape-writing or -reading processes; however, this explanation
+raises the serious question of why other mission personnel gave a
+specification for the field. In response to this mystery, we have discarded
+this field in ``split`` and ``depth.``
 
 ### Impulsive Outliers
 

@@ -28,13 +28,83 @@
    </Modification_Detail>
   </Modification_History>
  </Identification_Area>
+ <Context_Area>
+  <Investigation_Area>
+   <name>Apollo 15</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+    <reference_type>document_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Investigation_Area>
+   <name>Apollo 17</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+    <reference_type>document_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Target_Identification>
+   <name>Moon</name>
+   <type>Satellite</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+    <reference_type>document_to_target</reference_type>
+   </Internal_Reference>
+  </Target_Identification>
+ </Context_Area>
  <Reference_List>
   <External_Reference>
-   <reference_text>Langseth, M. G., Lunar Heat Flow Experiment: Final Technical Report, Lamont-Doherty Geological Observatory of Columbia University, September 1977. NASA Technical Reports Server: https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf</reference_text>
+   <reference_text>
+    Langseth, M. G., Lunar Heat Flow Experiment: Final Technical Report,
+    Lamont-Doherty Geological Observatory of Columbia University, September
+    1977. NASA Technical Reports Server:
+    https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf
+   </reference_text>
   </External_Reference>
  </Reference_List>
  <Document>
-  <acknowledgement_text>Document copied from the NASA Technical Reports Server: https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf</acknowledgement_text>
+  <acknowledgement_text>
+   Document copied from the NASA Technical Reports Server:
+   https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf
+  </acknowledgement_text>
   <publication_date>1977</publication_date>
   <description>
    Monograph-length discussion of Apollo HFE instrument architecture,

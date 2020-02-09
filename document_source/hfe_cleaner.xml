@@ -110,7 +110,9 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    <comment>PDS4-compliant versions of 1975 data released with JGR Planets publication. This program operates on duplicates of these products included in this collection and uses them for data in 1975.</comment>
   </Internal_Reference>
   <External_Reference>
-   <reference_text>A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</reference_text>
+   <reference_text>
+    A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0
+   </reference_text>
    <description>
     APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED DATA (PDS3). Data
     processed by instrument team and archived at NSSDC. This program operates on
@@ -119,7 +121,9 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    </description>
   </External_Reference>
   <External_Reference>
-   <reference_text>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</reference_text>
+   <reference_text>
+    A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0
+   </reference_text>
    <description>
     APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED DATA (PDS3). Data
     processed by instrument team and archived at NSSDC. This program operates on
@@ -129,7 +133,11 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
   </External_Reference>
   <External_Reference>
    <doi>10.1029/2018JE005579</doi>
-   <reference_text>Nagihara et al., Examination of the Long Term Subsurface Warming Observed at the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment Data From 1975 to 1977, JGR Planets 123 (5), May 2018.</reference_text>
+   <reference_text>
+    Nagihara et al., Examination of the Long Term Subsurface Warming Observed at
+    the Apollo 15 and 17 Sites Utilizing the Newly Restored Heat Flow Experiment
+    Data From 1975 to 1977, JGR Planets 123 (5), May 2018.
+   </reference_text>
    <description>
     Data released with publication as Excel spreadsheet. Contains data recovered
     from ARCSAV tapes. This program operates on a copy of this spreadsheet
@@ -137,13 +145,19 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    </description>
   </External_Reference>
   <External_Reference>
-   <reference_text>St. Clair, M; Million, C.; Siegler, M., 2019. ahfe_scripts: processing scripts for apollo heat flow experiment data. https://github.com/NASA-Planetary-Science/ahfe_scripts</reference_text>
+   <reference_text>
+    St. Clair, M; Million, C.; Siegler, M., 2019. ahfe_scripts: processing
+    scripts for apollo heat flow experiment data.
+    https://github.com/NASA-Planetary-Science/ahfe_scripts
+   </reference_text>
    <description>
     Github repository that serves as primary storage location for this script.
    </description>
   </External_Reference>
   <External_Reference>
-   <reference_text>Python Language Reference. https://docs.python.org/3/reference</reference_text>
+   <reference_text>
+    Python Language Reference. https://docs.python.org/3/reference
+   </reference_text>
    <description>
     Language reference for Python.
    </description>

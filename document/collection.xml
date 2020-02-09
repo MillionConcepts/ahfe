@@ -87,7 +87,7 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    <type>Satellite</type>
    <Internal_Reference>
     <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
-    <reference_type>bundle_to_target</reference_type>
+    <reference_type>collection_to_target</reference_type>
    </Internal_Reference>
   </Target_Identification>
  </Context_Area>
@@ -105,25 +105,53 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    <reference_type>collection_to_associate</reference_type>
   </Internal_Reference>
   <External_Reference>
-   <reference_text>Lamont-Doherty Geological Observatory of Columbia University. Description of  Apollo Heat Flow experiment data tapes, 1973.</reference_text>
+   <reference_text>
+    Lamont-Doherty Geological Observatory of Columbia University. Description of
+    Apollo Heat Flow experiment data tapes, 1973.
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M.G., Clark, S.P., Chute, J.L., Keihm, S.J., and Weschler, A.E. Apollo 15 Preliminary Science Report, chapter 11. NASA Scientific and Technical Information Office, Washington, D.C., 1972.</reference_text>
+   <reference_text>
+    Langseth, M.G., Clark, S.P., Chute, J.L., Keihm, S.J., and Weschler, A.E.
+    Apollo 15 Preliminary Science Report, chapter 11. NASA Scientific and
+    Technical Information Office, Washington, D.C., 1972.
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M.G., Clark, S.P., Chute, J.L., Keihm, S.J., and Weschler, A.E. Heat flow experiment. In Apollo 15 Preliminary Science Report, chapter 11. NASA Scientific and Technical Information Office, Washington, D.C., 1972.</reference_text>
+   <reference_text>
+    Langseth, M.G., Clark, S.P., Chute, J.L., Keihm, S.J., and Weschler, A.E.
+    Heat flow experiment. In Apollo 15 Preliminary Science Report, chapter 11.
+    NASA Scientific and Technical Information Office, Washington, D.C., 1972.
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M.G., Keihm, S.J., and Chute, J.L. Heat flow experiment. In Apollo 17 Preliminary Science Report, chapter 9. NASA Scientific and Technical Information Office, Washington,D.C., 1973.</reference_text>
+   <reference_text>
+    Langseth, M.G., Keihm, S.J., and Chute, J.L. Heat flow experiment. In Apollo
+    17 Preliminary Science Report, chapter 9. NASA Scientific and Technical
+    Information Office, Washington,D.C., 1973.
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M. G., Lunar Heat Flow Experiment: Final Technical Report, Lamont-Doherty Geological Observatory of Columbia University, September 1977. NASA Technical Reports Server: NASA Technical Reports Server: https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf</reference_text>
+   <reference_text>
+    Langseth, M. G., Lunar Heat Flow Experiment: Final Technical Report,
+    Lamont-Doherty Geological Observatory of Columbia University, September
+    1977. NASA Technical Reports Server: NASA Technical Reports Server:
+    https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19780010035.pdf
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M. G. S., Jr., S. J. Keihm, J.L. Chute, Jr., H. K. Hills, and D. R. Williams, APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.</reference_text>
+   <reference_text>
+    Langseth, M. G. S., Jr., S. J. Keihm, J.L. Chute, Jr., H. K. Hills, and D.
+    R. Williams, APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0,
+    A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.
+   </reference_text>
   </External_Reference>
   <External_Reference>
-   <reference_text>Langseth, M. G. S., Jr., S. J. Keihm, J.L. Chute, Jr., H. K. Hills, and D. R. Williams, APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.</reference_text>
+   <reference_text>
+    Langseth, M. G. S., Jr., S. J. Keihm, J.L. Chute, Jr., H. K. Hills, and D.
+    R. Williams, APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0,
+    A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.
+   </reference_text>
   </External_Reference>
  </Reference_List>
  <Collection>

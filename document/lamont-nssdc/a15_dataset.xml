@@ -27,9 +27,49 @@
    </Modification_Detail>
   </Modification_History>
  </Identification_Area>
+ <Context_Area>
+  <Investigation_Area>
+   <name>Apollo 15</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+    <reference_type>document_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Target_Identification>
+   <name>Moon</name>
+   <type>Satellite</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+    <reference_type>document_to_target</reference_type>
+   </Internal_Reference>
+  </Target_Identification>
+ </Context_Area>
  <Reference_List>
   <External_Reference>
-   <reference_text>Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D. R. Williams, APOLLO 17 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0, A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.</reference_text>
+   <reference_text>
+    Langseth, M. G. S., Jr., S. J. Keihm, J. L. Chute, Jr., H. K. Hills, and D.
+    R. Williams, APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0,
+    A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0, NASA Planetary Data System, 2014.
+   </reference_text>
   </External_Reference>
  </Reference_List>
  <Document>

@@ -1,12 +1,18 @@
 ## description
 
-This collection includes (1) user-facing documentation for the bundle's primary science data and (2) documents that provide useful context for the AHFE and the bundle's source data.
+This collection includes (1) user-facing documentation for the bundle's
+primary science data and (2) documents that provide useful context for the
+AHFE and the bundle's source data.
 
 ## files
 
+- bundle_documentation.md
+High-level documentation for this bundle.
+
 /hfe
 ----
-Contains documents that provide scientific and technical context for the AHFE as a whole.
+Contains documents that provide scientific and technical context for the AHFE
+as a whole.
 
 - a15a_alsep.txt
 David R. Williams' overview of the Apollo 15 ALSEP package.
@@ -21,26 +27,37 @@ Williams' overview of the Apollo 17 ALSEP package.
 Williams' overview of the Apollo 17 HFE.
 
 - a15_psr_ch11_hfe.pdf
-Chapter 11 of the Apollo 15 Preliminary Science Report, containing instrument PI Marcus Langseth's technical and scientific summary of the Apollo 15 HFE.
+Chapter 11 of the Apollo 15 Preliminary Science Report, containing instrument
+PI Marcus Langseth's technical and scientific summary of the Apollo 15 HFE.
 
 - a17_psr_ch9_hfe.pdf
-Chapter 9 of the Apollo 17 Preliminary Science Report, containing Langseth's technical and scientific summary of the Apollo 17 HFE.
+Chapter 9 of the Apollo 17 Preliminary Science Report, containing Langseth's
+technical and scientific summary of the Apollo 17 HFE.
 
 - ase_data_handbook_10.pdf
-Chapter 10 of the Apollo Surface Experiments Data Handbook, providing description and operational history of the AHFE.
+Chapter 10 of the Apollo Surface Experiments Data Handbook, providing
+description and operational history of the AHFE.
 
 - final_technical_report.pdf
-The Lunar Heat Flow Experiment Final Technical Report, Langseth's monograph-length discussion of instrument architecture, engineering challenges, and collected data up through the end of 1974.
+The Lunar Heat Flow Experiment Final Technical Report, Langseth's
+monograph-length discussion of instrument architecture, engineering
+challenges, and collected data up through the end of 1974.
 
 - hfe_photo_in_situ.jpg
 Photograph of the Apollo 17 HFE in situ on the Moon.
 
 - probe_geometry.jpg
-Abstract schematic showing relative probe sensor positions and logical file membership.
+Abstract schematic showing relative probe sensor positions and logical file
+membership.
 
 /lamont-nssdc
 ----
-Contains documents that provide context for the portions of this bundle's source data that were processed by the original investigators at Lamont-Doherty Observatory of Columbia University, sent to the NSSDC, converted to ASCII tables by Kent Hills and David R. Williams in 2005, and archived as PDS3 bundles A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0 and A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0.
+Contains documents that provide context for the portions of this bundle's
+source data that were processed by the original investigators at
+Lamont-Doherty Observatory of Columbia University, sent to the NSSDC,
+converted to ASCII tables by Kent Hills and David R. Williams in 2005, and
+archived as PDS3 bundles A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0 and
+A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0.
 
 - a15_dataset.cat
 Dataset description from A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0.
@@ -49,11 +66,16 @@ Dataset description from A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0.
 Dataset description from A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0
 
 - lamont_data_tapes.pdf
-Lamont's description of the format and filesystem of the original magnetic data tapes provided by Lamont to the NSSDC for archival.
+Lamont's description of the format and filesystem of the original magnetic
+data tapes provided by Lamont to the NSSDC for archival.
 
 /nagihara
 ----
-Contains documents that provide context for the portions of this bundle's source data that were recovered from ARCSAV tapes by Seiichi Nagihara et al. and published in 2018 and 2019. Detailed documentation on the raw ARCSAV data format is not included in this bundle; see documents in urn:nasa:pds:a15hfe_raw_arcsav and urn:nasa:pds:a17hfe_raw_arcsav.
+Contains documents that provide context for the portions of this bundle's
+source data that were recovered from ARCSAV tapes by Seiichi Nagihara et al.
+and published in 2018 and 2019. Detailed documentation on the raw ARCSAV data
+format is not included in this bundle; see documents in
+urn:nasa:pds:a15hfe_raw_arcsav and urn:nasa:pds:a17hfe_raw_arcsav.
 
 - a15_hfe_calibrated_arcsav_descr.pdf
 Bundle overview from urn:nasa:pds:a15hfe_calibrated_arcsav.

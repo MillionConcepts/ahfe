@@ -34,9 +34,46 @@
    <start_date_time>1972-12-14T06:34:57Z</start_date_time>
    <stop_date_time>1972-12-14T06:34:57Z</stop_date_time>
   </Time_Coordinates>
+  <Investigation_Area>
+   <name>Apollo 17</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+    <reference_type>document_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Target_Identification>
+   <name>Moon</name>
+   <type>Satellite</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+    <reference_type>document_to_target</reference_type>
+   </Internal_Reference>
+  </Target_Identification>
  </Context_Area>
  <Document>
-  <acknowledgement_text>Taken from the NASA Apollo 17 Image Library (https://www.hq.nasa.gov/alsj/a17/images17.html).</acknowledgement_text>
+  <acknowledgement_text>
+   Taken from the NASA Apollo 17 Image Library
+   (https://www.hq.nasa.gov/alsj/a17/images17.html).
+  </acknowledgement_text>
   <publication_date>1972</publication_date>
   <description>
    This photograph provides an in-situ view of the HFE probes in relation to one
