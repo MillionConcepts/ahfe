@@ -424,7 +424,7 @@ this pseudocode description:
 ```
 bad_flags = SUM(0b10, 0b100, 0b1000)
 LOOP OVER rows of data file
-	IF BINARY_AND(bad_flags,this_row['flags']) != 0
+	IF BITWISE_AND(bad_flags,this_row['flags']) != 0
 		DELETE this_row
 ```
 ### Complete Index to Bitmask Values
