@@ -12,12 +12,12 @@ reading David R. Williams' excellent overviews of the Apollo 15 and 17 Apollo
 Lunar Surface Experiment Packages (ALSEP) and HFEs [^1] [^2] [^3] [^4] (included
 in the /hfe subdirectory of this collection) .
 
-**Note to PDS reviewer: this paragraph is a placeholder reference to a
-**forthcoming publication by our team in P&SS which provides a narrative of the
-**data's history and our ingestion processes that is more detailed than we
-**consider desirable for primary documentation [^5] which can be updated with
-**doi after assigned. If preferable, we could alternatively link to a version on
-**arXiv.**
+**Note to PDS reviewer: this paragraph is a placeholder reference to a 
+forthcoming publication by our team in P&SS which provides a narrative of the
+data's history and our ingestion processes that is more detailed than we
+consider desirable for primary documentation [^5] which can be updated with
+doi after assigned. If preferable, we could alternatively link to a version on 
+arXiv.**
 
 A variety of other useful references are included later in this document. 
 

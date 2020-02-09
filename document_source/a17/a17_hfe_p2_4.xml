@@ -3,133 +3,156 @@
 <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
-    <Identification_Area>
-        <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:document_source:a17p2f4</logical_identifier>
-        <version_id>1.0</version_id>
-        <title>Apollo 17 probe 2 file 4 source</title>
-        <information_model_version>1.12.0.0</information_model_version>
-        <product_class>Product_Observational</product_class>
-        <Citation_Information>
-            <author_list>Hills, K. and Williams, D.R.</author_list>
-            <editor_list>Ward, J.</editor_list>
-            <publication_year>2019</publication_year>
-            <description>This is a copy of PDS3 product A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201. It contains data from 1972 to 1974 for the upper ring bridge of Apollo 17 probe 2, restored from tapes provided by personnel at Lamont Observatory to the NSSDC. Programs included in urn:nasa:pds:a15_17_hfe_concatenated:document_source can operate on it to generate products in a15_17_hfe_concatenated:data.</description>
-        </Citation_Information>
-        <Modification_History>
-            <Modification_Detail>
-                <modification_date>2019</modification_date>
-                <version_id>1.0</version_id>
-                <description>Initial version.</description>
-            </Modification_Detail>
-        </Modification_History>
-    </Identification_Area>
-    <Observation_Area>
-        <Time_Coordinates>
-            <start_date_time>1972-12-12T21:40:23Z</start_date_time>
-            <stop_date_time>1974-12-27T12:53:53Z</stop_date_time>
-        </Time_Coordinates>
-        <Investigation_Area>
-            <name>Apollo 17</name>
-            <type>Mission</type>
-            <Internal_Reference>
-                <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
-                <reference_type>data_to_investigation</reference_type>
-            </Internal_Reference>
-        </Investigation_Area>
-        <Observing_System>
-          <Observing_System_Component>
-            <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
-            <type>Spacecraft</type>
-            <Internal_Reference>
-              <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
-              <reference_type>is_instrument_host</reference_type>
-            </Internal_Reference>
-          </Observing_System_Component>
-          <Observing_System_Component>
-            <name>HEAT FLOW EXPERIMENT</name>
-            <type>Instrument</type>
-            <Internal_Reference>
-              <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
-              <reference_type>is_instrument</reference_type>
-            </Internal_Reference>
-          </Observing_System_Component>
-        </Observing_System>
-        <Target_Identification>
-          <name>Moon</name>
-          <type>Satellite</type>
-          <Internal_Reference>
-            <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
-            <reference_type>data_to_target</reference_type>
-          </Internal_Reference>
-        </Target_Identification>
-    </Observation_Area>
-    <Reference_List>
-        <Source_Product_External>
-            <external_source_product_identifier>A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201</external_source_product_identifier>
-            <reference_type>data_to_derived_source_product</reference_type>
-            <curating_facility>GEO</curating_facility>
-        </Source_Product_External>
-    </Reference_List>
-    <File_Area_Observational>
-        <File>
-          <file_name>a17_hfe_p2_4.tab</file_name>
-          <file_size unit="byte">15216</file_size>
-          <records>317</records>
-        </File>
-        <Header>
-            <name>Header</name>
-            <offset unit="byte">0</offset>
-            <object_length unit="byte">96</object_length>
-            <parsing_standard_id>UTF-8 Text</parsing_standard_id>
-            <description>Note that header is two lines long.</description>
-        </Header>
-        <Table_Character>
-          <name>a17_hfe_p2_4</name>
-          <offset unit="byte">96</offset>
-          <records>315</records>
-          <description>This is a copy of PDS3 product A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201. It contains data from 1972 to 1974 for the upper ring bridge of Apollo 17 probe 2.</description>
-          <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
-          <Record_Character>
-            <fields>3</fields>
-            <groups>0</groups>
-            <record_length unit="byte">48</record_length>
-            <Field_Character>
-                <name>TIME (ms)</name>
-                <field_number>1</field_number>
-                <field_location unit="byte">2</field_location>
-                <data_type>ASCII_Real</data_type>
-                <field_length unit="byte">14</field_length>
-                <unit>ms</unit>
-                <description>Earth-received time expressed in the 'mission epoch' format used by the original investigators: total ms from midnight on December 31, 1970.</description>
-                <Special_Constants>
-                    <missing_constant>-9.9990000E+03</missing_constant>
-                </Special_Constants>
-            </Field_Character>
-            <Field_Character>
-                <name>DELTA_TEMP (K)</name>
-                <field_number>2</field_number>
-                <field_location unit="byte">17</field_location>
-                <data_type>ASCII_Real</data_type>
-                <field_length unit="byte">14</field_length>
-                <unit>K</unit>
-                <description>Average temperature of the bridge's thermometers.</description>
-                <Special_Constants>
-                    <missing_constant>-9.9990000E+03</missing_constant>
-                </Special_Constants>
-            </Field_Character>
-            <Field_Character>
-                <name>AVG_TEMP (K)</name>
-                <field_number>3</field_number>
-                <field_location unit="byte">32</field_location>
-                <data_type>ASCII_Real</data_type>
-                <field_length unit="byte">14</field_length>
-                <unit>K</unit>
-                <description>Temperature difference between the lower and upper thermometers of the bridge. Positive values mean the lower thermometer is warmer.</description>
-                <Special_Constants>
-                    <missing_constant>-9.9990000E+03</missing_constant>
-                </Special_Constants>
-            </Field_Character>
-          </Record_Character>
-        </Table_Character>
-    </File_Area_Observational>
+ <Identification_Area>
+  <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:document_source:a17p2f4</logical_identifier>
+  <version_id>1.0</version_id>
+  <title>Apollo 17 probe 2 file 4 source</title>
+  <information_model_version>1.12.0.0</information_model_version>
+  <product_class>Product_Observational</product_class>
+  <Citation_Information>
+   <author_list>Hills, K. and Williams, D.R.</author_list>
+   <editor_list>Ward, J.</editor_list>
+   <publication_year>2019</publication_year>
+   <description>
+    This is a copy of PDS3 product
+    A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201. It contains data
+    from 1972 to 1974 for the upper ring bridge of Apollo 17 probe 2, restored
+    from tapes provided by personnel at Lamont Observatory to the NSSDC.
+    Programs included in urn:nasa:pds:a15_17_hfe_concatenated:document_source
+    can operate on it to generate products in a15_17_hfe_concatenated:data.
+   </description>
+  </Citation_Information>
+  <Modification_History>
+   <Modification_Detail>
+    <modification_date>2019</modification_date>
+    <version_id>1.0</version_id>
+    <description>
+     Initial version.
+    </description>
+   </Modification_Detail>
+  </Modification_History>
+ </Identification_Area>
+ <Observation_Area>
+  <Time_Coordinates>
+   <start_date_time>1972-12-12T21:40:23Z</start_date_time>
+   <stop_date_time>1974-12-27T12:53:53Z</stop_date_time>
+  </Time_Coordinates>
+  <Investigation_Area>
+   <name>Apollo 17</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_17</lid_reference>
+    <reference_type>data_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 17 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a17a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a17a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Target_Identification>
+   <name>Moon</name>
+   <type>Satellite</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+    <reference_type>data_to_target</reference_type>
+   </Internal_Reference>
+  </Target_Identification>
+ </Observation_Area>
+ <Reference_List>
+  <Source_Product_External>
+   <external_source_product_identifier>A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201</external_source_product_identifier>
+   <reference_type>data_to_derived_source_product</reference_type>
+   <curating_facility>GEO</curating_facility>
+  </Source_Product_External>
+ </Reference_List>
+ <File_Area_Observational>
+  <File>
+   <file_name>a17_hfe_p2_4.tab</file_name>
+   <file_size unit="byte">15216</file_size>
+   <records>317</records>
+  </File>
+  <Header>
+   <name>Header</name>
+   <offset unit="byte">0</offset>
+   <object_length unit="byte">96</object_length>
+   <parsing_standard_id>UTF-8 Text</parsing_standard_id>
+   <description>
+    Note that header is two lines long.
+   </description>
+  </Header>
+  <Table_Character>
+   <name>a17_hfe_p2_4</name>
+   <offset unit="byte">96</offset>
+   <records>315</records>
+   <description>
+    This is a copy of PDS3 product
+    A17A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0:A17_HFE_P2_4-201201. It contains data
+    from 1972 to 1974 for the upper ring bridge of Apollo 17 probe 2.
+   </description>
+   <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+   <Record_Character>
+    <fields>3</fields>
+    <groups>0</groups>
+    <record_length unit="byte">48</record_length>
+    <Field_Character>
+     <name>TIME (ms)</name>
+     <field_number>1</field_number>
+     <field_location unit="byte">2</field_location>
+     <data_type>ASCII_Real</data_type>
+     <field_length unit="byte">14</field_length>
+     <unit>ms</unit>
+     <description>
+      Earth-received time expressed in the 'mission epoch' format used by the
+      original investigators: total ms from midnight on December 31, 1970.
+     </description>
+     <Special_Constants>
+      <missing_constant>-9.9990000E+03</missing_constant>
+     </Special_Constants>
+    </Field_Character>
+    <Field_Character>
+     <name>DELTA_TEMP (K)</name>
+     <field_number>2</field_number>
+     <field_location unit="byte">17</field_location>
+     <data_type>ASCII_Real</data_type>
+     <field_length unit="byte">14</field_length>
+     <unit>K</unit>
+     <description>
+      Average temperature of the bridge's thermometers.
+     </description>
+     <Special_Constants>
+      <missing_constant>-9.9990000E+03</missing_constant>
+     </Special_Constants>
+    </Field_Character>
+    <Field_Character>
+     <name>AVG_TEMP (K)</name>
+     <field_number>3</field_number>
+     <field_location unit="byte">32</field_location>
+     <data_type>ASCII_Real</data_type>
+     <field_length unit="byte">14</field_length>
+     <unit>K</unit>
+     <description>
+      Temperature difference between the lower and upper thermometers of the
+      bridge. Positive values mean the lower thermometer is warmer.
+     </description>
+     <Special_Constants>
+      <missing_constant>-9.9990000E+03</missing_constant>
+     </Special_Constants>
+    </Field_Character>
+   </Record_Character>
+  </Table_Character>
+ </File_Area_Observational>
 </Product_Observational>

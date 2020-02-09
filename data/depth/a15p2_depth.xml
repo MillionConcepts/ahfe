@@ -3,138 +3,160 @@
 <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
-	<Identification_Area>
-		<logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:data:a15p2_depth</logical_identifier>
-		<version_id>1.0</version_id>
-		<title>Apollo 15 probe 2 'depth</title>
-		<information_model_version>1.12.0.0</information_model_version>
-		<product_class>Product_Observational</product_class>
-		<Citation_Information>
-			<author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
-			<editor_list>Ward, J.</editor_list>
-			<publication_year>2019</publication_year>
-			<description>This table contains data from 1971-1975 for all subsurface sensors of Apollo 15 probe 2 in this bundle's 'depth' format. It includes data from various products in PDS3 bundle A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0 and PDS4 collection urn:nasa:pds:a15hfe_calibrated_arcsav:data.</description>
-		</Citation_Information>
-		<Modification_History>
-			<Modification_Detail>
-				<modification_date>2019</modification_date>
-	            <version_id>1.0</version_id>
-	            <description>Initial version.</description>
-	        </Modification_Detail>
-	    </Modification_History>
-	</Identification_Area>
-	<Observation_Area>
-		<Time_Coordinates>
-	    	<start_date_time>1971-07-31T19:52:36.000Z</start_date_time>
-	        <stop_date_time>1975-06-30T23:50:41.779Z</stop_date_time>
-	    </Time_Coordinates>
-		<Investigation_Area>
-			<name>Apollo 15</name>
-			<type>Mission</type>
-			<Internal_Reference>
-				<lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
-				<reference_type>data_to_investigation</reference_type>
-			</Internal_Reference>
-		</Investigation_Area>
-		<Observing_System>
-	      <Observing_System_Component>
-	        <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
-	        <type>Spacecraft</type>
-	        <Internal_Reference>
-	          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
-	          <reference_type>is_instrument_host</reference_type>
-	        </Internal_Reference>
-	      </Observing_System_Component>
-	      <Observing_System_Component>
-	        <name>HEAT FLOW EXPERIMENT</name>
-	        <type>Instrument</type>
-	        <Internal_Reference>
-	          <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
-	          <reference_type>is_instrument</reference_type>
-	        </Internal_Reference>
-	      </Observing_System_Component>
-	    </Observing_System>
-	    <Target_Identification>
-	      <name>Moon</name>
-	      <type>Satellite</type>
-	      <Internal_Reference>
-	        <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
-	        <reference_type>data_to_target</reference_type>
-	      </Internal_Reference>
-	    </Target_Identification>
-	</Observation_Area>
-	<Reference_List>
-		<Source_Product_Internal>
-			<lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav:data</lidvid_reference>
-			<reference_type>data_to_derived_source_product</reference_type>
-		</Source_Product_Internal>
-		<Source_Product_External>
-			<external_source_product_identifier>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</external_source_product_identifier>
-			<reference_type>data_to_derived_source_product</reference_type>
-			<curating_facility>GEO</curating_facility>
-  		</Source_Product_External>
-	</Reference_List>
-	<File_Area_Observational>
-	    <File>
-	      <file_name>a15p2_depth.tab</file_name>
-	      <file_size unit="byte">4235559</file_size>
-	      <records>92029</records>
-	    </File>
-		<Header>
-		    <name>Header</name>
-		    <offset unit="byte">0</offset>
-		    <object_length unit="byte">27</object_length>
-		    <parsing_standard_id>UTF-8 Text</parsing_standard_id>
-	    </Header>
-	    <Table_Delimited>
-	      <name>a15p2_depth</name>
-	      <offset unit="byte">27</offset>
-	      <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-	      <records>92028</records>
-	      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
-	      <field_delimiter>Comma</field_delimiter>
-	      <Record_Delimited>
-	      	<fields>5</fields>
-	      	<groups>0</groups>
-	      	<maximum_record_length unit="byte">49</maximum_record_length>
-	      	<Field_Delimited>
-	      		<name>Time</name>
-	      		<field_number>1</field_number>
-	      		<data_type>ASCII_Date_Time_YMD_UTC</data_type>
-	      		<maximum_field_length unit="byte">24</maximum_field_length>
-	      		<description>Earth-received date and time of observation.</description>
-	      	</Field_Delimited>
-	      	<Field_Delimited>
-	      		<name>T</name>
-	      		<field_number>2</field_number>
-	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">9</maximum_field_length>
-	      		<unit>K</unit>
-	      		<description>Temperature of the thermometer. Derived from average and corrected differential temperature values when not given in source data; otherwise, explicitly-given temperature from source data.</description>
-	      	</Field_Delimited>
-	      	<Field_Delimited>
-	      		<name>sensor</name>
-	      		<field_number>3</field_number>
-	      		<data_type>ASCII_String</data_type>
-	      		<maximum_field_length unit="byte">5</maximum_field_length>
-	      		<description>Thermometer code name. For differential thermometers: 'T' + 'R' for ring or 'G' for gradient + probe number + probe half (1 upper, 2 lower) + 'A' for upper or 'B' for lower thermometer of bridge. For thermocouples: 'TC' + probe number + thermocouple number.</description>
-	      	</Field_Delimited>
-	      	<Field_Delimited>
-	      		<name>depth</name>
-	      		<field_number>4</field_number>
-	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">2</maximum_field_length>
-	      		<unit>cm</unit>
-	      		<description>Thermometer depth below lunar surface, in cm.</description>
-	      	</Field_Delimited>
-	      	<Field_Delimited>
-	      		<name>flags</name>
-	      		<field_number>5</field_number>
-	      		<data_type>ASCII_Real</data_type>
-	      		<maximum_field_length unit="byte">1</maximum_field_length>
-	      		<description>Bitmask marking special features of some data points.</description>
-	      	</Field_Delimited>
-	      </Record_Delimited>
-	    </Table_Delimited>
-	</File_Area_Observational>
+ <Identification_Area>
+  <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:data:a15p2_depth</logical_identifier>
+  <version_id>1.0</version_id>
+  <title>Apollo 15 probe 2 'depth</title>
+  <information_model_version>1.12.0.0</information_model_version>
+  <product_class>Product_Observational</product_class>
+  <Citation_Information>
+   <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
+   <editor_list>Ward, J.</editor_list>
+   <publication_year>2019</publication_year>
+   <description>
+    This table contains data from 1971-1975 for all subsurface sensors of Apollo
+    15 probe 2 in this bundle's 'depth' format. It includes data from various
+    products in PDS3 bundle A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0 and PDS4
+    collection urn:nasa:pds:a15hfe_calibrated_arcsav:data.
+   </description>
+  </Citation_Information>
+  <Modification_History>
+   <Modification_Detail>
+    <modification_date>2019</modification_date>
+    <version_id>1.0</version_id>
+    <description>
+     Initial version.
+    </description>
+   </Modification_Detail>
+  </Modification_History>
+ </Identification_Area>
+ <Observation_Area>
+  <Time_Coordinates>
+   <start_date_time>1971-07-31T19:52:36.000Z</start_date_time>
+   <stop_date_time>1975-06-30T23:50:41.779Z</stop_date_time>
+  </Time_Coordinates>
+  <Investigation_Area>
+   <name>Apollo 15</name>
+   <type>Mission</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:investigation:mission.apollo_15</lid_reference>
+    <reference_type>data_to_investigation</reference_type>
+   </Internal_Reference>
+  </Investigation_Area>
+  <Observing_System>
+   <Observing_System_Component>
+    <name>APOLLO 15 LUNAR SURFACE EXPERIMENTS PACKAGE</name>
+    <type>Spacecraft</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.a15a</lid_reference>
+     <reference_type>is_instrument_host</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+   <Observing_System_Component>
+    <name>HEAT FLOW EXPERIMENT</name>
+    <type>Instrument</type>
+    <Internal_Reference>
+     <lid_reference>urn:nasa:pds:context:instrument:hfe.a15a</lid_reference>
+     <reference_type>is_instrument</reference_type>
+    </Internal_Reference>
+   </Observing_System_Component>
+  </Observing_System>
+  <Target_Identification>
+   <name>Moon</name>
+   <type>Satellite</type>
+   <Internal_Reference>
+    <lid_reference>urn:nasa:pds:context:target:satellite.earth.moon</lid_reference>
+    <reference_type>data_to_target</reference_type>
+   </Internal_Reference>
+  </Target_Identification>
+ </Observation_Area>
+ <Reference_List>
+  <Source_Product_Internal>
+   <lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav:data</lidvid_reference>
+   <reference_type>data_to_derived_source_product</reference_type>
+  </Source_Product_Internal>
+  <Source_Product_External>
+   <external_source_product_identifier>A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0</external_source_product_identifier>
+   <reference_type>data_to_derived_source_product</reference_type>
+   <curating_facility>GEO</curating_facility>
+  </Source_Product_External>
+ </Reference_List>
+ <File_Area_Observational>
+  <File>
+   <file_name>a15p2_depth.tab</file_name>
+   <file_size unit="byte">4235559</file_size>
+   <records>92029</records>
+  </File>
+  <Header>
+   <name>Header</name>
+   <offset unit="byte">0</offset>
+   <object_length unit="byte">27</object_length>
+   <parsing_standard_id>UTF-8 Text</parsing_standard_id>
+  </Header>
+  <Table_Delimited>
+   <name>a15p2_depth</name>
+   <offset unit="byte">27</offset>
+   <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+   <records>92028</records>
+   <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+   <field_delimiter>Comma</field_delimiter>
+   <Record_Delimited>
+    <fields>5</fields>
+    <groups>0</groups>
+    <maximum_record_length unit="byte">49</maximum_record_length>
+    <Field_Delimited>
+     <name>Time</name>
+     <field_number>1</field_number>
+     <data_type>ASCII_Date_Time_YMD_UTC</data_type>
+     <maximum_field_length unit="byte">24</maximum_field_length>
+     <description>
+      Earth-received date and time of observation.
+     </description>
+    </Field_Delimited>
+    <Field_Delimited>
+     <name>T</name>
+     <field_number>2</field_number>
+     <data_type>ASCII_Real</data_type>
+     <maximum_field_length unit="byte">9</maximum_field_length>
+     <unit>K</unit>
+     <description>
+      Temperature of the thermometer. Derived from average and corrected
+      differential temperature values when not given in source data; otherwise,
+      explicitly-given temperature from source data.
+     </description>
+    </Field_Delimited>
+    <Field_Delimited>
+     <name>sensor</name>
+     <field_number>3</field_number>
+     <data_type>ASCII_String</data_type>
+     <maximum_field_length unit="byte">5</maximum_field_length>
+     <description>
+      Thermometer code name. For differential thermometers: 'T' + 'R' for ring
+      or 'G' for gradient + probe number + probe half (1 upper, 2 lower) + 'A'
+      for upper or 'B' for lower thermometer of bridge. For thermocouples: 'TC'
+      + probe number + thermocouple number.
+     </description>
+    </Field_Delimited>
+    <Field_Delimited>
+     <name>depth</name>
+     <field_number>4</field_number>
+     <data_type>ASCII_Real</data_type>
+     <maximum_field_length unit="byte">2</maximum_field_length>
+     <unit>cm</unit>
+     <description>
+      Thermometer depth below lunar surface, in cm.
+     </description>
+    </Field_Delimited>
+    <Field_Delimited>
+     <name>flags</name>
+     <field_number>5</field_number>
+     <data_type>ASCII_Real</data_type>
+     <maximum_field_length unit="byte">1</maximum_field_length>
+     <description>
+      Bitmask marking special features of some data points.
+     </description>
+    </Field_Delimited>
+   </Record_Delimited>
+  </Table_Delimited>
+ </File_Area_Observational>
 </Product_Observational>
