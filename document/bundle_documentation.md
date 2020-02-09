@@ -422,10 +422,14 @@ interested in removing any points flagged either as T/dT outliers or ambiguous
 bitflip corrections from a data file, they might write a routine that followed
 this pseudocode description: 
 ```
-let the variable 'bad_flags' be equal to the sum of (0b10, 0b100, 0b1000).
-loop over the rows of the data file.
-at every row, perform a bitwise 'and' operation between 'bad_flags' and the current row's 'flags' field.   
-if the result of this operation is nonzero, delete the current row. 
+Let the variable 'bad_flags' be equal to the sum of (0b10, 0b100, 0b1000).
+
+Loop over each row of the data file.
+
+At each row, perform a bitwise AND operation between 'bad_flags' 
+and the current row's 'flags' field.   
+
+If the result of this AND operation is nonzero, delete the current row. 
 
 ```
 ### Complete Index to Bitmask Values
