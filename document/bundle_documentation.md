@@ -424,7 +424,7 @@ this pseudocode description:
 ```
 Let the variable 'bad_flags' be equal to the sum of (0b10, 0b100, 0b1000).
 
-Loop over each row of the data file.
+Loop over the rows of the data file.
 
 At each row, perform a bitwise AND operation between 'bad_flags' 
 and the current row's 'flags' field.   
