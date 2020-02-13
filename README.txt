@@ -1,8 +1,5 @@
 # Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle
 
-**PLEASE NOTE THAT THE DATA IN THIS BUNDLE HAVE NOT YET BEEN APPROVED BY THE 
-PDS AND SHOULD BE CONSIDERED PRELIMINARY.**
-
 This bundle contains ASCII tables containing corrected, reduced, and
 concatenated versions of all available calibrated data from the Apollo 15 and
 17 Heat Flow Experiments, along with supporting documentation and source data.

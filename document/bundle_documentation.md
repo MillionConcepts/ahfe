@@ -6,20 +6,15 @@ This bundle collects all available calibrated data from the Apollo 15 and 17
 Heat Flow Experiments (AHFE), addresses several errors and artifacts in these
 data, and presents them in several reduced formats designed for compatibility
 and ease of access. This document is intended to serve as high-level
-documentation for these new reduced data sets. It is not a detailed description
-of the AHFE as such. We recommend that readers unfamiliar with the AHFE begin by
-reading David R. Williams' excellent overviews of the Apollo 15 and 17 Apollo
-Lunar Surface Experiment Packages (ALSEP) and HFEs [^1] [^2] [^3] [^4] (included
-in the /hfe subdirectory of this collection) .
-
-**Note to PDS reviewer: this paragraph is a placeholder reference to a 
-forthcoming publication by our team in P&SS which provides a narrative of the
-data's history and our ingestion processes that is more detailed than we
-consider desirable for primary documentation [^5] which can be updated with
-doi after assigned. If preferable, we could alternatively link to a version on 
-arXiv.**
-
-A variety of other useful references are included later in this document. 
+documentation for these new reduced data sets. It is not a detailed
+description of the AHFE as such. We recommend that readers unfamiliar with the
+AHFE begin by reading David R. Williams' excellent overviews of the Apollo 15
+and 17 Apollo Lunar Surface Experiment Packages (ALSEP) and HFEs [^1] [^2]
+[^3] [^4] (included in the /hfe subdirectory of this collection). A variety of
+other useful references are included later in this document. Furthermore, a
+forthcoming publication by our team in *Planetary and Space Science* provides
+a narrative of the data's history and our ingestion processes that is more
+detailed than we consider desirable for primary documentation [^5].
 
 ## Data sources
 
@@ -481,7 +476,8 @@ urn:nasa:pds:apollodoc:a15doc:a15a_hfe_overview. Included in this collection as
 urn:nasa:pds:apollodoc:a17doc:a17a_hfe_overview. Included in this collection as
 /hfe/a17a_hfe.txt.
 
-[^5]: **placeholder reference to a forthcoming P&SS publication**
+[^5]: "Improvements to the Apollo 15 and 17 Heat Flow Experiment Data
+Archive." St. Clair, M., Million, C., Siegler, M. Forthcoming 2020.
 
 [^6]: "APOLLO 15 HEAT FLOW THERMAL CONDUCTIVITY RDR SUBSAMPLED V1.0,
 A15A-L-HFE-3-THERMAL-CONDUCTIVITY-V1.0." Langseth, M. G. S., Jr., S. J. Keihm,
