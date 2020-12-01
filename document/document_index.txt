@@ -9,6 +9,9 @@ AHFE and the bundle's source data.
 - bundle_documentation.md
 High-level documentation for this bundle.
 
+- bitflip_illustration.png
+Figure referenced in this document illustrating bitflip corrections.
+
 /hfe
 ----
 Contains documents that provide scientific and technical context for the AHFE

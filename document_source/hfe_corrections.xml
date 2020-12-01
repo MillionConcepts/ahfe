@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Product_Document xmlns="http://pds.nasa.gov/pds4/pds/v1"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
  <Identification_Area>
   <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfecorrections</logical_identifier>
-  <version_id>1.0</version_id>
+  <version_id>1.1</version_id>
   <title>hfe_corrections.py</title>
-  <information_model_version>1.12.0.0</information_model_version>
+  <information_model_version>1.15.0.0</information_model_version>
   <product_class>Product_Document</product_class>
   <Citation_Information>
    <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
@@ -15,16 +15,25 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    <publication_year>2019</publication_year>
    <description>
     Per-file notes and corrections: outlier flags, bitflip magnitude
-    definitions, etc. This script is mirrored from its primary storage location
-    on Github for user convenience.
+    definitions, etc. It is essentially a list, mostly manually-assembled, of
+    troublesome points and ranges in the AHFE data. Comments include some
+    sample-level exposition not available elsewhere. This script is mirrored
+    from its primary storage location on Github for user convenience.
    </description>
   </Citation_Information>
   <Modification_History>
    <Modification_Detail>
-    <modification_date>02-13-2020</modification_date>
+    <modification_date>2020-02-13</modification_date>
     <version_id>1.0</version_id>
     <description>
      Initial version.
+    </description>
+   </Modification_Detail>
+   <Modification_Detail>
+    <modification_date>2020-11-30</modification_date>
+    <version_id>1.1</version_id>
+    <description>
+     Minor edits.
     </description>
    </Modification_Detail>
   </Modification_History>
@@ -95,12 +104,20 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
   <Internal_Reference>
    <lidvid_reference>urn:nasa:pds:a17hfe_calibrated_arcsav::1.0</lidvid_reference>
    <reference_type>document_to_associate</reference_type>
-   <comment>PDS4-compliant versions of 1975 data released with JGR Planets publication. This program operates on duplicates of these products included in this collection and uses them for data in 1975.</comment>
+   <comment>
+    PDS4-compliant versions of 1975 data released with JGR Planets publication.
+    This program operates on duplicates of these products included in this
+    collection and uses them for data in 1975.
+   </comment>
   </Internal_Reference>
   <Internal_Reference>
    <lidvid_reference>urn:nasa:pds:a15hfe_calibrated_arcsav::1.0</lidvid_reference>
    <reference_type>document_to_associate</reference_type>
-   <comment>PDS4-compliant versions of 1975 data released with JGR Planets publication. This program operates on duplicates of these products included in this collection and uses them for data in 1975.</comment>
+   <comment>
+    PDS4-compliant versions of 1975 data released with JGR Planets publication.
+    This program operates on duplicates of these products included in this
+    collection and uses them for data in 1975.
+   </comment>
   </Internal_Reference>
   <External_Reference>
    <reference_text>

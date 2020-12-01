@@ -1,15 +1,21 @@
-# this module contains per-file corrections for the Apollo HFE data, including both
-# the 2005 NSSDC data and the 2018 Nagihara et al. data converted to an intermediate
-# format equivalent to the NSSDC data.
+"""
+this module contains per-file corrections for the Apollo HFE data,
+including both the 2005 NSSDC data and the 2018 Nagihara et al. data
+converted to an intermediate format equivalent to the NSSDC data.
+
+it is essentially a list, mostly manually-assembled, of troublesome
+points and ranges in the AHFE data. comments include some sample-level
+exposition not available elsewhere.
+"""
 
 import numpy as np
 import pandas as pd
 
 
 def a15p1_1_cleanup(data):
-
-    """ This file presents the first and most extensive example of the 'bit flip' or 'rollover'
-    phenomenon.56
+    """
+    This file presents the first and most extensive example of the 'bit flip' or 'rollover'
+    phenomenon.
 
     Manually assign rollover bins to data.
 
@@ -30,15 +36,15 @@ def a15p1_1_cleanup(data):
         index=data[mission][probe][sensor].index,
     )
 
-    # only correct data not already marked as missing. This is basically to prevent
-    # human error via misrecognition at intermediate steps.
-
+    # only correct data not already marked as missing. This is basically to
+    # prevent human error via misrecognition at intermediate steps.
     index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
     dT = data[mission][probe][sensor]["dT"].loc[index].values
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
-    # the data points in this file only appear to lie within this range of binary orders of
-    # magnitude. data in other files sometimes exceed this range.
+    # the data points in this file only appear to lie within this range of
+    # binary orders of magnitude. data in other files sometimes exceed this
+    # range.
 
     bins = np.array([-2.0 / 2 ** n for n in range(10)])
 
@@ -889,18 +895,17 @@ def a15p1_1_cleanup(data):
 
 def a15_1975p1_1_cleanup(data):
 
-    # missing data exclusion is retained here, though unnecessary for nagihara data
+    # missing data exclusion is retained here,
+    # though unnecessary for nagihara data
 
     mission, probe, sensor = "a15_1975", "p1", 1
-
     index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
-
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
     # Nagihara data doesn't have the bit flip error.
 
-    # NOTE: Lunar eclipse on May 25. There seems to be an odd spike in average temperature just
-    # before it. This has not been flagged.
+    # NOTE: Lunar eclipse on May 25. There seems to be an odd spike in
+    # average temperature just before it. This has not been flagged.
 
     # flag extreme outliers in dT.
 
@@ -1473,21 +1478,24 @@ def a15p2_1_cleanup(data):
             dT[i] *= 10
             flags[i] += 0b1000000000000
 
-    # Due to the rapid temperature changes and the specific numbers they fall to,
-    # most negative values in this file are reflected around -2. there remain a number of
-    # strange, sharp dips around lunar sunrise and sunset that cannot be accounted for by
-    # the bitflip error. They are plausibly due to some electrical effect of rapid temperature
-    # changes past the designed limits of this thermometer, and probably related to the spikes
-    # seen in positive dT values around lunar sunset (and perhaps also sunrise). However, they
-    # are *also* certainly subject to the bitflip error and it is impossible to
-    # determine their 'correct' binary order of magnitude. We have avoided correcting them
-    # and have given them a special flag.
+    # Due to the rapid temperature changes and the specific numbers they fall
+    # to, most negative values in this file are reflected around -2. there
+    # remain a number of strange, sharp dips around lunar sunrise and sunset
+    # that cannot be accounted for by the bitflip error. They are plausibly due
+    # to some electrical effect of rapid temperature changes past the designed
+    # limits of this thermometer, and probably related to the spikes seen in
+    # positive dT values around lunar sunset (and perhaps also sunrise).
+    # However, they are *also* certainly subject to the bitflip error and it is
+    # impossible to determine their 'correct' binary order of magnitude. We
+    # have avoided correcting them and have given them a special flag.
 
-    # There are a number of lunar eclipses. They are also subject to the bitflip error when negative, and
-    # their correct order of magnitude is impossible to determine. Where negative, we
-    # have given them a special flag (see above for values).
+    # There are a number of lunar eclipses. They are also subject to the
+    # bitflip error when negative, and their correct order of magnitude is
+    # impossible to determine. Where negative, we have given them a special
+    # flag (see above for values).
 
-    # Finally, there is a weird jaggedy bit around 15860 that does not appear to be an actual bitflip.
+    # Finally, there is a weird jaggedy bit around 15860 that does not appear
+    # to be an actual bitflip.
 
     bins = np.array([-2.0 / 2 ** n for n in range(10)])
 
@@ -1958,8 +1966,9 @@ def a17_1976p1_1_cleanup(data):
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
-    # NOTE: some time ranges are out of order (e.g ~1380-1420), creating apparent errors in the uncorrected data. the corrected data
-    # sorts these ranges, and they are not flagged.
+    # NOTE: some time ranges are out of order (e.g ~1380-1420), creating
+    # apparent errors in the uncorrected data. the corrected data sorts these
+    # ranges, and they are not flagged.
 
     # Flag extreme outliers in dT.
 
@@ -2025,8 +2034,9 @@ def a17_1977p1_1_cleanup(data):
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
-    # NOTE: some time ranges are out of order (e.g. ~3850-3880), creating apparent errors in the uncorrected data.
-    # these data are sorted in the corrected output, and they are not flagged.
+    # NOTE: some time ranges are out of order (e.g. ~3850-3880), creating
+    # apparent errors in the uncorrected data. these data are sorted in the
+    # corrected output, and they are not flagged.
 
     # Flag extreme outliers in dT.
 
@@ -2213,13 +2223,14 @@ def a17p1_3_cleanup(data):
 
     # No attempt to correct HTR data; all 1 or missing.
 
-    # NOTE: these thermometers are full of thermal noise; errors are hard to clearly discern.
-    # I have been conservative, for instance, about flagging regions that seem like bursts of
-    # noise with no single physically implausible values. it's plausible that large regions
-    # of these data are problematic, however. in particular, there bursts around lunar noon
-    # likely contain a lot of garbage. these bursts are especially egregious in TC3 and TC4
-    # due to their relatively low variation; it is possible that everything during the lunar
-    # day is untrustworthy in these files.
+    # NOTE: these thermometers are full of thermal noise; errors are hard to
+    # clearly discern. I have been conservative, for instance, about flagging
+    # regions that seem like bursts of noise with no single physically
+    # implausible values. it's plausible that large regions of these data are
+    # problematic, however. in particular, there bursts around lunar noon
+    # likely contain a lot of garbage. these bursts are especially egregious in
+    # TC3 and TC4 due to their relatively low variation; it is possible that
+    # everything during the lunar day is untrustworthy in these files.
 
     # Flag extreme outliers in TREF.
 

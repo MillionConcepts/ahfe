@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Product_Document xmlns="http://pds.nasa.gov/pds4/pds/v1"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd">
+xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd">
  <Identification_Area>
   <logical_identifier>urn:nasa:pds:a15_17_hfe_concatenated:document:bundledoc</logical_identifier>
-  <version_id>1.0</version_id>
+  <version_id>1.1</version_id>
   <title>Documentation for Apollo 15 and 17 Heat Flow Experiment Concatenated Data Sets Bundle</title>
-  <information_model_version>1.12.0.0</information_model_version>
+  <information_model_version>1.15.0.0</information_model_version>
   <product_class>Product_Document</product_class>
   <Citation_Information>
    <author_list>St. Clair, M; Million, C.; Siegler, M.</author_list>
    <editor_list>Ward, J.</editor_list>
-   <publication_year>2019</publication_year>
+   <publication_year>2020</publication_year>
    <description>
-    Primary documentation for data sets in this bundle. Please see document body
-    for citation list. Markdown-formatted.
+    Primary documentation for data sets in this bundle. Markdown document
+    (bundle_documentation.md) with detached PNG image (bitflip_illustration.png).
+    Please see document body for citation list.
    </description>
   </Citation_Information>
   <Modification_History>
    <Modification_Detail>
-    <modification_date>02-13-2020</modification_date>
+    <modification_date>2020-02-13</modification_date>
     <version_id>1.0</version_id>
     <description>
      Initial version.
+    </description>
+   </Modification_Detail>
+   <Modification_Detail>
+    <modification_date>2020-11-30</modification_date>
+    <version_id>1.1</version_id>
+    <description>
+     Edits and added figure.
     </description>
    </Modification_Detail>
   </Modification_History>
@@ -90,19 +98,30 @@ xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pd
    </Internal_Reference>
   </Target_Identification>
  </Context_Area>
+ <Reference_List>
+  <Internal_Reference>
+   <lidvid_reference>urn:nasa:pds:a15_17_hfe_concatenated:document_source:a15p1f1::1.0</lidvid_reference>
+   <reference_type>document_to_associate</reference_type>
+   <comment>Source of data range for graph in bitflip_illustration.png.</comment>
+  </Internal_Reference>
+ </Reference_List>
  <Document>
-  <publication_date>2019</publication_date>
+  <publication_date>2020</publication_date>
   <description>
    Primary documentation for data sets in this bundle. Please see document body
-   for citation list. Markdown-formatted.
+   for citation list. Markdown-formatted with single detached PNG image.
   </description>
   <Document_Edition>
-   <edition_name>Markdown version</edition_name>
+   <edition_name>Markdown + detached image</edition_name>
    <language>English</language>
-   <files>1</files>
+   <files>2</files>
    <Document_File>
     <file_name>bundle_documentation.md</file_name>
     <document_standard_id>UTF-8 Text</document_standard_id>
+   </Document_File>
+   <Document_File>
+    <file_name>bitflip_illustration.png</file_name>
+    <document_standard_id>PNG</document_standard_id>
    </Document_File>
   </Document_Edition>
  </Document>

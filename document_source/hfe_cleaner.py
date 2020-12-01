@@ -56,7 +56,8 @@ manage_disordered_hfe(data)
 
 print("Writing set 1 ('clean').")
 
-os.mkdir("./data_local")
+if not os.path.exists('./data_local'):
+    os.mkdir("./data_local")
 
 write_clean_hfe(data, "./data_local/clean")
 
