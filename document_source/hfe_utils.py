@@ -18,7 +18,6 @@ class NestingDict(defaultdict):
     insert a series of keys at any depth into a NestingDict
     and it automatically creates all needed levels above.
     """
-
     def __init__(self):
         super().__init__()
         self.default_factory = NestingDict
