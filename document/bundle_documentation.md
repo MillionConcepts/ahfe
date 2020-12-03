@@ -428,8 +428,9 @@ Users may subject bitmask values to elementary binary operations in order to
 search for features within a data file. For instance, if a user were
 interested in removing any points flagged either as T/dT outliers or
 ambiguous bitflip corrections from a data file, they might write a routine
-that followed this pseudocode description: ``` Let the variable 'bad_flags'
-be equal to the sum of (0b10, 0b100, 0b1000).
+that followed this pseudocode description: 
+```
+Let the variable 'bad_flags' be equal to the sum of (0b10, 0b100, 0b1000).
 
 Loop over the rows of the data file.
 
@@ -437,8 +438,8 @@ At each row, perform a bitwise AND operation between 'bad_flags'
 and the current row's 'flags' field.   
 
 If the result of this AND operation is nonzero, delete the current row. 
-
 ```
+
 ### Complete Index to Bitmask Values
 
 * 0b1: missing data 
