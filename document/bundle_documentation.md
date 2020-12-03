@@ -148,9 +148,9 @@ those actually contained in the Lamont data.
 In [^11], Nagihara et al. give data from Apollo 15 TG11, TG12, and TG22; and
 from Apollo 17 TG11 and TG21. They give explicit temperature values for
 thermometers A and B of each bridge to millikelvin precision. They give time
-in DOY UTC. They do not downsample the data, so unlike the Lamont data, this
-time series is given to millisecond precision and at a sampling density
-generally reflective of the density listed in mission documentation.
+in DOY UTC. They do not downsample the data, so, unlike the Lamont data, their
+time series are given to millisecond precision and at a sampling density
+generally reflective of the density specified in mission documentation.
 
 ### Nagihara PDS format
 
@@ -161,8 +161,8 @@ millikelvin precision. They give two separate dT fields: ``dTH,`` for the
 bridge's high-sensitivity measurement, and ``dTL,`` for the bridge's
 low-sensitivity measurement (see mission documentation for more details on
 these separate sensitivities). They use an opposite dT sign convention from
-the Lamont-NSSDC data: their dT values is positive if the upper thermometer
-is warmer.
+the Lamont-NSSDC data: their dT values are positive where the upper thermometer
+of a given bridge is warmer than the lower.
 
 They also calculate explicit temperature values for each thermometer, using
 the most appropriate dT value, which is generally dTH unless it is saturated.
@@ -247,9 +247,11 @@ thermometer of a bridge is warmer than the lower--are subject to a numerical
 error. This affects many files, but is especially significant in files
 subject to a great deal of diurnal variation, such as a15p1f1. Hills and
 Williams coined the term 'bitflip' to describe this error. Its source is not
-known, but is likely due to a bug in archival preparation related to
-conversion to exponential form at Lamont. It is not present in the Nagihara
-data or in documents published by the original instrument team.
+known with certainty. It is not present in plots, tables, or descriptions of 
+data published by the original instrument team, and it is not present in the 
+Lamont data. We believe that it is probably the result of some error during the
+archival process at Lamont, perhaps a bug related to conversion between
+exponential and decimal forms.
 
 Formally, ``bitflip(n),`` the bitflipped representation of ``n,`` can be
 described as such:
