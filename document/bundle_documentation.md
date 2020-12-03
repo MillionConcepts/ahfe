@@ -434,8 +434,8 @@ Let the variable 'bad_flags' be equal to the sum of (0b10, 0b100, 0b1000).
 
 Loop over the rows of the data file.
 
-At each row, perform a bitwise AND operation between 'bad_flags' 
-and the current row's 'flags' field.   
+At each row, perform a bitwise AND operation on 'bad_flags' 
+and the value of the current row's 'flags' column.   
 
 If the result of this AND operation is nonzero, delete the current row. 
 ```
