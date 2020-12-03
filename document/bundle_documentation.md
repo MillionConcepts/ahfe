@@ -249,7 +249,7 @@ subject to a great deal of diurnal variation, such as a15p1f1. Hills and
 Williams coined the term 'bitflip' to describe this error. Its source is not
 known with certainty. It is not present in plots, tables, or descriptions of 
 data published by the original instrument team, and it is not present in the 
-Lamont data. We believe that it is probably the result of some error during the
+Nagihara data. We believe that it is probably the result of some error during the
 archival process at Lamont, perhaps a bug related to conversion between
 exponential and decimal forms.
 
