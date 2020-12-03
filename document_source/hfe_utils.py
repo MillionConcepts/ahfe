@@ -4,7 +4,6 @@ from collections import defaultdict
 import datetime as dt
 from itertools import product
 import os
-import copy
 import re
 
 import astropy.time as atime
@@ -135,16 +134,17 @@ def manage_disordered_hfe(data):
             flags = np.array(data[mission][probe][sensor]["flags"])
             for i in np.arange(data[mission][probe][sensor]["Time"].size - 1):
                 if (
-                    data[mission][probe][sensor]["Time"][i + 1]
-                    - data[mission][probe][sensor]["Time"][i]
-                    <= 0
-                    and data[mission][probe][sensor]["Time"][i] != -9999
-                    and data[mission][probe][sensor]["Time"][i + 1] != -9999
+                        data[mission][probe][sensor]["Time"][i + 1]
+                        - data[mission][probe][sensor]["Time"][i]
+                        <= 0
+                        and data[mission][probe][sensor]["Time"][i] != -9999
+                        and data[mission][probe][sensor]["Time"][
+                    i + 1] != -9999
                 ):
                     flags[i] += 0b10000000000
                     flags[i + 1] += 0b10000000000
             data[mission][probe][sensor]["flags"] = flags
-        data[mission][probe][sensor] = data[mission][probe][sensor]\
+        data[mission][probe][sensor] = data[mission][probe][sensor] \
             .sort_values(by="Time").reset_index(drop=True)
 
 
@@ -244,9 +244,9 @@ def write_split_hfe(data, outpath=".", version=""):
         os.mkdir(outpath)
     for mission, probe, sensor in base_hfe_filenames():
         output = data[mission][probe][sensor].copy()
-        output["Time"] = output["Time"]\
-             .dt.strftime("%Y-%m-%dT%H:%M:%S.%f")\
-             .str.slice(0, -3) + "Z"
+        output["Time"] = output["Time"] \
+                             .dt.strftime("%Y-%m-%dT%H:%M:%S.%f") \
+                             .str.slice(0, -3) + "Z"
         filename = "{outpath}/{m}{p}f{s}{v}_split.tab".format(
             outpath=outpath, m=mission, p=probe, s=sensor, v=version
         )
@@ -260,10 +260,10 @@ def write_deep_hfe(data, outpath=".", version=""):
     for mission, probe in tree_tuples(data):
         data_deep_out = data[mission][probe].copy()
         data_deep_out["Time"] = (
-            data_deep_out["Time"]
-            .dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
-            .str.slice(0, -3)
-            + "Z"
+                data_deep_out["Time"]
+                .dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
+                .str.slice(0, -3)
+                + "Z"
         )
         filename = "{outpath}/{m}{p}{v}_depth.tab".format(
             outpath=outpath, m=mission, p=probe, v=version
@@ -609,8 +609,8 @@ def join_hfe_years(data):
             for sensor in data[mission][probe]:
                 data[mission[0:3]][probe][sensor] = (
                     data[mission[0:3]][probe][sensor]
-                        .append(data[mission][probe][sensor])
-                        .reset_index(drop=True)
+                    .append(data[mission][probe][sensor])
+                    .reset_index(drop=True)
                 )
         del data[mission]
 
@@ -760,7 +760,7 @@ def combine_with_depth(data):
             depth_slice["sensor"] = column
             depth_slice["T"] = depth_slice[column]
             depth_slice = depth_slice.drop(column, axis=1)
-            data_depth[mission][probe] = data_depth[mission][probe]\
+            data_depth[mission][probe] = data_depth[mission][probe] \
                 .append(depth_slice)
     for mission, probe in product(["a15", "a17"], ["p1", "p2"]):
         data_depth[mission][probe] = data_depth[mission][probe] \

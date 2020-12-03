@@ -14,17 +14,18 @@ import pandas as pd
 
 def a15p1_1_cleanup(data):
     """
-    This file presents the first and most extensive example of the 'bit flip' or 'rollover'
-    phenomenon.
+    This file presents the first and most extensive example of the 'bit
+    flip' or 'rollover' phenomenon.
 
     Manually assign rollover bins to data.
 
-    Note: Values >0 are never corrected. These have been flagged with a comment.
+    Note: Values >0 are never corrected. These have been flagged with a
+    comment.
 
-    Note: The ~ few data points below zero are always a little bit ambiguous as
-           to which correction to use. I have assigned these corrections using
-           "best fit" by eye. Such points have been flagged with a comment. You may
-           wish to omit them from analysis.
+    Note: The ~ few data points below zero are always a little bit ambiguous
+    as to which correction to use. I have assigned these corrections using
+    "best fit" by eye. Such points have been flagged with a comment. You may
+    wish to omit them from analysis.
     """
     mission, probe, sensor = "a15", "p1", 1
     dT_init = np.array(data[mission][probe][sensor]["dT"]).shape[0]
@@ -38,7 +39,9 @@ def a15p1_1_cleanup(data):
 
     # only correct data not already marked as missing. This is basically to
     # prevent human error via misrecognition at intermediate steps.
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1) == 0
     dT = data[mission][probe][sensor]["dT"].loc[index].values
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
@@ -886,7 +889,9 @@ def a15p1_1_cleanup(data):
     ] += 0b100
 
     # Flag extreme outliers in T.
-    flags[[1195, 12020, 16031, 18286, 20656, 22187, 26858, 27576, 27791,]] += 0b1000
+    flags[[
+        1195, 12020, 16031, 18286, 20656, 22187, 26858, 27576, 27791
+    ]] += 0b1000
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
     data[mission][probe][sensor].loc[index, "flags"] = flags
@@ -899,7 +904,10 @@ def a15_1975p1_1_cleanup(data):
     # though unnecessary for nagihara data
 
     mission, probe, sensor = "a15_1975", "p1", 1
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1
+    ) == 0
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
     # Nagihara data doesn't have the bit flip error.
@@ -923,7 +931,10 @@ def a15p1_2_cleanup(data):
     mission, probe, sensor = "a15", "p1", 2
 
     # Only correct data not already flagged w/ 'missing' value.
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1
+    ) == 0
 
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
@@ -977,15 +988,19 @@ def a15p1_2_cleanup(data):
 
 def a15_1975_p1_2_cleanup(data):
 
-    # missing data exclusion is retained here, though unnecessary for nagihara data
-    # we will continue to check on T and dT rather than Nagihara et al.'s computed columns;
-    # we are after all simply discarding any rows marked with outliers in sets past 'clean'.
+    # missing data exclusion is retained here, though unnecessary for
+    # nagihara data we will continue to check on T and dT rather than
+    # Nagihara et al.'s computed columns; we are after all simply discarding
+    # any rows marked with outliers in sets past 'clean'.
 
     mission, probe, sensor = "a15_1975", "p1", 2
 
     dT_init = np.array(data[mission][probe][sensor]["dT"]).shape[0]
 
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1
+    ) == 0
 
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
@@ -1004,7 +1019,10 @@ def a15p1_3_cleanup(data):
     mission, probe, sensor = "a15", "p1", 3
 
     # Only correct data not already flagged w/ 'missing' value.
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1
+    ) == 0
 
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
@@ -1547,13 +1565,15 @@ def a15_1975p2_1_cleanup(data):
     # Flag extreme outliers in T.
     flags[[13848, 14630, 17317]] += 0b1000
 
-    # NOTE: lunar eclipse on May 25 (points ~10320-10370). After the average temperature spike from transition back
-    # to sunlight, there's an odd temperature drop (or perhaps it's odd that the temperature spike was so large).
-    # This has not been flagged.
+    # NOTE: lunar eclipse on May 25 (points ~10320-10370). After the average
+    # temperature spike from transition back to sunlight, there's an odd
+    # temperature drop (or perhaps it's odd that the temperature spike was
+    # so large). This has not been flagged.
 
-    # NOTE: As in the Lamont-archived data, we see odd jumps at terminus transitions -- for instance,
-    # average bridge temperatures typically *drop* by ~0.5 K for a single point before shooting up to their sunlit level.
-    # These may be physically meaningful, and we have not flagged them.
+    # NOTE: As in the Lamont-archived data, we see odd jumps at terminus
+    # transitions -- for instance, average bridge temperatures typically
+    # *drop* by ~0.5 K for a single point before shooting up to their sunlit
+    # level. These may be physically meaningful, and we have not flagged them.
 
     data[mission][probe][sensor].loc[index, "flags"] = flags
     return data
@@ -1563,7 +1583,10 @@ def a15p2_2_cleanup(data):
     mission, probe, sensor = "a15", "p2", 2
 
     # Only correct data not already flagged w/ 'missing' value.
-    index = np.bitwise_and(data[mission][probe][sensor]["flags"].values, 0b1) == 0
+    index = np.bitwise_and(
+        data[mission][probe][sensor]["flags"].values,
+        0b1
+    ) == 0
     dT_init = np.array(data[mission][probe][sensor]["T"]).shape[0]
 
     # Default all corrected data to 'missing data' flag.
@@ -1805,9 +1828,9 @@ def a15p2_4_cleanup(data):
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
     # this data is bit-flipped. However, because of the extremely rapid
-    # temperature changes that cause dT to quicky switch between positive and negative
-    # saturation thresholds, every negative value except for 564 is mirrored around -2.
-    # 564 is mirrored around -0.5.
+    # temperature changes that cause dT to quickly switch between positive
+    # and negative saturation thresholds, every negative value except for
+    # 564 is mirrored around -2. 564 is mirrored around -0.5.
 
     bins = np.array([-2.0 / 2 ** n for n in range(10)])
 
@@ -2120,8 +2143,8 @@ def a17p1_2_cleanup(data):
 
     bins = np.array([-2.0 / 2 ** n for n in range(10)])
 
-    # this data suffers from the bitflip error *only* towards the beginning of the set,
-    # when the data is dominated by emplacement effects.
+    # this data suffers from the bitflip error *only* towards the beginning
+    # of the set, when the data is dominated by emplacement effects.
 
     # NOTE: these corrections go outside of the 'normal' bins range,
     # at both the small and large ends of the scale.
@@ -2138,8 +2161,8 @@ def a17p1_2_cleanup(data):
     dT[6:7] = 2 * bins[4] - dT[6:7]
     dT[7:8] = 2 * bins[4] - dT[7:8]
     dT[8:9] = 2 * bins[6] - dT[8:9]
-    # the range 9:15 is small and terminates in a missing point; it is unclear what
-    # corrections to apply. marked as outliers below.
+    # the range 9:15 is small and terminates in a missing point; it is
+    # unclear what corrections to apply. marked as outliers below.
     dT[9:15] = dT[9:15]
     dT[15:18] = dT[15:18]  # >0
     dT[18:19] = 2 * bins[9] - dT[18:19]
@@ -2539,7 +2562,8 @@ def a17_1976p2_1_cleanup(data):
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
-    # NOTE: some time ranges are out of order (e.g. ~1390-1430). these are sorted in the data output and not flagged here.
+    # NOTE: some time ranges are out of order (e.g. ~1390-1430). these are
+    # sorted in the data output and not flagged here.
 
     # Flag extreme outliers in dT.
     flags[
@@ -2633,7 +2657,8 @@ def a17_1977p2_1_cleanup(data):
     # Turn the data of interest into a numpy array because they're easier.
     flags = data[mission][probe][sensor]["flags"].loc[index].values
 
-    # NOTE: some time ranges are out of order, e.g. ~3860:3880. these are sorted in the data output and not flagged here.
+    # NOTE: some time ranges are out of order, e.g. ~3860:3880. these are
+    # sorted in the data output and not flagged here.
 
     # Flag extreme outliers in dT.
     flags[
@@ -2723,9 +2748,10 @@ def a17p2_2_cleanup(data):
 
     bins = np.array([-2.0 / 2 ** n for n in range(11)])
 
-    # this data suffers from the bitflip error in only two small regions: towards the
-    # beginning, when the values are dominated by emplacement effects, and a little later,
-    # when the data is dominated by the onboard heater.
+    # this data suffers from the bitflip error in only two small regions:
+    # towards the beginning, when the values are dominated by emplacement
+    # effects, and a little later, when the data is dominated by the onboard
+    # heater.
 
     # NOTE: these corrections go outside of the 'normal' bins range
     # at both the small and large end of the scale.
@@ -2753,9 +2779,9 @@ def a17p2_2_cleanup(data):
 
     data[mission][probe][sensor].loc[index, "dT_corr"] = dT
 
-    # Flag extreme outliers in dT.
-    # NOTE: There is an odd spike at 18490 with structure that suggests it might be 'real.'
-    # I have not flagged this range.
+    # Flag extreme outliers in dT. NOTE: There is an odd spike at 18490 with
+    # structure that suggests it might be 'real.' I have not flagged this
+    # range.
 
     flags[
         [
@@ -2826,21 +2852,21 @@ def a17p2_3_cleanup(data):
 
     # No attempt to correct HTR data; all 1 or missing.
 
-    # NOTE:
-    # (same as probe 1)
-    # these thermometers are relatively noisy; errors are hard to clearly discern.
-    # I have been conservative, for instance, about flagging regions that seem like noisy
-    # trends with no single physically implausible values. it's plausible that large regions
-    # of these data are problematic, however. in particular, there are bursts of noise
-    # around each lunar noon that likely contain a lot of garbage. these bursts are
-    # especially egregious in TC3 and TC4 due to their relatively low variation; it is
-    # possible that everything during the lunar day is untrustworthy in these files.
+    # NOTE: (same as probe 1) these thermometers are relatively noisy;
+    # errors are hard to clearly discern. I have been conservative,
+    # for instance, about flagging regions that seem like noisy trends with
+    # no single physically implausible values. it's plausible that large
+    # regions of these data are problematic, however. in particular,
+    # there are bursts of noise around each lunar noon that likely contain a
+    # lot of garbage. these bursts are especially egregious in TC3 and TC4
+    # due to their relatively low variation; it is possible that everything
+    # during the lunar day is untrustworthy in these files.
 
     # Flag extreme outliers in TREF.
 
-    # NOTE: this reference bridge is significantly less noisy than its associated
-    # thermocouples. there are events at 15869 and 20145 that seem 'real'.
-    # these ranges are not flagged.
+    # NOTE: this reference bridge is significantly less noisy than its
+    # associated thermocouples. there are events at 15869 and 20145 that
+    # seem 'real'. these ranges are not flagged.
 
     flags[[13550, 15864, 16255, 16265, 16275]] += 0b100000
 
