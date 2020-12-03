@@ -422,7 +422,6 @@ def ingest_nagihara_2018(
 
             TGA = sheet["TG" + probe[1] + str(sensor) + "A"]
             TGB = sheet["TG" + probe[1] + str(sensor) + "B"]
-            @  
             frame["T"] = (TGA + TGB) / 2
             frame["dT"] = TGB - TGA
             # We also retain Nagihara et al.'s explicitly-computed bridge
