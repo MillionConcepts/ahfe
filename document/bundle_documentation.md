@@ -405,7 +405,7 @@ values from the table on p. 102 of [^18] to resolve ambiguities.)
 * TC12: 15 
 * TC13: 67 
 * TC14: 131 
-* TG11A: 131 (above surface)
+* TG11A: 131
 * TR11A: 141 
 * TR11B: 168 
 * TG11B: 178 
