@@ -17,7 +17,6 @@ class NestingDict(defaultdict):
     insert a series of keys at any depth into a NestingDict
     and it automatically creates all needed levels above.
     """
-
     def __init__(self):
         super().__init__()
         self.default_factory = NestingDict
@@ -341,12 +340,14 @@ def utc_to_tai(time):
 # flags empty rows.
 
 def seconds_interval(time):
+    """timedelta in seconds from number, converting nans to 0"""
     if not np.isnan(time):
         return dt.timedelta(seconds=time)
     return dt.timedelta(0)
 
 
 def days_since_year(day, year):
+    """return a datetime object from a given year + day offset"""
     if not np.isnan(day):
         return dt.datetime(year, 1, 1) + dt.timedelta(days=(int(day) - 1))
     return dt.datetime(9999, 1, 1, 0, 0, 0)
@@ -372,18 +373,15 @@ def ingest_nagihara_2018(
         spreadsheet_path="./source/nagihara/jgre.xlsx"
 ):
     nagihara_datafiles = ["a15_1975", "a17_1975", "a17_1976", "a17_1977"]
-    nagihara_spreadsheet = {}
 
     # The 1975 data from this paper have been superseded by the related July
     # 2019 PDS release, so we only ingest the 1976 and 1977 data.
     nagihara_data = NestingDict()
-    for sheet, mission in enumerate(nagihara_datafiles):
+    for worksheet_ix, mission in enumerate(nagihara_datafiles):
         if mission[4:] == "1975":
             # then the data have been superseded. move on.
             continue
-        nagihara_spreadsheet[mission] = pd.read_excel(
-            spreadsheet_path, sheet, header=0
-        )
+        sheet = pd.read_excel(spreadsheet_path, worksheet_ix, header=0)
         for probe in ["p1", "p2"]:
             # The non-deprecated data from this paper is from the
             # upper gradient bridges of both Apollo 17 probes, so:
@@ -403,11 +401,11 @@ def ingest_nagihara_2018(
             frame = {}
             column_indicator = ".1" if probe == "p2" else ""
             days = np.vectorize(days_since_year)(
-                nagihara_spreadsheet[mission]["Day" + column_indicator],
+                sheet["Day" + column_indicator],
                 int(mission[-4:])
             )
             seconds = np.vectorize(seconds_interval)(
-                nagihara_spreadsheet[mission]["Seconds" + column_indicator]
+                sheet["Seconds" + column_indicator]
             )
             utc_time = days + seconds
             frame["Time"] = np.vectorize(a17_time)(
@@ -422,12 +420,9 @@ def ingest_nagihara_2018(
             # temperature data into the format given in the original HFE
             # dataset.
 
-            TGA = nagihara_spreadsheet[mission][
-                "TG" + probe[1] + str(sensor) + "A"
-                ]
-            TGB = nagihara_spreadsheet[mission][
-                "TG" + probe[1] + str(sensor) + "B"
-                ]
+            TGA = sheet["TG" + probe[1] + str(sensor) + "A"]
+            TGB = sheet["TG" + probe[1] + str(sensor) + "B"]
+            @  
             frame["T"] = (TGA + TGB) / 2
             frame["dT"] = TGB - TGA
             # We also retain Nagihara et al.'s explicitly-computed bridge
@@ -730,7 +725,7 @@ DEPTHDICT = {
 
 def combine_with_depth(data):
     """
-    concatenates all subsurface sensors per probe (barring TC4)
+    concatenates all subsurface sensors (barring TC4) per probe
     and assigns depth values.
     """
     data_depth = NestingDict()
