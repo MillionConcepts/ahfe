@@ -1,5 +1,5 @@
-P,urn:nasa:pds:a15_17_hfe_concatenated:document:index::1.1
-P,urn:nasa:pds:a15_17_hfe_concatenated:document:bundledoc::1.1
+P,urn:nasa:pds:a15_17_hfe_concatenated:document:index::2.0
+P,urn:nasa:pds:a15_17_hfe_concatenated:document:bundledoc::2.0
 S,urn:nasa:pds:a15hfe_calibrated_arcsav:document:a15_hfe_calibrated_arcsav_descr::1.0
 S,urn:nasa:pds:a17hfe_calibrated_arcsav:document:a17_hfe_calibrated_arcsav_descr::1.0
 S,urn:nasa:pds:a15hfe_raw_arcsav:document:a15_psr_ch11_hfe::1.0

@@ -1,7 +1,7 @@
 P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:index::1.0
-P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfecleaner::1.1
-P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfecorrections::1.1
-P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfeutils::1.1
+P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfecleaner::2.0
+P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfecorrections::2.0
+P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:hfeutils::2.0
 P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:a15p1f1::1.0
 P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:a15p1f2::1.0
 P,urn:nasa:pds:a15_17_hfe_concatenated:document_source:a15p1f3::1.0
